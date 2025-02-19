@@ -64,7 +64,7 @@ class _HomeScreenStateState extends State<HomeScreenState> {
       bottomNavigationBar: CurvedNavigationBar(
         backgroundColor: Colors.transparent,
         color: Colors.greenAccent,
-        buttonBackgroundColor: Colors.white,
+        buttonBackgroundColor: Colors.greenAccent,
         height: 50, // Increased height for label space
         index: _currentIndex,
         animationDuration: const Duration(milliseconds: 300),
@@ -116,21 +116,5 @@ class _HomeScreenStateState extends State<HomeScreenState> {
   }
 
   /// Refactored ListTile Builder
-  Widget _buildListTile(BuildContext context, IconData icon, String title,
-      Widget? destination) {
-    return ListTile(
-      leading: Icon(icon, color: Colors.green),
-      title: Text(title),
-      onTap: () {
-        if (destination != null) {
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(builder: (context) => destination),
-          );
-        } else {
-          Navigator.pop(context);
-        }
-      },
-    );
-  }
+
 }
