@@ -1,0 +1,2 @@
+C:/Users/Jon The Ripper/StudioProjects/musf_app1/android/app/.cxx/Debug/2y818214/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/Users/Jon The Ripper/StudioProjects/musf_app1/android/app/.cxx/Debug/2y818214/armeabi-v7a/CMakeFiles/rebuild_cache.dir
