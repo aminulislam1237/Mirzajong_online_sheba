@@ -20,7 +20,7 @@ class _HomeScreenStateState extends State<HomeScreenState> {
   final List<Widget> _pages = [
     const HomeScreen(),
     const Emergencyscreen(),
-    const AddInfoScreen(),
+    const DataEntryScreen(),
     const UnionScreen(),
     const MoreScreen(),
   ];
@@ -34,7 +34,7 @@ class _HomeScreenStateState extends State<HomeScreenState> {
         elevation: 5,
         shadowColor: Colors.black45,
         title: const Text(
-          "মিরজাগঞ্জ স্টুডেন্ট ফোরাম , ঢাকা",
+          "মির্জাগঞ্জ তথ্য সেবা",
           style: TextStyle(
             color: Colors.black54,
             fontWeight: FontWeight.bold,

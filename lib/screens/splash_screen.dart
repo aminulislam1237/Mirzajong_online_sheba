@@ -43,13 +43,13 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-              "assets/profie.jpg", // Replace with your logo image
+              "assets/profile.jpg", // Replace with your logo image
               width: 150,
               height: 150,
             ),
             const SizedBox(height: 20),
             const Text(
-              "মিরজাগঞ্জ স্টুডেন্ট ফোরাম",
+              "মির্জাগঞ্জ তথ্য সেবা",
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 26,

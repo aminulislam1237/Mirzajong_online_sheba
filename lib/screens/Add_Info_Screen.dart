@@ -1,149 +1,207 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-class AddInfoScreen extends StatefulWidget {
-  const AddInfoScreen({super.key});
+class DataEntryScreen extends StatefulWidget {
+  const DataEntryScreen({super.key});
 
   @override
-  State<AddInfoScreen> createState() => _AddInfoScreenState();
+  State<DataEntryScreen> createState() => _DataEntryScreenState();
 }
 
-class _AddInfoScreenState extends State<AddInfoScreen>
-    with SingleTickerProviderStateMixin {
-  late AnimationController _animationController;
-  late Animation<double> _opacityAnimation;
-  late Animation<Offset> _slideAnimation;
+class _DataEntryScreenState extends State<DataEntryScreen> {
+  final _formKey = GlobalKey<FormState>();
+  final _nameController = TextEditingController();
+  final _emailController = TextEditingController();
+  final _messageController = TextEditingController();
 
-  final TextEditingController _nameController = TextEditingController();
-  final TextEditingController _emailController = TextEditingController();
+  void _submitData() {
+    if (_formKey.currentState!.validate()) {
+      String name = _nameController.text;
+      String email = _emailController.text;
+      String message = _messageController.text;
 
-  @override
-  void initState() {
-    super.initState();
-    _animationController = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 800),
-    );
 
-    _opacityAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
-      CurvedAnimation(parent: _animationController, curve: Curves.easeOut),
-    );
 
-    _slideAnimation = Tween<Offset>(
-      begin: const Offset(0, 0.2),
-      end: Offset.zero,
-    ).animate(
-      CurvedAnimation(parent: _animationController, curve: Curves.easeOut),
-    );
+      _nameController.clear();
+      _emailController.clear();
+      _messageController.clear();
 
-    _animationController.forward();
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('ডেটা জমা দেওয়া হয়েছে!')),
+      );
+    }
   }
 
-  @override
-  void dispose() {
-    _animationController.dispose();
-    _nameController.dispose();
-    _emailController.dispose();
-    super.dispose();
+  void _openFacebookPage() async {
+    const facebookUrl = "https://www.facebook.com/aminul.islam.Rasel34"; // Replace with your Facebook Page ID
+    final Uri url = Uri.parse(facebookUrl);
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url);
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('ফেসবুক পেজ খুলতে পারা যায়নি।')),
+      );
+    }
+  }
+
+  void _openMessenger() async {
+    const messengerUrl = "https://m.me/khalidhasanrumi.bd"; // Replace with your Messenger username
+    final Uri url = Uri.parse(messengerUrl);
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url);
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('মেসেঞ্জার খুলতে পারা যায়নি।')),
+      );
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: AnimatedBuilder(
-        animation: _animationController,
-        builder: (context, child) {
-          return Opacity(
-            opacity: _opacityAnimation.value,
-            child: SlideTransition(
-              position: _slideAnimation,
-              child: Container( // Wrap with Container for background
-                decoration: const BoxDecoration(
-                  gradient: LinearGradient( // Add a gradient
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [Colors.greenAccent, Colors.lightGreenAccent],
-                  ),
-                ),
-                padding: const EdgeInsets.all(16.0),
-                child: Center(
-                  child: SingleChildScrollView(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        const SizedBox(height: 48), // Increased top spacing
-                        _buildTextField( // Reusable TextField widget
-                          controller: _nameController,
-                          labelText: 'Name',
-                          icon: Icons.person, // Add an icon
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Colors.greenAccent, Colors.lightGreenAccent],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
+        ),
+        padding: const EdgeInsets.all(24.0),
+        child: Center(
+          child: SingleChildScrollView(
+            child: Card(
+              color: Colors.greenAccent[100],
+              elevation: 8,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(24.0),
+                child: Form(
+                  key: _formKey,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Text(
+                        'যোগাযোগ করুন',
+                        style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.center,
+                      ),
+                      const SizedBox(height: 24),
+                      TextFormField(
+                        controller: _nameController,
+                        decoration: InputDecoration(
+                          labelText: 'নাম',
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
                         ),
-                        const SizedBox(height: 16),
-                        _buildTextField(
-                          controller: _emailController,
-                          labelText: 'Email',
-                          icon: Icons.email,
-                          keyboardType: TextInputType.emailAddress,
+
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'অনুগ্রহ করে আপনার নাম লিখুন';
+                          }
+                          return null;
+                        },
+                      ),
+                      const SizedBox(height: 16),
+                      TextFormField(
+                        controller: _emailController,
+                        decoration: InputDecoration(
+                          labelText: 'ইমেইল',
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
                         ),
-                        const SizedBox(height: 32),
-                        ElevatedButton(
-                          onPressed: () {
-                            // ... your submit logic ...
-                          },
-                          style: ElevatedButton.styleFrom( // Customize button
-                            backgroundColor: Colors.white,
-                            foregroundColor: Colors.blue,
-                            padding: const EdgeInsets.symmetric(
-                                vertical: 16, horizontal: 24),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8),
+                        keyboardType: TextInputType.emailAddress,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'অনুগ্রহ করে আপনার ইমেইল লিখুন';
+                          }
+                          if (!value.contains('@')) {
+                            return 'অনুগ্রহ করে একটি সঠিক ইমেইল লিখুন';
+                          }
+                          return null;
+                        },
+                      ),
+                      const SizedBox(height: 16),
+                      TextFormField(  // Corrected: Added _messageController here
+                        controller: _messageController,
+                        decoration: InputDecoration(
+                          labelText: 'বার্তা',
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                        ),
+                        maxLines: 3,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'অনুগ্রহ করে একটি বার্তা লিখুন';
+                          }
+                          return null;
+                        },
+                      ),
+
+                      const SizedBox(height: 24),
+                      ElevatedButton(
+                        onPressed: _submitData,
+                        style: ElevatedButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(vertical: 16),
+                          textStyle: const TextStyle(fontSize: 16),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16),
+                          ),
+                        ),
+                        child: const Text('জমা দিন'),
+                      ),
+
+
+                      const SizedBox(height: 16),
+                      Row(
+                        children: [
+                          SizedBox(
+                            width: 150,
+                            child: ElevatedButton(
+                              onPressed: _openFacebookPage,
+                              style: ElevatedButton.styleFrom(
+                                padding: const EdgeInsets.symmetric(vertical: 16),
+                                textStyle: const TextStyle(fontSize: 16),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                              ),
+                              child: const Text('ফেসবুক পেজ'),
                             ),
                           ),
-                          child: const Text('Submit',
-                              style: TextStyle(fontSize: 18)),
-                        ),
-                      ],
-                    ),
+                          const SizedBox(width: 8),
+
+                          SizedBox(
+                            width: 148.5,
+                            child: ElevatedButton(
+                              onPressed: _openMessenger,
+                              style: ElevatedButton.styleFrom(
+                                padding: const EdgeInsets.symmetric(vertical: 16),
+                                textStyle: const TextStyle(fontSize: 16),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                              ),
+                              child: const Text('মেসেঞ্জার'),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+
                   ),
                 ),
               ),
             ),
-          );
-        },
-      ),
-    );
-  }
-
-  Widget _buildTextField({
-    required TextEditingController controller,
-    required String labelText,
-    required IconData icon,
-    TextInputType? keyboardType,
-  }) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          labelText,
-          style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white), // White label color
-        ),
-        TextField(
-          controller: controller,
-          decoration: InputDecoration(
-            prefixIcon: Icon(icon, color: Colors.white), // White icon
-            labelText: labelText,
-            labelStyle: const TextStyle(color: Colors.white), // White label text
-            border: const OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.white), // White border
-            ),
-            focusedBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.white), // White focused border
-            ),
           ),
-          keyboardType: keyboardType,
-          style: const TextStyle(color: Colors.white), // White text color
-          cursorColor: Colors.white, // White cursor
         ),
-      ],
+      ),
     );
   }
 }

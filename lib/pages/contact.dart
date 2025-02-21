@@ -57,7 +57,7 @@ class ContactScreen extends StatelessWidget {
                 children: [
                   CircleAvatar(
                     radius: 40,
-                    backgroundImage: AssetImage("assets/profie.jpg"), // Add image to assets
+                    backgroundImage: AssetImage("assets/profile.jpg"), // Add image to assets
                   ),
                   SizedBox(width: 20),
                   Expanded(

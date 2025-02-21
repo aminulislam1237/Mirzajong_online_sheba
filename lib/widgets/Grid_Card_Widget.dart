@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:musf_app1/pages/Clinic_Screen.dart';
 import 'package:musf_app1/pages/Diagnostic_Screen.dart';
-import 'package:musf_app1/pages/Hospital_Screen.dart';
 import 'package:musf_app1/pages/contact.dart';
 
+import '../pages/iformation_screen.dart';
 import 'Labeled_Container.dart';
 
 class GridCardWidget extends StatelessWidget {
@@ -45,7 +45,7 @@ class GridCardWidget extends StatelessWidget {
                         },
                         child: const LabeledContainer(
                           icon: Icons.phone_android,
-                          text: 'Politicisation',
+                          text: 'Police satation',
                         ),
                       ),
                       InkWell(
@@ -128,12 +128,12 @@ class GridCardWidget extends StatelessWidget {
             children: [
               _buildCard(
                 context,
-                "assets/icon/hospital.png",
-                'হাসপাতাল',
+                "assets/icon/map.png",
+                'মানচিত্র',
                 () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => HospitalScreen()),
+                    MaterialPageRoute(builder: (context) => const Informationscreen()),
                   );
                 },
               ),
@@ -173,7 +173,7 @@ class GridCardWidget extends StatelessWidget {
                 children: [
                   Image.asset(
                     'assets/slide1.png',
-                    width: screenWidth * .9, // Responsive width
+                    width: screenWidth * .866, // Responsive width
                     height: screenHeight * 0.15, // Responsive height
                     fit: BoxFit.cover,
                   ),

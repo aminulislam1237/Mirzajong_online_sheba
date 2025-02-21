@@ -1,62 +1,161 @@
 import 'package:flutter/material.dart';
 
+import '../Class/union.dart';
+
+
+
 class UnionScreen extends StatelessWidget {
-  const UnionScreen({super.key});
+   const UnionScreen({super.key});
+
+   static List<Union> unions = [ // static const
+     Union(
+       name: '১।   মাধবখালী',
+       description: 'এক নজরে মাধবখালী ইউনিয়ন',
+       area: '৩৪ বর্গ কিলোমিটার',
+       population: '২২১০০',
+       literacyRate: '৭০%',
+       imageUrl: 'assets/icon/map.png',
+       school: 'মাধ্যমিক বিদ্যালয়-৭টি।',
+       madrasha: 'মাদ্রাসা:-ফাজিল-১টি, আলিম-৪টি,দাখিল-১১টি।',
+       mosjit: 'মসজিদ সংখ্যা-১২৫টি।',
+
+     ),
+      Union(
+       name: '২।   মির্জাগঞ্জ',
+       description: 'এক নজরে মির্জাগঞ্জ ইউনিয়ন',
+       area: 'আয়তন- ৩৪ বর্গ কিলোমিটার',
+       population: 'লোক সংখ্যা-মোট-২২১০০ পুরুষ-১১০৭৩ মহিলা-১১০২৭ জন।',
+       literacyRate: 'শিক্ষার হার-৭০%',
+       imageUrl: 'assets/icon/map.png',
+        school: 'মাধ্যমিক বিদ্যালয়-৭টি।',
+        madrasha: 'মাদ্রাসা:-ফাজিল-১টি, আলিম-৪টি,দাখিল-১১টি।',
+        mosjit: 'মসজিদ সংখ্যা-১২৫টি।',
+     ),
+     Union(
+       name: '৩।   আমড়াগাছিয়া',
+       description: 'এক নজরে  আমড়াগাছিয়া ইউনিয়ন',
+       area: 'আয়তন- ৩৪ বর্গ কিলোমিটার',
+       population: 'লোক সংখ্যা-মোট-২২১০০ পুরুষ-১১০৭৩ মহিলা-১১০২৭ জন।',
+       literacyRate: 'শিক্ষার হার-৭০%',
+       imageUrl: 'assets/icon/map.png',
+       school: 'মাধ্যমিক বিদ্যালয়-2টি',
+       madrasha: 'মাদ্রাসা ৩টি ',
+       mosjit: 'মসজিদ ১০৪টি',
+     ),
+     Union(
+       name: '৪।   দেউলী সুবিদখালী',
+       description: 'মএক নজরে দেউলী সুবিদখালীজ ইউনিয়ন',
+       area: 'আয়তন- ৩৪ বর্গ কিলোমিটার।',
+       population: 'লোক সংখ্যা-মোট-২২১০০ পুরুষ-১১০৭৩ মহিলা-১১০২৭ জন।',
+       literacyRate: 'শিক্ষার হার-৭০%',
+       imageUrl: 'assets/icon/map.png',
+       school: 'মাধ্যমিক বিদ্যালয়-৭টি।',
+       madrasha: 'মাদ্রাসা:-ফাজিল-১টি, আলিম-৪টি,দাখিল-১১টি।',
+       mosjit: 'মসজিদ সংখ্যা-১২৫টি।',
+     ),
+     Union(
+       name: '৫।   কাকড়াবুনিয়া',
+       description: 'মিএক নজরে কাকড়াবুনিয়া ইউনিয়ন',
+       area: 'আয়তন- ৩৪ বর্গ কিলোমিটার',
+       population: 'লোক সংখ্যা-মোট-২২১০০ পুরুষ-১১০৭৩ মহিলা-১১০২৭ জন।',
+       literacyRate: 'শিক্ষার হার-৭০%',
+       imageUrl: 'assets/icon/map.png',
+       school: 'মাধ্যমিক বিদ্যালয়-5টি',
+       madrasha: 'মাদ্রাসা 1টি',
+       mosjit: ' মসজিদের সংখ্যা=৫৯ ',
+     ),
+     Union(
+       name: '৬।  মসজিদবাড়ীয়া',
+       description: 'মির্জাগঞ্জ সম্পর্কে তথ্য...',
+       area: 'আয়তন- ৩৪ বর্গ কিলোমিটার',
+       population: 'লোক সংখ্যা-মোট-২২১০০ পুরুষ-১১০৭৩ মহিলা-১১০২৭ জন।',
+       literacyRate: 'শিক্ষার হার-৭০%',
+       imageUrl: 'assets/icon/map.png',
+       school: 'মাধ্যমিক বিদ্যালয়-5টি',
+       madrasha: 'মাদ্রাসা 1টি',
+       mosjit: ' মসজিদের সংখ্যা=৫৯ ',
+     ),
+     // ... Add other unions here (all data must be known at compile time)
+   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        padding: EdgeInsets.only(
-            bottom: MediaQuery.of(context).padding.bottom + 16), // Add padding
-        child: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: List.generate(10, (index) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8.0),
-                  child: _buildContainer(
-                    title: 'Title ${index + 1}',
-                    description:
-                    'Description for item ${index + 1}. This is some example text and it can be long, so we have to handle it carefully to avoid overflow issues',
-                  ),
-                );
-              }),
-            ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: ListView.builder( // Use ListView.builder for dynamic list
+          itemCount: unions.length,
+          itemBuilder: (context, index) {
+            return _buildUnionItem(context, unions[index]);
+          },
+        ),
+      ),
+    );
+  }
+
+  Widget _buildUnionItem(BuildContext context, Union union) {
+    return Card(
+      elevation: 2,
+      margin: const EdgeInsets.symmetric(vertical: 8.0),
+      child: InkWell(
+        onTap: () {
+          _showDialogBox(context, union);
+        },
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column( // Use Row to place image and title side by side
+            children: [
+              if (union.imageUrl.isNotEmpty) // Conditionally show image
+                Image.asset(
+                  union.imageUrl,
+                  height: 50,
+                  width: 50,
+                  fit: BoxFit.cover,
+                ),
+              const SizedBox(width: 16),
+              Text(
+                union.name,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18.0,
+                ),
+              ),
+            ],
           ),
         ),
       ),
     );
   }
 
-  Widget _buildContainer({required String title, required String description}) {
-    return Container(
-      padding: const EdgeInsets.all(16.0),
-      decoration: BoxDecoration(
-        color: Colors.grey[200],
-        borderRadius: BorderRadius.circular(8.0),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            title,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 18.0,
+  void _showDialogBox(BuildContext context, Union union) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(union.name),
+          content: SingleChildScrollView(
+            child: Column( // Display data in a Column
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(union.description),
+                const SizedBox(height: 8),
+                Text('আয়তন: ${union.area}'),
+                Text('জনসংখ্যা: ${union.population}'),
+                Text('শিক্ষার হার: ${union.literacyRate}'),
+                // ... other data
+              ],
             ),
           ),
-          const SizedBox(height: 8.0),
-          Text(
-            description,
-            style: const TextStyle(fontSize: 16.0),
-            overflow: TextOverflow.ellipsis,
-            maxLines: 3,
-          ),
-        ],
-      ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text('বন্ধ'),
+            ),
+          ],
+        );
+      },
     );
   }
 }
