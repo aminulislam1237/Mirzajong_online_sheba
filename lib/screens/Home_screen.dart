@@ -7,19 +7,20 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return const Scaffold( //Remove if you are using a parent scaffold.
       extendBody: true,
-      body: SafeArea( // Use SafeArea to avoid overlapping system UI
+      body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              CarouselSliderWidget(), // Keep const if the widget is truly constant
+              CarouselSliderWidget(),
               SizedBox(height: 20),
               Padding(
                 padding: EdgeInsets.all(16.0),
                 child: GridCardWidget(),
               ),
+               // Add bottom padding here
             ],
           ),
         ),

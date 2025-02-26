@@ -4,7 +4,7 @@ import 'package:musf_app1/screens/Home_screen.dart';
 import '../widgets/custom_drawer.dart';
 import 'Add_Info_Screen.dart';
 import 'EmergencyScreen.dart';
-import 'More_Screen.dart';
+import 'Profile_Screen.dart';
 import 'Union_Screen.dart';
 
 class HomeScreenState extends StatefulWidget {
@@ -22,7 +22,7 @@ class _HomeScreenStateState extends State<HomeScreenState> {
     const Emergencyscreen(),
     const DataEntryScreen(),
     const UnionScreen(),
-    const MoreScreen(),
+    const ProfileScreen(),
   ];
 
   @override

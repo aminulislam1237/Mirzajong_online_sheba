@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../screens/Home_screen_state.dart';
 
@@ -62,19 +63,21 @@ class _CustomDrawerState extends State<CustomDrawer> {
     return Drawer(
       child: Material(
         elevation: 7.0,
-        borderRadius: const BorderRadius.only(
+        borderRadius:  const BorderRadius.only(
           bottomRight: Radius.circular(50.0),
+
         ),
         child: Container(
           decoration: const BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.only(
-              bottomRight: Radius.circular(50.0),
+              bottomRight: Radius.circular(100.0),
+
             ),
             boxShadow: [
               BoxShadow(
                 color: Colors.black26,
-                blurRadius: 8.0,
+                blurRadius: 7.0,
                 spreadRadius: 1.0,
                 offset: Offset(0, 4),
               ),
@@ -86,6 +89,10 @@ class _CustomDrawerState extends State<CustomDrawer> {
               UserAccountsDrawerHeader(
                 decoration: const BoxDecoration(
                   color: Colors.greenAccent,
+                  borderRadius: BorderRadius.only(
+                    bottomRight: Radius.circular(100.0),
+                  ),
+
                 ),
                 accountName: Text(
                   nameController.text.isNotEmpty? nameController.text: "আপনার নাম",
@@ -111,6 +118,13 @@ class _CustomDrawerState extends State<CustomDrawer> {
               ),
               _buildListTile(context, Icons.home, "হোম", const HomeScreenState()),
               _buildListTile(context, Icons.settings, "সেটিংস", null),
+              ListTile(
+                leading: const Icon(Icons.share),
+                title: const Text("এই অ্যাপটি শেয়ার করুন"),
+                onTap: () {
+                  Share.share('Check out this app! [link to your app]');
+                },
+              ),
               ListTile(
                 leading: const Icon(Icons.logout, color: Colors.redAccent),
                 title: const Text("লগ আউট"),
