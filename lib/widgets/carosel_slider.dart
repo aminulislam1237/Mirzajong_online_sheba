@@ -8,12 +8,15 @@ class CarouselSliderWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return CarouselSlider(
       items: [
-        _buildCarouselItem("assets/slide1.png", "school 1", "school"),
-        _buildCarouselItem("assets/slide2.png", "collage", "collage"),
-        _buildCarouselItem("assets/slide3.png", "collage", "collage"),
-        _buildCarouselItem("assets/slide1.png", "school 2", "school"),
-        _buildCarouselItem("assets/slide2.png", "collage", "collage"),
-        _buildCarouselItem("assets/slide3.png", "collage 3", "collage"),
+        _buildCarouselItem("assets/carrousel banner/Photo1.jpg", "মজিদবাড়িয়া শাহী মসজিদ", ""),
+        _buildCarouselItem("assets/carrousel banner/Photo2.jpg", "মির্জাগন্ঞ্জ মাজার", ""),
+        _buildCarouselItem("assets/carrousel banner/Photo3.jpg", "মির্জাগন্ঞ্জ মাজার", ""),
+        _buildCarouselItem("assets/carrousel banner/Photo4.jpg", "রানীপুর মিয়া বাড়ি মসজিদ", ""),
+        _buildCarouselItem("assets/carrousel banner/photo.jpg", "সুবিদখালী সরকারি র.ই পাইলট মাধ্যমিক বিদ্যালয়", ""),
+        _buildCarouselItem("assets/carrousel banner/Photo6.jpg", "পায়রা কুঞ্জ লঞ্চঘাট", ""),
+        _buildCarouselItem("assets/carrousel banner/Photot7.jpg", "শ্রীমন্ত নদী", ""),
+
+
       ],
       options: CarouselOptions(
         height: 250, // Increased height
@@ -78,13 +81,7 @@ class CarouselSliderWidget extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      Text(
-                        description,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 14,
-                        ),
-                      ),
+
                     ],
                   ),
                 ),

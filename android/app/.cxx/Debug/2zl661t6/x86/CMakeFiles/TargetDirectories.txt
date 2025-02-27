@@ -1,0 +1,2 @@
+C:/Users/Rasel/StudioProjects/Mirzajong_online_sheba/android/app/.cxx/Debug/2zl661t6/x86/CMakeFiles/edit_cache.dir
+C:/Users/Rasel/StudioProjects/Mirzajong_online_sheba/android/app/.cxx/Debug/2zl661t6/x86/CMakeFiles/rebuild_cache.dir

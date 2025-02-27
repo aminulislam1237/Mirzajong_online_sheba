@@ -15,6 +15,9 @@ dependencies:
   image_picker: ^0.8.7+4
   shared_preferences: ^2.0.18
   cupertino_icons: ^1.0.8
+  flutter_svg: any
+  share_plus: any
+  animate_do: ^3.0.2
 
 dev_dependencies:
   flutter_test:
@@ -26,3 +29,5 @@ flutter:
   assets:
     - assets/
     - assets/icon/
+    - assets/ad Banner/
+    - assets/carrousel banner/

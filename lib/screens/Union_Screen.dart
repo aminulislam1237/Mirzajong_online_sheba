@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../Class/union.dart';
+import '../Model/union.dart';
 
 
 

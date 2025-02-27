@@ -7,7 +7,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return const Scaffold( //Remove if you are using a parent scaffold.
       extendBody: true,
       body: SafeArea(
         child: SingleChildScrollView(
@@ -21,6 +21,7 @@ class HomeScreen extends StatelessWidget {
                 child: GridCardWidget(// Add this!
                 ),
               ),
+               // Add bottom padding here
             ],
           ),
         ),
