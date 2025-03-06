@@ -1,8 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:musf_app1/screens/Home_screen_state.dart';
-
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -11,8 +9,7 @@ class SplashScreen extends StatefulWidget {
   _SplashScreenState createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen>
-    with SingleTickerProviderStateMixin {
+class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
 
   @override
@@ -23,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen>
       duration: const Duration(seconds: 3),
     )..repeat();
 
-    Timer(const Duration(seconds: 3), () {
+    Timer(const Duration(seconds: 4), () {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const HomeScreenState()),
@@ -40,23 +37,21 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white70,
+      backgroundColor: Colors.greenAccent,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Using SVG for a more unique and scalable logo
-            SvgPicture.asset(
-              "assets/icon/logo.svg", // Replace with your SVG logo path
+            Image.asset(
+              "assets/profile.jpg", // Replace with your logo image
               width: 150,
               height: 150,
-              colorFilter: const ColorFilter.mode(Colors.greenAccent, BlendMode.srcIn), //Optional: Color the SVG
             ),
             const SizedBox(height: 20),
             const Text(
               "মির্জাগঞ্জ তথ্য সেবা",
               style: TextStyle(
-                color: Colors.greenAccent,
+                color: Colors.white,
                 fontSize: 26,
                 fontWeight: FontWeight.bold,
                 letterSpacing: 1.5,
@@ -77,7 +72,7 @@ class _SplashScreenState extends State<SplashScreen>
                 width: 70,
                 height: 70,
                 child: CircularProgressIndicator(
-                  valueColor: const AlwaysStoppedAnimation(Colors.greenAccent),
+                  valueColor: const AlwaysStoppedAnimation(Colors.white),
                   strokeWidth: 6,
                   backgroundColor: Colors.teal.withOpacity(0.3),
                 ),
