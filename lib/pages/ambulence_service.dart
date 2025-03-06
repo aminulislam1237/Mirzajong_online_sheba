@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class WifiLineScreen extends StatelessWidget {
-  const WifiLineScreen({super.key});
+class AmbulenceServiceScreen extends StatelessWidget {
+  const AmbulenceServiceScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("ওয়াইফাই লাইন "),
+        title: const Text("এম্বুলেন্স সার্ভিস"),
         backgroundColor: Colors.greenAccent,
       ),
       body:
@@ -17,18 +17,42 @@ class WifiLineScreen extends StatelessWidget {
           children: [
             SizedBox(height: 20),
             ContactCard(
-              name: "সিয়াম ক্যাবল নেটওয়ার্ক",
-              phoneNumber: "01714-234225",
+              name: "মির্জাগন্ঞ্জ উপজেলা স্বাস্থ্য কমপ্লেক্স  এম্বুলেন্স -মামুন ভাই",
+              phoneNumber: "+8801716909131",
               address: "সুবিদখালি,মির্জাগঞ্জ,পটুয়াখালি ",
-
             ),
             SizedBox(height: 20),
             ContactCard(
-              name: " wifi service 2",
-              phoneNumber: "+৮৮০ ১২৩৪ ৫৬৭ ৮৯০",
+              name: "ছগির এম্বুলেন্স সার্ভিস",
+              phoneNumber: "01924258769",
               address: "সুবিদখালি,মির্জাগঞ্জ,পটুয়াখালি ",
             ),
             SizedBox(height: 20),
+            ContactCard(
+              name: "সোহেল এম্বুলেন্স সার্ভিস",
+              phoneNumber: "01777271779",
+              address: "সুবিদখালি,মির্জাগঞ্জ,পটুয়াখালি ",
+            ),
+            SizedBox(height: 20),
+            ContactCard(
+              name: "প্রবাসী এম্বুলেন্স সার্ভিস",
+              phoneNumber: "01755771512",
+              address: "সুবিদখালি,মির্জাগঞ্জ,পটুয়াখালি ",
+            ),
+            SizedBox(height: 20),
+            ContactCard(
+              name: "মির্জাগন্ঞ্জ উপজেলা স্বাস্থ্য কমপ্লেক্স এম্বুলেন্স-মিজান ভাই",
+              phoneNumber: "01712104989",
+              address: "সুবিদখালি,মির্জাগঞ্জ,পটুয়াখালি ",
+            ),
+            SizedBox(height: 20),
+            ContactCard(
+              name: " রনি এম্বুলেন্স সার্ভিস",
+              phoneNumber: "+8801932942014",
+              address: "সুবিদখালি,মির্জাগঞ্জ,পটুয়াখালি ",
+            ),
+            SizedBox(height: 20),
+
 
           ],
         ),
@@ -71,16 +95,9 @@ class ContactCard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                "যোগাযোগ তথ্য",
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
               const SizedBox(height: 10),
               ListTile(
-                leading: const Icon(Icons.contact_mail_sharp, color: Colors.green),
+                leading: const Icon(Icons.directions_car_filled, color: Colors.green),
                 title: Text(name),
               ),
               ListTile(

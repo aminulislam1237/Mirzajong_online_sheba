@@ -16,12 +16,12 @@ class LabeledContainer extends StatelessWidget {
     super.key,
     required this.icon,
     required this.text,
-    this.width = 110, // Slightly increased width
-    this.height = 110, // Slightly increased height
+    this.width = 105, // Slightly increased width
+    this.height = 105, // Slightly increased height
     this.backgroundColor = Colors.blueGrey, // Default is now white
-    this.borderRadius = const BorderRadius.all(Radius.circular(16)), // More rounded corners
+    this.borderRadius = const BorderRadius.all(Radius.circular(25)), // More rounded corners
     this.textStyle = const TextStyle(
-      color: Colors.white70, // More visible text
+      color: Colors.black54, // More visible text
       fontWeight: FontWeight.w500, // Slightly less bold
     ),
     this.padding = const EdgeInsets.all(8.0),  // Increased padding
@@ -44,7 +44,7 @@ class LabeledContainer extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: borderRadius,
           gradient: gradient,
-          color: gradient == null ? backgroundColor : null,
+          color: Colors.greenAccent
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -53,7 +53,7 @@ class LabeledContainer extends StatelessWidget {
             Icon(
               icon,
               size: 36, // Increased icon size
-              color: _getIconColor(),
+              color: Colors.black54,
             ),
             const SizedBox(height: 8),
             Text(
@@ -67,11 +67,4 @@ class LabeledContainer extends StatelessWidget {
     );
   }
 
-  Color _getIconColor() {
-    if (gradient != null) {
-      return Colors.white;
-    } else {
-      return Colors.black87; // Matches the text color
-    }
-  }
 }

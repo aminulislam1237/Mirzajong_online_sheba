@@ -7,13 +7,16 @@ class NewspapersScreen extends StatelessWidget {
   Future<void> _launchURL(String url) async {
     final Uri uri = Uri.parse(url);
     if (await canLaunchUrl(uri)) {
-      await launchUrl(uri);
+      await launchUrl(
+        uri,
+        mode: LaunchMode.externalApplication, // Add this line
+      );
     } else {
       throw 'Could not launch $url';
     }
   }
 
-  Widget _buildNewspaperTile(String title, String url, BuildContext context) {
+  Widget _buildNewspaperTile(String title, String url) {
     return ListTile(
       title: Text(title),
       trailing: const Icon(Icons.open_in_browser),
@@ -38,20 +41,19 @@ class NewspapersScreen extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: ListView(
           children: <Widget>[
-            _buildNewspaperTile('প্রথম আলো', 'https://www.prothomalo.com/', context),
+            _buildNewspaperTile('প্রথম আলো', 'https://www.prothomalo.com/'),
             const SizedBox(height: 8),
-            _buildNewspaperTile('কালের কণ্ঠ', 'https://www.kalerkantho.com/', context),
+            _buildNewspaperTile('কালের কণ্ঠ', 'https://www.kalerkantho.com/'),
             const SizedBox(height: 8),
-            _buildNewspaperTile('যুগান্তর', 'https://www.jugantor.com/', context),
+            _buildNewspaperTile('যুগান্তর', 'https://www.jugantor.com/'),
             const SizedBox(height: 8),
-            _buildNewspaperTile('বাংলাদেশ প্রতিদিন', 'https://www.bd-pratidin.com/', context),
+            _buildNewspaperTile('বাংলাদেশ প্রতিদিন', 'https://www.bd-pratidin.com/'),
             const SizedBox(height: 8),
-            _buildNewspaperTile('ইত্তেফাক', 'https://www.ittefaq.com.bd/', context),
+            _buildNewspaperTile('ইত্তেফাক', 'https://www.ittefaq.com.bd/'),
             const SizedBox(height: 8),
-            _buildNewspaperTile('The Daily Star', 'https://www.thedailystar.net/', context),
+            _buildNewspaperTile('The Daily Star', 'https://www.thedailystar.net/'),
             const SizedBox(height: 8),
-            _buildNewspaperTile('Dhaka Tribune', 'https://www.dhakatribune.com/', context),
-            // Add more newspaper links here
+            _buildNewspaperTile('Dhaka Tribune', 'https://www.dhakatribune.com/'),
           ],
         ),
       ),

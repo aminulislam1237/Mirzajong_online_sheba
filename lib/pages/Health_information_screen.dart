@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:musf_app1/pages/contact.dart';
-import '../pages/iformation_screen.dart';
 import 'Clinic_Screen.dart';
 import 'Diagnostic_Screen.dart';
+import 'HomopothayDoctor_screen.dart';
+import 'ambulence_service.dart';
+import 'animals_doctor.dart';
+import 'doctor_screen.dart';
 
 class HealthInformationScreen extends StatelessWidget {
   const HealthInformationScreen({super.key});
@@ -16,28 +18,28 @@ class HealthInformationScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: SingleChildScrollView( // Enables scrolling if content overflows
+        child: SingleChildScrollView(
+          // Enables scrolling if content overflows
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-
               const SizedBox(height: 20),
               _buildRow(context, [
-                _buildCardData(
-                    "assets/icon/clinic.png", 'ক্লিনিক', () => ClinicScreen()),
+                _buildCardData("assets/icon/clinic.png", 'ক্লিনিক',
+                        () => ClinicScreen()),
                 _buildCardData("assets/icon/diagonitis.png", 'ডায়াগনস্টিক ',
-                        () => DiagnosticScreen()),
+                    () => DiagnosticScreen()),
                 _buildCardData("assets/icon/doctor.png", 'ডাক্তার',
-                        () => const ContactScreen()),
+                    () =>  DoctorInfoScreen()),
               ]),
               const SizedBox(height: 16),
               _buildRow(context, [
                 _buildCardData("assets/icon/animal doctor.png", 'পশুর ডাক্তার',
-                        () => const Informationscreen()),
-                _buildCardData("assets/icon/homopothic.png", 'হোমোপ্যাথি ডাক্তার',
-                        () => const Informationscreen()),
-                _buildCardData("assets/icon/ambulence.png", 'এম্বুলেন্স সার্ভিস',
-                        () => const ContactScreen()),
+                    () =>  AnimalDoctorInfoScreen()),
+                _buildCardData("assets/icon/homopothic.png",
+                    'হোমোপ্যাথি ডাক্তার', () =>  HomoDoctorInfoScreen()),
+                _buildCardData("assets/icon/ambulence.png",
+                    'এম্বুলেন্স সার্ভিস', () => const AmbulenceServiceScreen()),
               ]),
               const SizedBox(height: 16),
               // Add more content or widgets here as needed
@@ -76,7 +78,8 @@ class HealthInformationScreen extends StatelessWidget {
               borderRadius: BorderRadius.circular(16.0),
             ),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center, // Center content vertically
+              mainAxisAlignment:
+                  MainAxisAlignment.center, // Center content vertically
               children: [
                 Padding(
                   padding: const EdgeInsets.all(8.0),

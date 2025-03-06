@@ -18,6 +18,9 @@ dependencies:
   flutter_svg: any
   share_plus: any
   animate_do: ^3.0.2
+  firebase_core: ^3.12.1
+  cloud_firestore: ^5.6.5
+
 
 dev_dependencies:
   flutter_test:

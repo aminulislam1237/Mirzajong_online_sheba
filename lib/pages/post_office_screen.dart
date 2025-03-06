@@ -39,7 +39,7 @@ class PostOfficeScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Contact Information",
+                        "সুবিদখালী পোস্ট অফিস",
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
@@ -48,19 +48,16 @@ class PostOfficeScreen extends StatelessWidget {
                       SizedBox(height: 10),
                       ListTile(
                         leading: Icon(Icons.phone, color: Colors.green),
-                        title: Text("+880 1234 567 890"),
+                        title: Text("+880 1854-152611"),
                       ),
+
                       ListTile(
                         leading: Icon(Icons.email, color: Colors.green),
-                        title: Text("info@example.com"),
-                      ),
-                      ListTile(
-                        leading: Icon(Icons.email, color: Colors.green),
-                        title: Text("Postal code: 8610"),
+                        title: Text("পোস্টাল কোড: ৮৬১০"),
                       ),
                       ListTile(
                         leading: Icon(Icons.location_on, color: Colors.green),
-                        title: Text("Mirzajong, Patuakhali, Bangladesh"),
+                        title: Text("মির্জাগন্ঞ্জ, পটুয়াখালী, বাংলাদেশ"),
                       ),
                     ],
                   ),
@@ -78,7 +75,7 @@ class PostOfficeScreen extends StatelessWidget {
                   _makePhoneCall("+8801234567890");
                 },
                 icon: const Icon(Icons.phone),
-                label: const Text("Call Now"),
+                label: const Text("এখনই কল করুন"),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.green,
                   padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
