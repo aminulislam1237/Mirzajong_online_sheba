@@ -47,7 +47,7 @@ class BuserviceService extends StatelessWidget {
           children: <Widget>[
             const SizedBox(height: 20),
             const Text(
-              'মমির্জাগন্ঞ্জ উপজেলার সকল ধরনের বাসের তথ্য ও সেবা সম্পর্কে জানতে "সুবিদখালী বাস সিনারিও" ( Subidkhali Bus Scenario ) ফেসবুক গ্রুপে যুক্ত হোন.',
+              'মির্জাগন্ঞ্জ উপজেলার সকল ধরনের বাসের তথ্য ও সেবা সম্পর্কে জানতে "সুবিদখালী বাস সিনারিও" ( Subidkhali Bus Scenario ) ফেসবুক গ্রুপে যুক্ত হোন.',
               style: TextStyle(fontSize: 20, fontStyle: FontStyle.italic),
               textAlign: TextAlign.center,
             ),

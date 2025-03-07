@@ -23,7 +23,7 @@ class CommitteeScreen extends StatelessWidget {
         borderRadius: BorderRadius.circular(10.0),
       ),
       contentPadding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-      leading: const Icon(Icons.newspaper),
+      leading: const Icon(Icons.groups),
     );
   }
 
@@ -38,19 +38,15 @@ class CommitteeScreen extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: ListView(
           children: <Widget>[
-            _buildNewspaperTile('প্রথম আলো', 'https://www.prothomalo.com/', context),
+            _buildNewspaperTile('পমির্জাগন্ঞ্জ উপজেলা স্টুডেন্টস’ ফোরাম, ঢাকা', 'https://facebook.com/groups/MUSF2011/', context),
             const SizedBox(height: 8),
-            _buildNewspaperTile('কালের কণ্ঠ', 'https://www.kalerkantho.com/', context),
+            _buildNewspaperTile('মির্জাগন্ঞ্জ উপজেলা স্টুডেন্টস ওয়েব', 'https://facebook.com/groups/www.musw.info/', context),
             const SizedBox(height: 8),
-            _buildNewspaperTile('যুগান্তর', 'https://www.jugantor.com/', context),
+            _buildNewspaperTile('মির্জাগন্ঞ্জ উপজেলা স্টুডেন্টস কমিউনিটি, ঢাকা', 'https://facebook.com/groups/470012907440596/', context),
             const SizedBox(height: 8),
-            _buildNewspaperTile('বাংলাদেশ প্রতিদিন', 'https://www.bd-pratidin.com/', context),
+            _buildNewspaperTile('মির্জাগন্ঞ্জ উপজেলা স্টুডেন্টস অ্যাসোসিয়েশন, বরিশাল', 'https://facebook.com/groups/759275164160737/', context),
             const SizedBox(height: 8),
-            _buildNewspaperTile('ইত্তেফাক', 'https://www.ittefaq.com.bd/', context),
-            const SizedBox(height: 8),
-            _buildNewspaperTile('The Daily Star', 'https://www.thedailystar.net/', context),
-            const SizedBox(height: 8),
-            _buildNewspaperTile('Dhaka Tribune', 'https://www.dhakatribune.com/', context),
+            _buildNewspaperTile('মির্জাগন্ঞ্জ ফাউন্ডেশন', 'https://facebook.com/groups/512725322873909/', context),
             // Add more newspaper links here
           ],
         ),

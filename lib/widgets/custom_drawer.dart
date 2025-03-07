@@ -72,16 +72,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
             color: Colors.white,
             borderRadius: BorderRadius.only(
               bottomRight: Radius.circular(100.0),
-
             ),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black26,
-                blurRadius: 7.0,
-                spreadRadius: 1.0,
-                offset: Offset(0, 4),
-              ),
-            ],
           ),
           child: ListView(
             padding: EdgeInsets.zero,
@@ -117,7 +108,6 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 onTap: () => _editProfileDialog(),
               ),
               _buildListTile(context, Icons.home, "হোম", const HomeScreenState()),
-              _buildListTile(context, Icons.settings, "সেটিংস", null),
               ListTile(
                 leading: const Icon(Icons.share),
                 title: const Text("এই অ্যাপটি শেয়ার করুন"),

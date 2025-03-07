@@ -17,7 +17,7 @@ class HomeScreenState extends StatefulWidget {
 
 class _HomeScreenStateState extends State<HomeScreenState> {
   int _currentIndex = 0;
-  final fetchData = FirebaseFirestore.instance.collection("Notice");
+  final _firestore = FirebaseFirestore.instance.collection("Notice");
   final List<Widget> _pages = [
     const HomeScreen(),
     const Emergencyscreen(),
@@ -25,28 +25,69 @@ class _HomeScreenStateState extends State<HomeScreenState> {
     const UnionScreen(),
     const ProfileScreen(),
   ];
-  List<String> notices = []; // To store fetched notices
+  List<String> _notices = []; // To store fetched notices
 
   @override
   void initState() {
     super.initState();
-    callNotification();
+    _fetchNotifications();
   }
 
-  void callNotification() async {
+  // Fetch notifications from Firestore
+  Future<void> _fetchNotifications() async {
     try {
-      final e = await fetchData.get();
-      if (e.docs.isNotEmpty) {
+      final querySnapshot = await _firestore.get();
+      if (querySnapshot.docs.isNotEmpty) {
         setState(() {
-          notices = e.docs.map((item) => item.data()['Notice'] as String).toList();
+          _notices = querySnapshot.docs
+              .map((doc) => doc.data()['Notice'] as String)
+              .toList();
         });
-        print('Notices fetched: $notices');
       } else {
-        print('No notices available');
+        debugPrint("No notifications found.");
       }
     } catch (e) {
-      print('Error fetching notices: $e');
+      debugPrint("Error fetching notifications: $e");
     }
+  }
+
+  // Show notification dialog
+  void _showNotificationDialog() {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text("Notifications"),
+        content: SizedBox(
+          width: double.maxFinite,
+          height: 200, // Make the dialog box shorter
+          child: _notices.isEmpty
+              ? const Center(child: Text("No notifications."))
+              : ListView.builder(
+                  itemCount: _notices.length,
+                  itemBuilder: (context, index) {
+                    return ListTile(
+                      title: Text(_notices[index]),
+                      trailing: IconButton(
+                        icon: const Icon(Icons.check, color: Colors.green),
+                        onPressed: () {
+                          setState(() {
+                            _notices.removeAt(index); // Mark as done action
+                            Navigator.pop(context); // Close the dialog
+                          });
+                        },
+                      ),
+                    );
+                  },
+                ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text('Close'),
+          ),
+        ],
+      ),
+    );
   }
 
   @override
@@ -70,78 +111,38 @@ class _HomeScreenStateState extends State<HomeScreenState> {
             children: [
               IconButton(
                 icon: const Icon(Icons.notifications, color: Colors.blueGrey),
-                onPressed: () {
-                  showDialog(
-                    context: context,
-                    builder: (context) => AlertDialog(
-                      title: const Text("Notifications"),
-                      content: SizedBox(
-                        width: double.maxFinite,
-                        height: 200, // Make the dialog box shorter
-                        child: ListView.builder(
-                          itemCount: notices.length,
-                          itemBuilder: (context, index) {
-                            return ListTile(
-                              title: Text(notices[index]),
-                              trailing: IconButton(
-                                icon: const Icon(Icons.check, color: Colors.green),
-                                onPressed: () {
-                                  setState(() {
-                                    notices.removeAt(index); // Mark as done action
-                                    Navigator.pop(context); // Close the dialog
-                                  });
-                                },
-                              ),
-                            );
-                          },
-                        ),
-                      ),
-                      actions: [
-                        TextButton(
-                          onPressed: () => Navigator.pop(context),
-                          child: const Text('Close'),
-                        ),
-                      ],
-                    ),
-                  );
-                },
+                onPressed: _showNotificationDialog,
               ),
               Positioned(
                 top: 0,
                 right: 0,
-                child: notices.isEmpty
+                child: _notices.isEmpty
                     ? Container()
                     : Container(
-                  width: 20,
-                  height: 20,
-                  decoration: const BoxDecoration(
-                    color: Colors.red,
-                    shape: BoxShape.circle,
-                  ),
-                  child: Center(
-                    child: Text(
-                      notices.length.toString(),
-                      style: const TextStyle(fontSize: 10, color: Colors.white),
-                    ),
-                  ),
-                ),
+                        width: 20,
+                        height: 20,
+                        decoration: const BoxDecoration(
+                          color: Colors.red,
+                          shape: BoxShape.circle,
+                        ),
+                        child: Center(
+                          child: Text(
+                            _notices.length.toString(),
+                            style: const TextStyle(
+                                fontSize: 10, color: Colors.white),
+                          ),
+                        ),
+                      ),
               ),
             ],
           ),
         ],
       ),
-
-
-        /// Drawer with Enhanced UI
       drawer: const CustomDrawer(),
-
-      /// Body with Page Transition
       body: AnimatedSwitcher(
         duration: const Duration(milliseconds: 500),
         child: _pages[_currentIndex],
       ),
-
-      /// Bottom Navigation Bar with Animation
       bottomNavigationBar: CurvedNavigationBar(
         backgroundColor: Colors.transparent,
         color: Colors.greenAccent,

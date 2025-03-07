@@ -16,13 +16,12 @@ class PoliceScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Police station"),
+        title: const Text("পুলিশ স্টেশন"),
         backgroundColor: Colors.greenAccent,
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-
             const SizedBox(height: 20),
 
             /// Contact Details
@@ -38,14 +37,6 @@ class PoliceScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
-                        "যোগাযোগ তথ্য",
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      const SizedBox(height: 10),
                       const ListTile(
                         leading: Icon(Icons.contact_mail_sharp, color: Colors.green),
                         title: Text("এমডি সিয়াম "),
@@ -53,10 +44,6 @@ class PoliceScreen extends StatelessWidget {
                       const ListTile(
                         leading: Icon(Icons.phone, color: Colors.green),
                         title: Text("+৮৮০ ১২৩৪ ৫৬৭ ৮৯০"),
-                      ),
-                      const ListTile(
-                        leading: Icon(Icons.email, color: Colors.green),
-                        title: Text("info@example.com"),
                       ),
                       const ListTile(
                         leading: Icon(Icons.location_on, color: Colors.green),
@@ -95,14 +82,6 @@ class PoliceScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
-                        "যোগাযোগ তথ্য",
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      const SizedBox(height: 10),
                       const ListTile(
                         leading: Icon(Icons.contact_mail_sharp, color: Colors.green),
                         title: Text("এমডি সিয়াম "),
@@ -110,10 +89,6 @@ class PoliceScreen extends StatelessWidget {
                       const ListTile(
                         leading: Icon(Icons.phone, color: Colors.green),
                         title: Text("+৮৮০ ১২৩৪ ৫৬৭ ৮৯০"),
-                      ),
-                      const ListTile(
-                        leading: Icon(Icons.email, color: Colors.green),
-                        title: Text("info@example.com"),
                       ),
                       const ListTile(
                         leading: Icon(Icons.location_on, color: Colors.green),
@@ -152,14 +127,6 @@ class PoliceScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
-                        "যোগাযোগ তথ্য",
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      const SizedBox(height: 10),
                       const ListTile(
                         leading: Icon(Icons.contact_mail_sharp, color: Colors.green),
                         title: Text("এমডি সিয়াম "),
@@ -167,10 +134,6 @@ class PoliceScreen extends StatelessWidget {
                       const ListTile(
                         leading: Icon(Icons.phone, color: Colors.green),
                         title: Text("+৮৮০ ১২৩৪ ৫৬৭ ৮৯০"),
-                      ),
-                      const ListTile(
-                        leading: Icon(Icons.email, color: Colors.green),
-                        title: Text("info@example.com"),
                       ),
                       const ListTile(
                         leading: Icon(Icons.location_on, color: Colors.green),
@@ -197,8 +160,6 @@ class PoliceScreen extends StatelessWidget {
             ),
 
             const SizedBox(height: 20),
-
-
           ],
         ),
       ),

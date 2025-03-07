@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:gif_view/gif_view.dart';
 import 'package:musf_app1/Icon%20Page/police_screen.dart';
 import 'package:musf_app1/Icon%20Page/wifiLine_screen.dart';
 import 'package:musf_app1/pages/Health_information_screen.dart';
 import 'package:musf_app1/pages/contact.dart';
+
+import '../pages/ambulence_service.dart';
 
 
 class Emergencyscreen extends StatelessWidget {
@@ -17,6 +20,12 @@ class Emergencyscreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+              GifView.asset(
+                'assets/icons8-commercial.gif',
+                height: 100,
+                width: 200,
+                frameRate: 30,
+              ),
               const SizedBox(height: 20),
               const Text(
                 'জরুরী প্রয়োজনে যোগাযোগ করুন',
@@ -45,7 +54,7 @@ class Emergencyscreen extends StatelessWidget {
                 _buildCardData(
                   "assets/icon/ambulence.png",
                   'অ্যাম্বুলেন্স সার্ভিস',
-                      () => const ContactScreen(),
+                      () => const AmbulenceServiceScreen(),
                 ),
                 _buildCardData(
                   "assets/icon/wifi.png",

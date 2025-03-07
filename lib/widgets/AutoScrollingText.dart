@@ -11,7 +11,7 @@ class AutoScrollingText extends StatefulWidget {
     required this.text,
     this.textSize = 16.0,
     this.speed = 1.0,
-    this.backgroundColor = Colors.redAccent,
+    this.backgroundColor = Colors.greenAccent,
   });
 
   @override
@@ -25,17 +25,19 @@ class _AutoScrollingTextState extends State<AutoScrollingText> {
   void initState() {
     super.initState();
     _scrollController = ScrollController();
-    _startScrolling();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _startScrolling();
+    });
   }
 
   void _startScrolling() async {
     while (true) {
-      await Future.delayed(const Duration(milliseconds: 16)); // Approximately 60 FPS
+      await Future.delayed(const Duration(milliseconds: 16));
       if (_scrollController.hasClients) {
         if (_scrollController.offset >= _scrollController.position.maxScrollExtent) {
           _scrollController.animateTo(
             0.0,
-            duration: const Duration(milliseconds: 1000), // Instantly reset
+            duration: const Duration(milliseconds: 1000),
             curve: Curves.easeInOut,
           );
         } else {
@@ -60,14 +62,30 @@ class _AutoScrollingTextState extends State<AutoScrollingText> {
     return SizedBox(
       height: 30,
       child: Container(
-        color: widget.backgroundColor, // Use the backgroundColor property
-        child: ListView(
-          controller: _scrollController,
-          scrollDirection: Axis.horizontal,
+        color: widget.backgroundColor,
+        child: Row(
           children: [
-            Text(
-              List.generate(100, (index) => widget.text).join('  '),
-              style: TextStyle(fontSize: widget.textSize),
+            Container(  // Wrap the Text widget with a Container
+              padding: const EdgeInsets.symmetric(horizontal: 8.0), // Add padding for better appearance
+              decoration: const BoxDecoration(  // Add background color
+                color: Colors.red,
+              ),
+              child: const Text(
+                "নোটিশ:",
+                style: TextStyle(fontSize: 20.0, color: Colors.black54), // Adjust text color if needed
+              ),
+            ),
+            Expanded(
+              child: ListView(
+                controller: _scrollController,
+                scrollDirection: Axis.horizontal,
+                children: [
+                  Text(
+                    List.generate(100, (index) => widget.text).join('  '),
+                    style: TextStyle(fontSize: widget.textSize),
+                  ),
+                ],
+              ),
             ),
           ],
         ),

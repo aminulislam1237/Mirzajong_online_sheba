@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gif_view/gif_view.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class DataEntryScreen extends StatefulWidget {
@@ -9,196 +10,137 @@ class DataEntryScreen extends StatefulWidget {
 }
 
 class _DataEntryScreenState extends State<DataEntryScreen> {
-  final _formKey = GlobalKey<FormState>();
-  final _nameController = TextEditingController();
-  final _emailController = TextEditingController();
-  final _messageController = TextEditingController();
-
-  void _submitData() {
-    if (_formKey.currentState!.validate()) {
-      String name = _nameController.text;
-      String email = _emailController.text;
-      String message = _messageController.text;
-
-
-
-      _nameController.clear();
-      _emailController.clear();
-      _messageController.clear();
-
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('ডেটা জমা দেওয়া হয়েছে!')),
-      );
-    }
-  }
-
-  void _openFacebookPage() async {
-    const facebookUrl = "https://www.facebook.com/aminul.islam.Rasel34"; // Replace with your Facebook Page ID
-    final Uri url = Uri.parse(facebookUrl);
-    if (await canLaunchUrl(url)) {
-      await launchUrl(url);
-    } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('ফেসবুক পেজ খুলতে পারা যায়নি।')),
-      );
-    }
-  }
-
-  void _openMessenger() async {
-    const messengerUrl = "https://m.me/khalidhasanrumi.bd"; // Replace with your Messenger username
-    final Uri url = Uri.parse(messengerUrl);
-    if (await canLaunchUrl(url)) {
-      await launchUrl(url);
-    } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('মেসেঞ্জার খুলতে পারা যায়নি।')),
-      );
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [Colors.greenAccent, Colors.lightGreenAccent],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-          ),
-        ),
-        padding: const EdgeInsets.all(24.0),
-        child: Center(
-          child: SingleChildScrollView(
-            child: Card(
-              color: Colors.greenAccent[100],
-              elevation: 8,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(16),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: GifView.asset(
+                'assets/icons8-gmail-logo.gif',
+                height: 200,
+                width: 200,
+                frameRate: 30,
               ),
+            ),
+            const Card(
+              margin: EdgeInsets.all(8.0),
               child: Padding(
-                padding: const EdgeInsets.all(24.0),
-                child: Form(
-                  key: _formKey,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      Text(
-                        'যোগাযোগ করুন',
-                        style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold),
-                        textAlign: TextAlign.center,
-                      ),
-                      const SizedBox(height: 24),
-                      TextFormField(
-                        controller: _nameController,
-                        decoration: InputDecoration(
-                          labelText: 'নাম',
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                        ),
-
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'অনুগ্রহ করে আপনার নাম লিখুন';
-                          }
-                          return null;
-                        },
-                      ),
-                      const SizedBox(height: 16),
-                      TextFormField(
-                        controller: _emailController,
-                        decoration: InputDecoration(
-                          labelText: 'ইমেইল',
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                        ),
-                        keyboardType: TextInputType.emailAddress,
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'অনুগ্রহ করে আপনার ইমেইল লিখুন';
-                          }
-                          if (!value.contains('@')) {
-                            return 'অনুগ্রহ করে একটি সঠিক ইমেইল লিখুন';
-                          }
-                          return null;
-                        },
-                      ),
-                      const SizedBox(height: 16),
-                      TextFormField(  // Corrected: Added _messageController here
-                        controller: _messageController,
-                        decoration: InputDecoration(
-                          labelText: 'বার্তা',
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                        ),
-                        maxLines: 3,
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'অনুগ্রহ করে একটি বার্তা লিখুন';
-                          }
-                          return null;
-                        },
-                      ),
-
-                      const SizedBox(height: 24),
-                      ElevatedButton(
-                        onPressed: _submitData,
-                        style: ElevatedButton.styleFrom(
-                          padding: const EdgeInsets.symmetric(vertical: 16),
-                          textStyle: const TextStyle(fontSize: 16),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(16),
-                          ),
-                        ),
-                        child: const Text('জমা দিন'),
-                      ),
-
-
-                      const SizedBox(height: 16),
-                      Row(
-                        children: [
-                          SizedBox(
-                            width: 150,
-                            child: ElevatedButton(
-                              onPressed: _openFacebookPage,
-                              style: ElevatedButton.styleFrom(
-                                padding: const EdgeInsets.symmetric(vertical: 16),
-                                textStyle: const TextStyle(fontSize: 16),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
-                              ),
-                              child: const Text('ফেসবুক পেজ'),
-                            ),
-                          ),
-                          const SizedBox(width: 8),
-
-                          SizedBox(
-                            width: 148.5,
-                            child: ElevatedButton(
-                              onPressed: _openMessenger,
-                              style: ElevatedButton.styleFrom(
-                                padding: const EdgeInsets.symmetric(vertical: 16),
-                                textStyle: const TextStyle(fontSize: 16),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
-                              ),
-                              child: const Text('মেসেঞ্জার'),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-
-                  ),
+                padding: EdgeInsets.all(16.0),
+                child: Text(
+                  "আসসালামু আলাইকুম। আপনাদের যে কোনো উপদেশ এবং অনুপ্রেরণা আমাদেরকে উৎসাহিত করে। তাই আপনার যে কোনো তথ্যের প্রয়োজনে অথবা আপনার কোনো পরামর্শ, অভিমত বা মন্তব্য এবং উক্ত অ্যাপসের মধ্যে আপনাদের কো ব্যবসা প্রতিষ্ঠানের বিজ্ঞাপন দিতে চাইলে আমাদের নিকট আপনার তথ্য জমা দিন। আমরা খুব শীঘ্রই আপনার দেওয়া তথ্যটি যাচাই পূর্বক উক্ত অ্যাপসে সংযুক্ত করে দিব। অ্যাপটি ব্যবহার করার জন্য ধন্যবাদ।",
+                  style: TextStyle(fontSize: 16),
+                  textAlign: TextAlign.justify,
                 ),
               ),
             ),
+            const Padding(
+              padding: EdgeInsets.all(16.0),
+              child: Text(
+                "আপনার তথ্য জমা দিন",
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+            ),
+            const Divider(
+              // Added Divider here
+              color: Colors.black,
+              thickness: 1.0,
+              indent: 20,
+              endIndent: 20,
+            ),
+            Wrap(
+              // Use Wrap instead of Row
+              alignment: WrapAlignment.center, // Align items to the center
+              children: [
+                SocialMediaButton(
+                  imagePath: 'assets/icon/whatsappicon.png',
+                  onPressed: () => _launchSocialMedia('Facebook'),
+                ),
+                SocialMediaButton(
+                  imagePath: 'assets/icon/messengericon.png',
+                  onPressed: () => _launchSocialMedia('messenger'),
+                ),
+                SocialMediaButton(
+                  imagePath: 'assets/icon/gmailicon.png',
+                  onPressed: () => _launchSocialMedia('gmail'),
+                ),
+                SocialMediaButton(
+                  imagePath: 'assets/icon/call.png',
+                  onPressed: () => _launchSocialMedia('call'),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void _launchSocialMedia(String platform) async {
+    String url = '';
+    if (platform == 'whatsapp') {
+      // Replace with your Whatsapp url
+      url = "https://wa.me/880183856702";
+    } else if (platform == 'messenger') {
+      // Replace with your messenger url
+      url = "https://m.me/aminul.islam.Rasel34";
+    } else if (platform == 'gmail') {
+      // Replace with your gmail url
+      url = "mailto:aminul.islam20025@gmail.com";
+    } else if (platform == 'call') {
+      url = "tel:+8801838565702";
+    }
+    final Uri uri = Uri.parse(url);
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri);
+    } else {
+      throw 'Could not launch $platform';
+    }
+  }
+}
+
+class SocialMediaButton extends StatelessWidget {
+  final String? imagePath;
+  final IconData? iconData;
+  final Color? color;
+  final VoidCallback onPressed;
+
+  const SocialMediaButton({
+    super.key,
+    this.imagePath,
+    this.iconData,
+    this.color = Colors.transparent,
+    required this.onPressed,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: InkWell(
+        onTap: onPressed,
+        borderRadius: BorderRadius.circular(30),
+        child: Container(
+          width: 70, // Adjust the size as needed
+          height: 60, // Adjust the size as needed
+          decoration: BoxDecoration(
+            color: color,
+            borderRadius: BorderRadius.circular(30),
+          ),
+          child: Center(
+            child: imagePath != null
+                ? Image.asset(
+                    imagePath!,
+                    width: 40, // Adjust the size as needed
+                    height: 40, // Adjust the size as needed
+                  )
+                : Icon(
+                    iconData,
+                    size: 30, // Adjust the size as needed
+                    color: Colors.green,
+                  ),
           ),
         ),
       ),
