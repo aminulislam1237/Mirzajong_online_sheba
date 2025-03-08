@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class PressScreen extends StatelessWidget {
@@ -8,7 +9,7 @@ class PressScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("সাংবাদিক"),
+        title:  Text("সাংবাদিক", style: GoogleFonts.notoSansBengali()),
         backgroundColor: Colors.greenAccent,
       ),
       body: const SingleChildScrollView(
@@ -121,7 +122,7 @@ class PressContactCard extends StatelessWidget {
                     _makePhoneCall(phone);
                   },
                   icon: const Icon(Icons.phone),
-                  label: const Text("কল করুন"),
+                  label:  Text("কল করুন", style: GoogleFonts.notoSansBengali()),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.green,
                     padding: const EdgeInsets.symmetric(

@@ -28,7 +28,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
       nameController.text =
-          prefs.getString('userName') ?? "এমডি আমিনুল ইসলাম রাসেল";
+          prefs.getString('userName') ?? "MD Rohim";
       emailController.text =
           prefs.getString('userEmail') ?? "aminul.islam200256@gmail.com";
       _imagePath = prefs.getString('profileImage');
@@ -102,7 +102,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   child: CircleAvatar(
                     backgroundImage: _profileImage != null
                         ? FileImage(_profileImage!)
-                        : const AssetImage("assets/profile.jpg")
+                        : const AssetImage("assets/icon/man.png")
                             as ImageProvider,
                   ),
                 ),

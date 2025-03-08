@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:musf_app1/Icon%20Page/Press_screen.dart';
 import 'package:musf_app1/pages/post_office_screen.dart';
-import '../Icon Page/Famous_person.dart';
 import '../Icon Page/Newspapers_Screen.dart';
 import '../Icon Page/dish_Lilne_screen.dart';
+import '../Icon Page/famousPerson.dart';
 import '../Icon Page/police_screen.dart';
 import '../Icon Page/wifiLine_screen.dart';
 import '../pages/AboutScreen.dart';
@@ -97,7 +97,7 @@ class GridCardWidget extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const FamousPerson()),
+                                builder: (context) =>  FamousPersonScreen()),
                           );
                         },
                         child: const LabeledContainer(

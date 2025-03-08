@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:musf_app1/screens/Home_screen.dart';
 import '../widgets/custom_drawer.dart';
 import 'Add_Info_Screen.dart';
@@ -9,7 +10,7 @@ import 'Profile_Screen.dart';
 import 'Union_Screen.dart';
 
 class HomeScreenState extends StatefulWidget {
-  const HomeScreenState({Key? key}) : super(key: key);
+  const HomeScreenState({super.key});
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -18,7 +19,7 @@ class HomeScreenState extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreenState> {
   int _currentIndex = 0;
   final CollectionReference _notificationsCollection =
-      FirebaseFirestore.instance.collection("Notifications");
+  FirebaseFirestore.instance.collection("Notifications");
   final List<Widget> _pages = [
     const HomeScreen(),
     const Emergencyscreen(),
@@ -42,9 +43,9 @@ class _HomeScreenState extends State<HomeScreenState> {
         setState(() {
           _notices = querySnapshot.docs
               .map((doc) =>
-                  (doc.data() as Map<String, dynamic>?)?['Notifications']
-                      as String? ??
-                  '')
+          (doc.data() as Map<String, dynamic>?)?['Notifications']
+          as String? ??
+              '')
               .toList();
         });
       } else {
@@ -100,7 +101,7 @@ class _HomeScreenState extends State<HomeScreenState> {
                       ),
                       onDismissed: (direction) async {
                         // Delete the document from Firestore when dismissed
-                        await FirebaseFirestore.instance
+                        FirebaseFirestore.instance
                             .collection('Notifications')
                             .doc(doc.id);
                         ScaffoldMessenger.of(context).showSnackBar(
@@ -113,17 +114,16 @@ class _HomeScreenState extends State<HomeScreenState> {
                           icon: const Icon(Icons.check, color: Colors.green),
                           onPressed: () async {
                             // Mark as done action (you might want to update a 'done' field in Firestore instead)
-                            await FirebaseFirestore.instance
+                            FirebaseFirestore.instance
                                 .collection('Notifications')
                                 .doc(doc.id);
 
                             Navigator.pop(context); // Close the dialog
 
-                            // Show a snackbar or other confirmation
                             ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
                                     content:
-                                        Text('নোটিস সম্পন্ন হিসাবে চিহ্নিত করা হয়েছে')));
+                                    Text('নোটিস সম্পন্ন হিসাবে চিহ্নিত করা হয়েছে')));
                           },
                         ),
                       ),
@@ -146,111 +146,141 @@ class _HomeScreenState extends State<HomeScreenState> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      extendBody: true,
-      appBar: AppBar(
-        backgroundColor: Colors.greenAccent,
-        elevation: 5,
-        shadowColor: Colors.black45,
-        title: const Text(
-          "মির্জাগঞ্জ তথ্য সেবা",
-          style: TextStyle(
-            color: Colors.black54,
-            fontWeight: FontWeight.bold,
-            fontSize: 20,
-          ),
-        ),
-        actions: [
-          Stack(
-            children: [
-              IconButton(
-                icon: const Icon(Icons.notifications, color: Colors.blueGrey),
-                onPressed:
-                    _showNotificationDialog, // Corrected this line as well
+    return PopScope(
+      canPop: false,
+      onPopInvoked: (didPop) async {
+        if (didPop) {
+          return;
+        }
+
+        final shouldPop = await showDialog<bool>(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: const Text('অ্যাপ থেকে বের হবেন?'),
+            content: const Text('আপনি কি নিশ্চিত যে অ্যাপ থেকে বের হতে চান?'),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(false),
+                child: const Text('না'),
               ),
-              Positioned(
-                top: 0,
-                right: 0,
-                child: _notices.isEmpty
-                    ? Container()
-                    : Container(
-                        width: 20,
-                        height: 20,
-                        decoration: const BoxDecoration(
-                          color: Colors.red,
-                          shape: BoxShape.circle,
-                        ),
-                        child: Center(
-                          child: Text(
-                            _notices.length.toString(),
-                            style: const TextStyle(
-                                fontSize: 10, color: Colors.white),
-                          ),
-                        ),
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(true),
+                child: const Text('হ্যাঁ'),
+              ),
+            ],
+          ),
+        );
+
+        if (shouldPop == true) {
+          SystemNavigator.pop();
+        }
+      },
+      child: Scaffold(
+        extendBody: true,
+        appBar: AppBar(
+          backgroundColor: Colors.greenAccent,
+          elevation: 5,
+          shadowColor: Colors.black45,
+          title: const Text(
+            "মির্জাগঞ্জ তথ্য সেবা",
+            style: TextStyle(
+              color: Colors.black54,
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+            ),
+          ),
+          actions: [
+            Stack(
+              children: [
+                IconButton(
+                  icon: const Icon(Icons.notifications, color: Colors.blueGrey),
+                  onPressed:
+                  _showNotificationDialog, // Corrected this line as well
+                ),
+                Positioned(
+                  top: 0,
+                  right: 0,
+                  child: _notices.isEmpty
+                      ? Container()
+                      : Container(
+                    width: 20,
+                    height: 20,
+                    decoration: const BoxDecoration(
+                      color: Colors.red,
+                      shape: BoxShape.circle,
+                    ),
+                    child: Center(
+                      child: Text(
+                        _notices.length.toString(),
+                        style: const TextStyle(
+                            fontSize: 10, color: Colors.white),
                       ),
-              ),
-            ],
-          ),
-        ],
-      ),
-      drawer: const CustomDrawer(),
-      body: AnimatedSwitcher(
-        duration: const Duration(milliseconds: 500),
-        child: _pages[_currentIndex],
-      ),
-      bottomNavigationBar: CurvedNavigationBar(
-        backgroundColor: Colors.transparent,
-        color: Colors.greenAccent,
-        buttonBackgroundColor: Colors.greenAccent,
-        height: 50, // Increased height for label space
-        index: _currentIndex,
-        animationDuration: const Duration(milliseconds: 300),
-        items: const [
-          Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Icon(Icons.home, size: 30, color: Colors.teal),
-              Text("হোমে", style: TextStyle(fontSize: 10, color: Colors.teal)),
-            ],
-          ),
-          Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Icon(Icons.emergency_outlined, size: 30, color: Colors.teal),
-              Text("জরুরী", style: TextStyle(fontSize: 10, color: Colors.teal)),
-            ],
-          ),
-          Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Icon(Icons.add_circle_outline_outlined,
-                  size: 30, color: Colors.teal),
-              Text("তথ্য দিন",
-                  style: TextStyle(fontSize: 10, color: Colors.teal)),
-            ],
-          ),
-          Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Icon(Icons.maps_home_work_outlined, size: 30, color: Colors.teal),
-              Text("ইউনিয়ন",
-                  style: TextStyle(fontSize: 10, color: Colors.teal)),
-            ],
-          ),
-          Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Icon(Icons.more_horiz_rounded, size: 30, color: Colors.black54),
-              Text("আরও",
-                  style: TextStyle(fontSize: 10, color: Colors.black54)),
-            ],
-          ),
-        ],
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+        drawer: const CustomDrawer(),
+        body: AnimatedSwitcher(
+          duration: const Duration(milliseconds: 500),
+          child: _pages[_currentIndex],
+        ),
+        bottomNavigationBar: CurvedNavigationBar(
+          backgroundColor: Colors.transparent,
+          color: Colors.greenAccent,
+          buttonBackgroundColor: Colors.greenAccent,
+          height: 50, // Increased height for label space
+          index: _currentIndex,
+          animationDuration: const Duration(milliseconds: 300),
+          items: const [
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(Icons.home, size: 30, color: Colors.teal),
+                Text("হোমে", style: TextStyle(fontSize: 10, color: Colors.teal)),
+              ],
+            ),
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(Icons.emergency_outlined, size: 30, color: Colors.teal),
+                Text("জরুরী", style: TextStyle(fontSize: 10, color: Colors.teal)),
+              ],
+            ),
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(Icons.add_circle_outline_outlined,
+                    size: 30, color: Colors.teal),
+                Text("তথ্য দিন",
+                    style: TextStyle(fontSize: 10, color: Colors.teal)),
+              ],
+            ),
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(Icons.maps_home_work_outlined, size: 30, color: Colors.teal),
+                Text("ইউনিয়ন",
+                    style: TextStyle(fontSize: 10, color: Colors.teal)),
+              ],
+            ),
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(Icons.more_horiz_rounded, size: 30, color: Colors.black54),
+                Text("আরও",
+                    style: TextStyle(fontSize: 10, color: Colors.black54)),
+              ],
+            ),
+          ],
+          onTap: (index) {
+            setState(() {
+              _currentIndex = index;
+            });
+          },
+        ),
       ),
     );
   }

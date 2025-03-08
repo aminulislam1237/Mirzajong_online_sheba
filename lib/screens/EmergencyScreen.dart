@@ -5,6 +5,7 @@ import 'package:musf_app1/Icon%20Page/wifiLine_screen.dart';
 import 'package:musf_app1/pages/Health_information_screen.dart';
 import 'package:musf_app1/pages/contact.dart';
 
+import '../pages/Fire_service.dart';
 import '../pages/ambulence_service.dart';
 
 class Emergencyscreen extends StatelessWidget {
@@ -45,7 +46,7 @@ class Emergencyscreen extends StatelessWidget {
                 _buildCardData(
                   "assets/icon/fire.png",
                   'ফায়ার সার্ভিস',
-                  () => const ContactScreen(),
+                  () =>  FireServiceInfoScreen(),
                 ),
               ]),
               const SizedBox(height: 16),

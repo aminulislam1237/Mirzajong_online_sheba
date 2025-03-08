@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AnimalDoctorInfoScreen extends StatelessWidget {
-  AnimalDoctorInfoScreen({Key? key}) : super(key: key);
+  AnimalDoctorInfoScreen({super.key});
 
   final List<Map<String, String>> doctors = [
     {
@@ -16,7 +16,7 @@ class AnimalDoctorInfoScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Animal Doctors Information'),
+        title: const Text('পশুর ডাক্তার'),
         backgroundColor: Colors.greenAccent,
       ),
       body: ListView.builder(
@@ -43,12 +43,12 @@ class DoctorCard extends StatelessWidget {
   final String image;
 
   const DoctorCard({
-    Key? key,
+    super.key,
     required this.name,
     required this.specialty,
     required this.address,
     required this.image,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

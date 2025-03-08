@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class PoliceScreen extends StatelessWidget {
   const PoliceScreen({super.key});
@@ -16,7 +17,10 @@ class PoliceScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("পুলিশ স্টেশন"),
+        title: Text(
+          "পুলিশ স্টেশন",
+          style: GoogleFonts.notoSansBengali(),
+        ),
         backgroundColor: Colors.greenAccent,
       ),
       body: SingleChildScrollView(
@@ -37,18 +41,26 @@ class PoliceScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const ListTile(
-                        leading:
-                            Icon(Icons.contact_mail_sharp, color: Colors.green),
-                        title: Text("ভারপ্রাপ্ত কর্মকর্তা "),
+                      ListTile(
+                        leading: const Icon(Icons.contact_mail_sharp, color: Colors.green),
+                        title: Text(
+                          "ভারপ্রাপ্ত কর্মকর্তা",
+                          style: GoogleFonts.notoSansBengali(),
+                        ),
                       ),
-                      const ListTile(
-                        leading: Icon(Icons.phone, color: Colors.green),
-                        title: Text("+৮৮০১৭১৬৫১৫১৮২"),
+                      ListTile(
+                        leading: const Icon(Icons.phone, color: Colors.green),
+                        title: Text(
+                          "+৮৮০১৭১৬৫১৫১৮২",
+                          style: GoogleFonts.notoSansBengali(),
+                        ),
                       ),
-                      const ListTile(
-                        leading: Icon(Icons.location_on, color: Colors.green),
-                        title: Text(" মির্জাগন্ঞ্জ থানা,পটুয়াখালী"),
+                      ListTile(
+                        leading: const Icon(Icons.location_on, color: Colors.green),
+                        title: Text(
+                          "মির্জাগন্ঞ্জ থানা, পটুয়াখালী",
+                          style: GoogleFonts.notoSansBengali(),
+                        ),
                       ),
                       Center(
                         child: ElevatedButton.icon(
@@ -56,7 +68,10 @@ class PoliceScreen extends StatelessWidget {
                             _makePhoneCall("+৮৮০১৭১৬৫১৫১৮২");
                           },
                           icon: const Icon(Icons.phone),
-                          label: const Text("এখনই কল করুন"),
+                          label: Text(
+                            "এখনই কল করুন",
+                            style: GoogleFonts.notoSansBengali(),
+                          ),
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.green,
                             padding: const EdgeInsets.symmetric(
