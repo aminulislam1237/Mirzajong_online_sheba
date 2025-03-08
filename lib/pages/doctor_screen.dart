@@ -5,7 +5,7 @@ class DoctorInfoScreen extends StatelessWidget {
 
   final List<Map<String, String>> doctors = [
     {
-      'name': 'মো: সোহেল ইসলাম',
+      'name': 'শামসুল ইসলাম সোহেল',
       'specialty': 'এমবিবিএস ডাক্তার',
       'address': 'মির্জাগঞ্জ, পটুয়াখালী',
       'image': 'assets/icon/man.png'

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DishScreen extends StatelessWidget {
   const DishScreen({super.key});
@@ -40,9 +41,12 @@ class DishScreen extends StatelessWidget {
                       const SizedBox(height: 10),
                       ListTile(
                         leading: const Icon(Icons.phone, color: Colors.green),
-                        title: Text(
-                          "০১৭১৪-২৩৪২২৫",
-                          style: GoogleFonts.notoSansBengali(),
+                        title: GestureDetector(
+                          onTap: () => _makePhoneCall("tel:01714234225"),
+                          child: Text(
+                            "০১৭১৪-২৩৪২২৫",
+                            style: GoogleFonts.notoSansBengali(),
+                          ),
                         ),
                       ),
                       ListTile(
@@ -58,10 +62,18 @@ class DishScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-            // Phone Button
+            // Additional widgets can go here
           ],
         ),
       ),
     );
+  }
+
+  void _makePhoneCall(String phoneNumber) async {
+    final Uri launchUri = Uri(
+      scheme: 'tel',
+      path: phoneNumber,
+    );
+    await launchUrl(launchUri);
   }
 }

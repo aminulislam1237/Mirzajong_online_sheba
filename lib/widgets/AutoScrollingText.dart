@@ -61,24 +61,44 @@ class _AutoScrollingTextState extends State<AutoScrollingText> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 30,
+      height: 40, // Adjusted height for better visibility
       child: Container(
-        color: widget.backgroundColor,
+        decoration: BoxDecoration(
+          gradient: const LinearGradient(
+            colors: [Colors.greenAccent, Colors.lightGreen],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+          borderRadius: BorderRadius.circular(12.0), // Rounded corners
+          boxShadow: const [
+            BoxShadow(
+              color: Colors.black26,
+              blurRadius: 4.0,
+              offset: Offset(0, 2),
+            ),
+          ],
+        ),
         child: Row(
           children: [
             Container(
-              // Wrap the Text widget with a Container
-              padding: const EdgeInsets.symmetric(
-                  horizontal: 8.0), // Add padding for better appearance
-              decoration: const BoxDecoration(
-                // Add background color
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              decoration: BoxDecoration(
                 color: Colors.red,
+                borderRadius: BorderRadius.circular(8.0), // Rounded corners
               ),
-              child: const Text(
-                "নোটিশ:",
-                style: TextStyle(
-                    fontSize: 20.0,
-                    color: Colors.black54), // Adjust text color if needed
+              child: const Row(
+                children: [
+                  Icon(Icons.notifications, color: Colors.white), // Notification icon
+                  SizedBox(width: 4.0), // Spacing between icon and text
+                  Text(
+                    "নোটিশ:",
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      color: Colors.white, // Adjusted text color
+                      fontWeight: FontWeight.bold, // Bold text
+                    ),
+                  ),
+                ],
               ),
             ),
             Expanded(
@@ -88,7 +108,17 @@ class _AutoScrollingTextState extends State<AutoScrollingText> {
                 children: [
                   Text(
                     List.generate(100, (index) => widget.text).join('             '),
-                    style: TextStyle(fontSize: widget.textSize),
+                    style: TextStyle(
+                      fontSize: widget.textSize,
+                      color: Colors.black54,
+                      shadows: const [
+                        Shadow(
+                          blurRadius: 2.0,
+                          color: Colors.black26,
+                          offset: Offset(1.0, 1.0),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),

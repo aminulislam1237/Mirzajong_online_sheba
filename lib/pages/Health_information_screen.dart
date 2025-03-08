@@ -59,7 +59,7 @@ class HealthInformationScreen extends StatelessWidget {
   }
 
   Widget _buildCard(BuildContext context, _CardData cardData) {
-    double cardHeight = MediaQuery.of(context).size.height * 0.2;
+    double cardHeight = MediaQuery.of(context).size.height * 0.14;
 
     return Padding(
       padding: const EdgeInsets.all(8.0), // Add padding around cards

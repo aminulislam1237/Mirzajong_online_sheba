@@ -1,15 +1,11 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'Add_Info_Screen.dart';
-
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
 
   @override
-  _ProfileScreenState createState() {
-    return _ProfileScreenState();
-  }
+  _ProfileScreenState createState() => _ProfileScreenState();
 }
 
 class _ProfileScreenState extends State<ProfileScreen>
@@ -38,6 +34,7 @@ class _ProfileScreenState extends State<ProfileScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white, // Background color
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(40.0),
@@ -92,7 +89,7 @@ class _ProfileScreenState extends State<ProfileScreen>
                 delay: const Duration(milliseconds: 200),
                 duration: const Duration(milliseconds: 800),
                 child: const Text(
-                  ' ফাউন্ডার & ডেভেলপার',
+                  'ফাউন্ডার & ডেভেলপার',
                   style: TextStyle(fontSize: 18, color: Colors.green),
                 ),
               ),
@@ -103,7 +100,12 @@ class _ProfileScreenState extends State<ProfileScreen>
                 child: const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20),
                   child: Text(
-                    'প্রিয় মির্জাগঞ্জ উপজেলা বাসি আসসালামু আলাইকুম, আমি পটুয়াখালী জেলার মির্জাগঞ্জ উপজেলার ৪ নং দেউলী সুবিদখালী ইউনিয়নের পূর্ব সুবিদখালী গ্রামের সন্তান। আমি ড্যাফোডিল ইন্টারন্যাশনাল ইউনিভার্সিটি তে সফটওয়্যার ইঞ্জিনিয়ারিং বিভাগে অধ্যায়নরত আছি, আমি কিছু সময় ধরে মোবাইল অ্যাপ ডেভেলপিং উপর কাজ করে যাচ্ছি। তারই ধারাবাহিকতায় প্রিয় মির্জাগঞ্জ উপজেলাবাসীর  জীবনযাত্রার মান সহজ ও উন্নতি করার লক্ষ্যে প্রয়োজনীয় সকল তথ্য একসাথে পেতে আমি তৈরি করেছি মির্জাগঞ্জ তথ্য সেবা নামের একটি মোবাইল এপ্লিকেশন। মির্জাগঞ্জ তথ্য সেবা অ্যাপটি স্বাস্থ্য সেবা, নাগরিক সেবা, শিক্ষার প্রসার, ব্যবসা-বাণিজ্যের প্রসার, বেকারত্ব দূরীকরণ ও জীবন মান উন্নয়নে বিভিন্ন সেক্টরে ভূমিকা পালন করবে বলে আমি আশাবাদী। আপনাদের সবার জন্য দোয়া ও শুভকামনা।',
+                      'প্রিয় মির্জাগঞ্জ উপজেলা বাসি আসসালামু আলাইকুম, আমি পটুয়াখালী জেলার মির্জাগঞ্জ উপজেলার ৪ নং দেউলী সুবিদখালী ইউনিয়নের '
+                          'পূর্ব সুবিদখালী গ্রামের সন্তান। আমি ড্যাফোডিল ইন্টারন্যাশনাল ইউনিভার্সিটি তে সফটওয়্যার ইঞ্জিনিয়ারিং বিভাগে অধ্যায়নরত আছি,'
+                          ' আমি কিছু সময় ধরে মোবাইল অ্যাপ ডেভেলপিং উপর কাজ করে যাচ্ছি। তারই ধারাবাহিকতায় প্রিয় মির্জাগঞ্জ উপজেলাবাসীর  জীবনযাত্রার'
+                          ' মান সহজ ও উন্নতি করার লক্ষ্যে প্রয়োজনীয় সকল তথ্য একসাথে পেতে আমি তৈরি করেছি মির্জাগঞ্জ তথ্য সেবা নামের একটি মোবাইল এপ্লিকেশন। '
+                          'মির্জাগঞ্জ তথ্য সেবা অ্যাপটি স্বাস্থ্য সেবা, নাগরিক সেবা, শিক্ষার প্রসার, ব্যবসা-বাণিজ্যের প্রসার, বেকারত্ব দূরীকরণ ও জীবন মান উন্নয়নে বিভিন্ন '
+                          'সেক্টরে ভূমিকা পালন করবে বলে আমি আশাবাদী। আপনাদের সবার জন্য দোয়া ও শুভকামনা।',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 16,
@@ -187,9 +189,7 @@ class _ProfileScreenState extends State<ProfileScreen>
                 ),
               ),
               const SizedBox(height: 8),
-              const Divider(
-                height: 1,
-              ),
+              const Divider(height: 1),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
@@ -222,13 +222,10 @@ class _ProfileScreenState extends State<ProfileScreen>
   void _launchSocialMediaRasel(String platform) async {
     String url = '';
     if (platform == 'Facebook') {
-      // Replace with your Whatsapp url
       url = "https://www.facebook.com/aminul.islam.Rasel34/";
     } else if (platform == 'messenger') {
-      // Replace with your messenger url
       url = "https://m.me/aminul.islam.Rasel34/";
     } else if (platform == 'gmail') {
-      // Replace with your gmail url
       url = "mailto:aminul.islam20025@gmail.com";
     }
     final Uri uri = Uri.parse(url);
@@ -238,10 +235,11 @@ class _ProfileScreenState extends State<ProfileScreen>
       throw 'Could not launch $platform';
     }
   }
+
   void _makePhoneCall(String phoneNumber) async {
     final Uri launchUri = Uri(
       scheme: 'tel',
-      path:'+8801838565702',
+      path: '+8801838565702',
     );
     await launchUrl(launchUri);
   }
@@ -249,13 +247,10 @@ class _ProfileScreenState extends State<ProfileScreen>
   void _launchSocialMediaRumi(String platform) async {
     String url = '';
     if (platform == 'Facebook') {
-      // Replace with your Whatsapp url
       url = "https://www.facebook.com/khalidhasanrumi.bd";
     } else if (platform == 'messenger') {
-      // Replace with your messenger url
       url = "https://m.me/khalidhasanrumi.bd";
     } else if (platform == 'gmail') {
-      // Replace with your gmail url
       url = "mailto:aminul.islam20025@gmail.com";
     } else if (platform == 'call') {
       url = "tel:+8801607316569";
@@ -266,5 +261,59 @@ class _ProfileScreenState extends State<ProfileScreen>
     } else {
       throw 'Could not launch $platform';
     }
+  }
+}
+
+class SocialMediaButton extends StatelessWidget {
+  final String? imagePath;
+  final IconData? iconData;
+  final Color? color;
+  final VoidCallback onPressed;
+
+  const SocialMediaButton({
+    super.key,
+    this.imagePath,
+    this.iconData,
+    this.color = Colors.transparent,
+    required this.onPressed,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: InkWell(
+        onTap: onPressed,
+        borderRadius: BorderRadius.circular(30),
+        child: Container(
+          width: 60, // Adjusted size
+          height: 60, // Adjusted size
+          decoration: BoxDecoration(
+            color: Colors.teal.withOpacity(0.1), // Light background for buttons
+            borderRadius: BorderRadius.circular(30), // Circular buttons
+            boxShadow: const [
+              BoxShadow(
+                color: Colors.black26,
+                blurRadius: 4,
+                offset: Offset(2, 2), // Shadow position
+              ),
+            ],
+          ),
+          child: Center(
+            child: imagePath != null
+                ? Image.asset(
+              imagePath!,
+              width: 35, // Adjusted size
+              height: 35, // Adjusted size
+            )
+                : Icon(
+              iconData,
+              size: 29,
+              color: Colors.green,
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }

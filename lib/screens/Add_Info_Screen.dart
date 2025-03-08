@@ -17,16 +17,20 @@ class _DataEntryScreenState extends State<DataEntryScreen> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(16.0),
               child: GifView.asset(
                 'assets/icons8-gmail-logo.gif',
-                height: 200,
-                width: 200,
+                height: 150, // Adjusted height
+                width: 150, // Adjusted width
                 frameRate: 30,
               ),
             ),
             const Card(
-              margin: EdgeInsets.all(8.0),
+              margin: EdgeInsets.all(16.0),
+              elevation: 4, // Added elevation for depth
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(12)), // Rounded corners
+              ),
               child: Padding(
                 padding: EdgeInsets.all(16.0),
                 child: Text(
@@ -40,19 +44,18 @@ class _DataEntryScreenState extends State<DataEntryScreen> {
               padding: EdgeInsets.all(16.0),
               child: Text(
                 "আপনার তথ্য জমা দিন",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.teal), // Enhanced text style
               ),
             ),
             const Divider(
-              // Added Divider here
               color: Colors.black,
               thickness: 1.0,
               indent: 20,
               endIndent: 20,
             ),
             Wrap(
-              // Use Wrap instead of Row
-              alignment: WrapAlignment.center, // Align items to the center
+              alignment: WrapAlignment.center,
+              spacing: 16, // Added spacing between buttons
               children: [
                 SocialMediaButton(
                   imagePath: 'assets/icon/facebook.png',
@@ -72,6 +75,7 @@ class _DataEntryScreenState extends State<DataEntryScreen> {
                 ),
               ],
             ),
+            const SizedBox(height: 20), // Added spacing at the bottom
           ],
         ),
       ),
@@ -81,13 +85,10 @@ class _DataEntryScreenState extends State<DataEntryScreen> {
   void _launchSocialMedia(String platform) async {
     String url = '';
     if (platform == 'Facebook') {
-      // Replace with your Whatsapp url
       url = "https://www.facebook.com/share/1EPg4sj4Fe/";
     } else if (platform == 'messenger') {
-      // Replace with your messenger url
       url = "https://m.me/608531172336824";
     } else if (platform == 'gmail') {
-      // Replace with your gmail url
       url = "mailto:aminul.islam20025@gmail.com";
     }
     final Uri uri = Uri.parse(url);
@@ -97,10 +98,11 @@ class _DataEntryScreenState extends State<DataEntryScreen> {
       throw 'Could not launch $platform';
     }
   }
+
   void _makePhoneCall(String phoneNumber) async {
     final Uri launchUri = Uri(
       scheme: 'tel',
-      path:'+8801838565702',
+      path: '+8801838565702',
     );
     await launchUrl(launchUri);
   }
@@ -128,24 +130,31 @@ class SocialMediaButton extends StatelessWidget {
         onTap: onPressed,
         borderRadius: BorderRadius.circular(30),
         child: Container(
-          width: 60, // Adjust the size as needed
-          height: 60, // Adjust the size as needed
+          width: 70, // Adjusted size
+          height: 70, // Adjusted size
           decoration: BoxDecoration(
-            color: color,
-            borderRadius: BorderRadius.circular(30),
+            color: Colors.teal.withOpacity(0.1), // Light background for buttons
+            borderRadius: BorderRadius.circular(35), // Circular buttons
+            boxShadow: const [
+               BoxShadow(
+                color: Colors.black26,
+                blurRadius: 4,
+                offset: Offset(2, 2), // Shadow position
+              ),
+            ],
           ),
           child: Center(
             child: imagePath != null
                 ? Image.asset(
-                    imagePath!,
-                    width: 35, // Adjust the size as needed
-                    height: 40, // Adjust the size as needed
-                  )
+              imagePath!,
+              width: 40, // Adjusted size
+              height: 40, // Adjusted size
+            )
                 : Icon(
-                    iconData,
-                    size: 29, // Adjust the size as needed
-                    color: Colors.green,
-                  ),
+              iconData,
+              size: 29,
+              color: Colors.green,
+            ),
           ),
         ),
       ),

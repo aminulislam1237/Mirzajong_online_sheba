@@ -16,22 +16,22 @@ class LabeledContainer extends StatelessWidget {
     super.key,
     required this.icon,
     required this.text,
-    this.width = 105, // Slightly increased width
-    this.height = 105, // Slightly increased height
-    this.backgroundColor = Colors.blueGrey, // Default is now white
+    this.width = 80, // Decreased width
+    this.height = 80, // Decreased height
+    this.backgroundColor = Colors.greenAccent, // Default background color
     this.borderRadius =
-        const BorderRadius.all(Radius.circular(25)), // More rounded corners
+    const BorderRadius.all(Radius.circular(15)), // Slightly less rounded corners
     this.textStyle = const TextStyle(
       color: Colors.black54, // More visible text
       fontWeight: FontWeight.w500, // Slightly less bold
     ),
-    this.padding = const EdgeInsets.all(8.0), // Increased padding
+    this.padding = const EdgeInsets.all(4.0), // Decreased padding
     this.gradient,
     this.boxShadow = const BoxShadow(
       // Default boxShadow
       color: Colors.black26,
-      blurRadius: 8,
-      offset: Offset(0, 4),
+      blurRadius: 6, // Reduced blur radius
+      offset: Offset(0, 2), // Reduced offset
     ),
   });
 
@@ -44,23 +44,25 @@ class LabeledContainer extends StatelessWidget {
         width: width,
         height: height,
         decoration: BoxDecoration(
-            borderRadius: borderRadius,
-            gradient: gradient,
-            color: Colors.greenAccent),
+          borderRadius: borderRadius,
+          gradient: gradient,
+          color: backgroundColor, // Use the backgroundColor property
+        ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(
               icon,
-              size: 36, // Increased icon size
+              size: 24, // Decreased icon size
               color: Colors.black54,
             ),
-            const SizedBox(height: 8),
+            const SizedBox(height: 4), // Decreased space
             Text(
               text,
               style: textStyle,
               textAlign: TextAlign.center,
+              overflow: TextOverflow.ellipsis, // Prevent overflow
             ),
           ],
         ),

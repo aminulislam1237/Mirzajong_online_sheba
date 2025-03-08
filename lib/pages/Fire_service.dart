@@ -6,9 +6,9 @@ class FireServiceInfoScreen extends StatelessWidget {
 
   final List<Map<String, String>> fireServices = [
     {
-      'name': 'মোঃ সুমন',
-      'address': 'ফায়ার সার্ভিস স্টেশন,মির্জাগঞ্জ, পটুয়াখালী',
-      'phoneNumber': '01234567890',
+      'name': 'ফায়ার সার্ভিস স্টেশন, মির্জাগঞ্জ উপজেলা।',
+      'address': 'হটলাইন',
+      'phoneNumber': '০১৯০১০২৪০০৭',
       'image': 'assets/icon/man.png'
     },
   ];
@@ -77,7 +77,7 @@ class FireServiceCard extends StatelessWidget {
               Text(address, style: const TextStyle(color: Colors.grey)),
               const SizedBox(height: 8),
               TextButton(
-                onPressed: () => _launchCaller(phoneNumber),
+                onPressed: () => _makePhoneCall(phoneNumber),
                 child: Text(phoneNumber,
                     style: const TextStyle(color: Colors.blue)),
               ),
@@ -89,20 +89,11 @@ class FireServiceCard extends StatelessWidget {
     );
   }
 
-  Future<void> _launchCaller(String phoneNumber) async {
+  void _makePhoneCall(String phoneNumber) async {
     final Uri launchUri = Uri(
       scheme: 'tel',
       path: phoneNumber,
     );
-    try {
-      if (await canLaunchUrl(launchUri)) {
-        await launchUrl(launchUri);
-      } else {
-
-        // Optionally, show an error message to the user.
-      }
-    } catch (e) {
-      // Optionally, show an error message to the user.
-    }
+    await launchUrl(launchUri);
   }
 }

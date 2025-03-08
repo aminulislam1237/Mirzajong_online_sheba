@@ -81,9 +81,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
               UserAccountsDrawerHeader(
                 decoration: const BoxDecoration(
                   color: Colors.greenAccent,
-                  borderRadius: BorderRadius.only(
-                    bottomRight: Radius.circular(100.0),
-                  ),
+
                 ),
                 accountName: Text(
                   nameController.text.isNotEmpty

@@ -58,7 +58,7 @@ class PoliceScreen extends StatelessWidget {
                       ListTile(
                         leading: const Icon(Icons.location_on, color: Colors.green),
                         title: Text(
-                          "মির্জাগন্ঞ্জ থানা",
+                          "মির্জাগঞ্জ থানা",
                           style: GoogleFonts.notoSansBengali(),
                         ),
                       ),

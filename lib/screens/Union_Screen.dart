@@ -42,7 +42,7 @@ class UnionScreen extends StatelessWidget {
     ),
     Union(
       name: '৪।   দেউলী সুবিদখালী',
-      description: 'মএক নজরে দেউলী সুবিদখালীজ ইউনিয়ন',
+      description: 'এক নজরে দেউলী সুবিদখালী ইউনিয়ন',
       area: 'আয়তন- ৩৫ বর্গ কিলোমিটার।',
       population: 'লোক সংখ্যা-মোট-৫০৫৫০',
       literacyRate: 'শিক্ষার হার-৭০%',
@@ -53,7 +53,7 @@ class UnionScreen extends StatelessWidget {
     ),
     Union(
       name: '৫।   কাকড়াবুনিয়া',
-      description: 'মিএক নজরে কাকড়াবুনিয়া ইউনিয়ন',
+      description: 'এক নজরে কাকড়াবুনিয়া ইউনিয়ন',
       area: 'আয়তন- ৩৪ বর্গ কিলোমিটার',
       population: 'লোক সংখ্যা-মোট-১৮১০৬ ',
       literacyRate: 'শিক্ষার হার-৭০%',
@@ -64,7 +64,7 @@ class UnionScreen extends StatelessWidget {
     ),
     Union(
       name: '৬।  মজিদবাড়ীয়া',
-      description: 'মির্জাগঞ্জ সম্পর্কে তথ্য...',
+      description: 'এক নজরে মজিদবাড়ীয়া ইউনিয়ন',
       area: 'আয়তন- ৩১ বর্গ কিলোমিটার',
       population: 'লোক সংখ্যা-মোট-১২১০০',
       literacyRate: 'শিক্ষার হার-৭০%',

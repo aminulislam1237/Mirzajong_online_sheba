@@ -11,7 +11,7 @@ class AnimalDoctorInfoScreen extends StatelessWidget {
     },
     {
       'name': 'ডক্টরস ডেন্টাল সার্জারী',
-      'address': 'সুবিদখালী বাজার ',
+      'address': 'নান্নু শপিং কমপ্লেক্স, সুবিদখালী',
       'image': 'assets/icon/man.png'
     },
     {

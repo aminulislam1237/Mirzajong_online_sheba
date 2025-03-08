@@ -3,7 +3,6 @@ import 'package:gif_view/gif_view.dart';
 import 'package:musf_app1/Icon%20Page/police_screen.dart';
 import 'package:musf_app1/Icon%20Page/wifiLine_screen.dart';
 import 'package:musf_app1/pages/Health_information_screen.dart';
-
 import '../pages/Fire_service.dart';
 import '../pages/ambulence_service.dart';
 
@@ -21,15 +20,15 @@ class Emergencyscreen extends StatelessWidget {
             children: [
               GifView.asset(
                 'assets/icons8-commercial.gif',
-                height: 100,
-                width: 200,
+                height: 80, // Reduced height
+                width: 160, // Reduced width
                 frameRate: 30,
               ),
               const SizedBox(height: 20),
               const Text(
                 'জাতীয় জরুরি সেবা নাম্বার ৯৯৯',
                 style: TextStyle(
-                  fontSize: 22,
+                  fontSize: 20, // Reduced font size
                   fontWeight: FontWeight.bold,
                   color: Colors.red,
                 ),
@@ -40,12 +39,14 @@ class Emergencyscreen extends StatelessWidget {
                 _buildCardData(
                   "assets/icon/police.png",
                   'পুলিশ স্টেশন',
-                  () => const PoliceScreen(),
+                      () => const PoliceScreen(),
+                  Colors.blueAccent,
                 ),
                 _buildCardData(
                   "assets/icon/fire.png",
                   'ফায়ার সার্ভিস',
-                  () =>  FireServiceInfoScreen(),
+                      () => FireServiceInfoScreen(),
+                  Colors.orangeAccent,
                 ),
               ]),
               const SizedBox(height: 16),
@@ -53,26 +54,26 @@ class Emergencyscreen extends StatelessWidget {
                 _buildCardData(
                   "assets/icon/ambulence.png",
                   'অ্যাম্বুলেন্স সার্ভিস',
-                  () => const AmbulenceServiceScreen(),
+                      () => const AmbulenceServiceScreen(),
+                  Colors.greenAccent,
                 ),
                 _buildCardData(
                   "assets/icon/wifi.png",
                   'ওয়াইফাই সার্ভিস',
-                  () => const WifiLineScreen(),
+                      () => const WifiLineScreen(),
+                  Colors.purpleAccent,
                 ),
-                // Add an empty card to maintain alignment if needed
               ]),
               const SizedBox(height: 16),
               _buildRow(context, [
                 _buildCardData(
                   "assets/icon/hospital.png",
                   'স্বাস্থ্যসেবা',
-                  () => const HealthInformationScreen(),
+                      () => const HealthInformationScreen(),
+                  Colors.redAccent,
                 ),
-                // Add an empty card to maintain alignment if needed
               ]),
               const SizedBox(height: 80),
-              // Add more content or widgets here as needed
             ],
           ),
         ),
@@ -89,7 +90,7 @@ class Emergencyscreen extends StatelessWidget {
   }
 
   Widget _buildCard(BuildContext context, _CardData cardData) {
-    double cardHeight = MediaQuery.of(context).size.height * 0.2;
+    double cardHeight = MediaQuery.of(context).size.height * 0.15; // Reduced height
 
     return Padding(
       padding: const EdgeInsets.all(8.0),
@@ -103,25 +104,33 @@ class Emergencyscreen extends StatelessWidget {
             );
           },
           child: Card(
-            elevation: 4.0,
+            elevation: 6.0, // Adjusted elevation
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(16.0),
+              borderRadius: BorderRadius.circular(12.0), // Slightly smaller radius
             ),
+            color: cardData.color,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Image.asset(
-                    cardData.imagePath,
-                    fit: BoxFit.contain,
-                    height: cardHeight * 0.4,
+                  padding: const EdgeInsets.all(4.0), // Reduced padding
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(8.0), // Smaller radius
+                    child: Image.asset(
+                      cardData.imagePath,
+                      fit: BoxFit.contain,
+                      height: cardHeight * 0.4, // Adjusted image height
+                    ),
                   ),
                 ),
                 Text(
                   cardData.title,
                   textAlign: TextAlign.center,
-                  style: const TextStyle(fontWeight: FontWeight.w500),
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 16, // Reduced font size
+                    color: Colors.white,
+                  ),
                 ),
               ],
             ),
@@ -132,8 +141,8 @@ class Emergencyscreen extends StatelessWidget {
   }
 
   _CardData _buildCardData(
-      String imagePath, String title, Widget Function() pageBuilder) {
-    return _CardData(imagePath, title, pageBuilder);
+      String imagePath, String title, Widget Function() pageBuilder, Color color) {
+    return _CardData(imagePath, title, pageBuilder, color);
   }
 }
 
@@ -141,6 +150,7 @@ class _CardData {
   final String imagePath;
   final String title;
   final Widget Function() pageBuilder;
+  final Color color;
 
-  _CardData(this.imagePath, this.title, this.pageBuilder);
+  _CardData(this.imagePath, this.title, this.pageBuilder, this.color);
 }

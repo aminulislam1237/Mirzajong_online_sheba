@@ -62,7 +62,7 @@ class _HomeScreenState extends State<HomeScreenState> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text("নোটিস:"),
+          title: const Text("বিজ্ঞপ্তি:"),
           content: SizedBox(
             width: double.maxFinite,
             height: 200, // Adjust height as needed
@@ -80,7 +80,7 @@ class _HomeScreenState extends State<HomeScreenState> {
                 }
 
                 if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
-                  return const Center(child: Text("কোনো নোটিস নেই।"));
+                  return const Center(child: Text("বিজ্ঞপ্তি নোটিস নেই।"));
                 }
 
                 return ListView.builder(
@@ -106,7 +106,7 @@ class _HomeScreenState extends State<HomeScreenState> {
                             .doc(doc.id);
                         ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
-                                content: Text('নোটিস বাতিল করা হয়েছে')));
+                                content: Text('বিজ্ঞপ্তি বাতিল করা হয়েছে')));
                       },
                       child: ListTile(
                         title: Text(noticeText),
@@ -123,7 +123,7 @@ class _HomeScreenState extends State<HomeScreenState> {
                             ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
                                     content:
-                                    Text('নোটিস সম্পন্ন হিসাবে চিহ্নিত করা হয়েছে')));
+                                    Text('বিজ্ঞপ্তি সম্পন্ন হিসাবে চিহ্নিত করা হয়েছে')));
                           },
                         ),
                       ),

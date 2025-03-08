@@ -353,10 +353,9 @@ class GridCardWidget extends StatelessWidget {
     );
   }
 
-  Widget _buildCard(
-      BuildContext context, String imagePath, String title, Function onTap) {
-    double cardHeight =
-        MediaQuery.of(context).size.height * 0.2; // Adjusted with MediaQuery
+  Widget _buildCard(BuildContext context, String imagePath, String title, Function onTap) {
+    // Decrease the height to make the card smaller
+    double cardHeight = MediaQuery.of(context).size.height * 0.13; // Adjusted height
 
     return Flexible(
       child: SizedBox(
@@ -366,20 +365,30 @@ class GridCardWidget extends StatelessWidget {
           child: Card(
             elevation: 4.0,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(16.0),
+              borderRadius: BorderRadius.circular(12.0), // Slightly smaller radius
             ),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min, // Use min to avoid excess space
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.all(5.0), // Reduced padding
                   child: Image.asset(
                     imagePath,
                     fit: BoxFit.contain,
-                    height: cardHeight * 0.5, // Responsive image size
+                    height: cardHeight * 0.4, // Responsive image size
                   ),
                 ),
-                Center(child: Text(title)),
+                Center(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 16.0), // Further reduced vertical padding
+                    child: Text(
+                      title,
+                      style: const TextStyle(fontSize: 14), // Smaller font size
+                      textAlign: TextAlign.center, // Center align text
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
@@ -387,4 +396,5 @@ class GridCardWidget extends StatelessWidget {
       ),
     );
   }
+
 }

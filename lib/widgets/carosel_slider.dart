@@ -29,9 +29,9 @@ class CarouselSliderWidget extends StatelessWidget {
         enlargeCenterPage: true,
         autoPlayCurve: Curves.easeInOut, // Smooth animation
         autoPlayAnimationDuration:
-            const Duration(milliseconds: 800), // Adjust duration
-        pauseAutoPlayOnTouch: true, // Pause on hover
-        viewportFraction: 0.8, // Adjust viewport fraction
+        const Duration(milliseconds: 800), // Adjust duration
+        pauseAutoPlayOnTouch: true, // Pause on touch
+        viewportFraction: 0.85, // Adjust viewport fraction
         aspectRatio: 16 / 9, // Maintain aspect ratio
         enableInfiniteScroll: true, // Enable infinite scroll
         initialPage: 0, // Start from the first image
@@ -44,26 +44,23 @@ class CarouselSliderWidget extends StatelessWidget {
   Widget _buildCarouselItem(
       String imagePath, String title, String description) {
     return Builder(
-      // Use Builder to get context within the item
       builder: (BuildContext context) {
         return Container(
           margin: const EdgeInsets.symmetric(horizontal: 5.0),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10), // Rounded corners
+            borderRadius: BorderRadius.circular(15), // Rounded corners
             boxShadow: const [
-              // Add shadow
               BoxShadow(
                 color: Colors.black26,
-                blurRadius: 6.0,
-                offset: Offset(0, 3),
+                blurRadius: 8.0,
+                offset: Offset(0, 4),
               ),
             ],
           ),
           child: Stack(
             children: [
               ClipRRect(
-                // Clip image to rounded corners
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(15), // Clip image
                 child: Image.asset(
                   imagePath,
                   fit: BoxFit.cover,
@@ -71,19 +68,18 @@ class CarouselSliderWidget extends StatelessWidget {
                 ),
               ),
               Positioned(
-                // Caption overlay
                 bottom: 0,
                 left: 0,
                 right: 0,
                 child: Container(
                   padding:
-                      const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                  const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
                   decoration: BoxDecoration(
                     borderRadius: const BorderRadius.only(
-                        bottomLeft: Radius.circular(10),
-                        bottomRight: Radius.circular(10)),
-                    color:
-                        Colors.black.withOpacity(0.5), // Semi-transparent black
+                      bottomLeft: Radius.circular(15),
+                      bottomRight: Radius.circular(15),
+                    ),
+                    color: Colors.black.withOpacity(0.6), // Semi-transparent
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -92,10 +88,20 @@ class CarouselSliderWidget extends StatelessWidget {
                         title,
                         style: const TextStyle(
                           color: Colors.white,
-                          fontSize: 18,
+                          fontSize: 20, // Increased font size
                           fontWeight: FontWeight.bold,
                         ),
                       ),
+                      if (description.isNotEmpty) ...[
+                        const SizedBox(height: 5),
+                        Text(
+                          description,
+                          style: const TextStyle(
+                            color: Colors.white70,
+                            fontSize: 14, // Description font size
+                          ),
+                        ),
+                      ],
                     ],
                   ),
                 ),

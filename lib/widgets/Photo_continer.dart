@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 class PhotoWithCaption extends StatelessWidget {
   final String imagePath;
   final String caption;
+  final String address;
 
   const PhotoWithCaption({
     super.key,
     required this.imagePath,
     required this.caption,
+    required this.address,
   });
 
   @override
@@ -34,6 +36,12 @@ class PhotoWithCaption extends StatelessWidget {
           style: const TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.bold,
+            color: Colors.black87,
+          ),
+        ),
+        Text(' ঠিকানা: $address',
+          style: const TextStyle(
+            fontSize: 16,
             color: Colors.black87,
           ),
         ),

@@ -296,7 +296,7 @@ class BankScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "সমিতি:  মির্জাগন্ঞ্জ বহুমুখী সমবায় সমিতি",
+                        "সমিতি:  মির্জাগঞ্জ বহুমুখী সমবায় সমিতি",
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
@@ -305,7 +305,7 @@ class BankScreen extends StatelessWidget {
                       SizedBox(height: 10),
                       ListTile(
                         leading: Icon(Icons.location_on, color: Colors.green),
-                        title: Text("ঠিকানা: কপালভেড়া, মির্জাগন্ঞ্জ"),
+                        title: Text("ঠিকানা: কপালভেড়া, মির্জাগঞ্জ"),
                       ),
                     ],
                   ),
