@@ -20,7 +20,7 @@ class CommitteeMUSFScreen extends StatelessWidget {
       imageUrl: "URL_TO_PRESIDENT_IMAGE", // Replace with actual URL
     ),
     CommitteeMember(
-      name: "Md. soikot",
+      name: "মাজিদুর রহমান সৈকত",
       position: "সাধারণ সম্পাদক",
       imageUrl: "URL_TO_SECRETARY_IMAGE", // Replace with actual URL
     ),
@@ -36,7 +36,8 @@ class CommitteeMUSFScreen extends StatelessWidget {
         title: const Text("মির্জাগন্ঞ্জ উপজেলা স্টুডেন্টস’ ফোরাম, ঢাকা"),
         backgroundColor: Colors.greenAccent,
       ),
-      body: Column( // Changed from ListView to Column
+      body: Column(
+        // Changed from ListView to Column
         children: [
           const Padding(
             padding: EdgeInsets.all(16.0),
@@ -46,7 +47,8 @@ class CommitteeMUSFScreen extends StatelessWidget {
               textAlign: TextAlign.justify,
             ),
           ),
-          Expanded( // Added Expanded to make the ListView.builder scrollable
+          Expanded(
+            // Added Expanded to make the ListView.builder scrollable
             child: ListView.builder(
               itemCount: committeeMembers.length,
               itemBuilder: (context, index) {

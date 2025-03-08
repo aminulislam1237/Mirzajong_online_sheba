@@ -11,49 +11,48 @@ class AmbulenceServiceScreen extends StatelessWidget {
         title: const Text("এম্বুলেন্স সার্ভিস"),
         backgroundColor: Colors.greenAccent,
       ),
-      body:
-      const SingleChildScrollView(
+      body: const SingleChildScrollView(
         child: Column(
           children: [
             SizedBox(height: 20),
             ContactCard(
-              name: "মির্জাগন্ঞ্জ উপজেলা স্বাস্থ্য কমপ্লেক্স  এম্বুলেন্স -মামুন ভাই",
+              name:
+                  "মির্জাগন্ঞ্জ উপজেলা স্বাস্থ্য কমপ্লেক্স  এম্বুলেন্স -মামুন ভাই",
               phoneNumber: "+8801716909131",
-              address: "সুবিদখালি,মির্জাগঞ্জ,পটুয়াখালি ",
+              address: "সুবিদখালি,মির্জাগঞ্জ ",
             ),
             SizedBox(height: 20),
             ContactCard(
               name: "ছগির এম্বুলেন্স সার্ভিস",
               phoneNumber: "01924258769",
-              address: "সুবিদখালি,মির্জাগঞ্জ,পটুয়াখালি ",
+              address: "সুবিদখালি,মির্জাগঞ্জ ",
             ),
             SizedBox(height: 20),
             ContactCard(
               name: "সোহেল এম্বুলেন্স সার্ভিস",
               phoneNumber: "01777271779",
-              address: "সুবিদখালি,মির্জাগঞ্জ,পটুয়াখালি ",
+              address: "সুবিদখালি,মির্জাগঞ্জ ",
             ),
             SizedBox(height: 20),
             ContactCard(
               name: "প্রবাসী এম্বুলেন্স সার্ভিস",
               phoneNumber: "01755771512",
-              address: "সুবিদখালি,মির্জাগঞ্জ,পটুয়াখালি ",
+              address: "সুবিদখালি,মির্জাগঞ্জ ",
             ),
             SizedBox(height: 20),
             ContactCard(
-              name: "মির্জাগন্ঞ্জ উপজেলা স্বাস্থ্য কমপ্লেক্স এম্বুলেন্স-মিজান ভাই",
+              name:
+                  "মির্জাগন্ঞ্জ উপজেলা স্বাস্থ্য কমপ্লেক্স এম্বুলেন্স-মিজান ভাই",
               phoneNumber: "01712104989",
-              address: "সুবিদখালি,মির্জাগঞ্জ,পটুয়াখালি ",
+              address: "সুবিদখালি,মির্জাগঞ্জ",
             ),
             SizedBox(height: 20),
             ContactCard(
               name: " রনি এম্বুলেন্স সার্ভিস",
               phoneNumber: "+8801932942014",
-              address: "সুবিদখালি,মির্জাগঞ্জ,পটুয়াখালি ",
+              address: "সুবিদখালি,মির্জাগঞ্জ ",
             ),
             SizedBox(height: 20),
-
-
           ],
         ),
       ),
@@ -97,7 +96,8 @@ class ContactCard extends StatelessWidget {
             children: [
               const SizedBox(height: 10),
               ListTile(
-                leading: const Icon(Icons.directions_car_filled, color: Colors.green),
+                leading: const Icon(Icons.directions_car_filled,
+                    color: Colors.green),
                 title: Text(name),
               ),
               ListTile(
@@ -117,7 +117,8 @@ class ContactCard extends StatelessWidget {
                   label: const Text("এখনই কল করুন"),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.green,
-                    padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 12, horizontal: 20),
                     textStyle: const TextStyle(fontSize: 18),
                   ),
                 ),

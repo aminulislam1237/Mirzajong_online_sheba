@@ -34,14 +34,12 @@ class Informationscreen extends StatelessWidget {
             _buildInfoRow('গ্রাম', '৭১ টি'),
             _buildInfoRow('মৌজা', '৬৮টি'),
             _buildInfoRow('ইউনিয়ন', '০৬ টি'),
-
             _buildSectionTitle('ভৌগলিক পরিচিতিঃ '),
             _buildInfoRow('অবস্থান',
                 'মির্জাগঞ্জ উপজেলার শ্রীমমত্ম ও পায়রা নদীর তীরে ২২-৩র্ হতে ২২-২৯র্ উত্তর অক্ষাংশ এবং ৯০-০৮র্ হতে ৯০-১৯র্ পুর্ব দ্রাঘিমাংশে অবস্থিত।'),
             _buildInfoRow('সীমানা',
                 'উত্তরে - বরিশাল জেলার বাকেরগঞ্জ উপজেলা, দক্ষিনে বরগুনা সদর জেলা, পশ্চিমে - বরগুনা জেলার বেতাগী উপজেলা, পূর্বে পায়রা নদীর পূর্ব তীরে পটুয়াখালী সদর ও বরগুনা জেলার আমতলী উপজেলা।'),
             _buildInfoRow('ইউনিয়ন সংখ্যা', '৬টি'),
-
             _buildSectionTitle('অন্যান্য তথ্য'),
             _buildInfoRow('মসজিদ', '৪৭০টি'),
             _buildInfoRow('মন্দির', '০৮টি'),
@@ -93,14 +91,17 @@ class Informationscreen extends StatelessWidget {
               flex: 1,
               child: Text(
                 '$label:',
-                style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                style:
+                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
               ),
             ),
             Expanded(
               flex: 2,
               child: Wrap(
                 children: [
-                  Text(value, style: const TextStyle(fontSize: 16)), // Style the value text
+                  Text(value,
+                      style: const TextStyle(
+                          fontSize: 16)), // Style the value text
                 ],
               ),
             ),

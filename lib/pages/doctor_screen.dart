@@ -1,32 +1,37 @@
 import 'package:flutter/material.dart';
 
 class DoctorInfoScreen extends StatelessWidget {
-   DoctorInfoScreen({Key? key}) : super(key: key);
+  DoctorInfoScreen({Key? key}) : super(key: key);
 
   final List<Map<String, String>> doctors = [
     {
-      'name': 'Dr. John Doe',
-      'specialty': 'Cardiologist',
-      'address': '123 Main St, New York, NY',
+      'name': 'মো: সোহেল ইসলাম',
+      'specialty': 'এমবিবিএস ডাক্তার',
+      'address': 'মির্জাগন্ঞ্জ, পটুয়াখালী',
       'image': 'assets/icon/man.png'
     },
     {
-      'name': 'Dr. Jane Smith',
-      'specialty': 'Dermatologist',
-      'address': '456 Park Ave, New York, NY',
+      'name': 'উমর ফারুক জাবির',
+      'specialty': 'এমবিবিএস ডাক্তার',
+      'address': 'মির্জাগন্ঞ্জ, পটুয়াখালী',
+      'image': 'assets/icon/man.png'
+    },
+    {
+      'name': 'অংকন আক্তার',
+      'specialty': 'এমবিবিএস ডাক্তার',
+      'address': 'মির্জাগন্ঞ্জ, পটুয়াখালী',
       'image': 'assets/icon/woman.png'
     },
     {
-      'name': 'Dr. Alan Brown',
-      'specialty': 'Pediatrician',
-      'address': '789 Broadway, New York, NY',
+      'name': 'মো: হাসান জামান',
+      'specialty': 'এমবিবিএস ডাক্তার',
+      'address': 'মির্জাগন্ঞ্জ, পটুয়াখালী',
       'image': 'assets/icon/man.png'
     },
-
     {
-      'name': 'Dr. Alan Brown',
-      'specialty': 'Pediatrician',
-      'address': '789 Broadway, New York, NY',
+      'name': 'মাসুদুর রহমান',
+      'specialty': 'এমবিবিএস ডাক্তার',
+      'address': 'মির্জাগন্ঞ্জ, পটুয়াখালী',
       'image': 'assets/icon/man.png'
     },
   ];
@@ -35,7 +40,7 @@ class DoctorInfoScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Doctors Information'),
+        title: const Text('ডাক্তারদের তথ্য'), // Changed title to Bengali
         backgroundColor: Colors.greenAccent,
       ),
       body: ListView.builder(
@@ -73,7 +78,8 @@ class DoctorCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Card(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
+        shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
         elevation: 5,
         margin: const EdgeInsets.symmetric(vertical: 8.0),
         child: Padding(
@@ -88,12 +94,20 @@ class DoctorCard extends StatelessWidget {
               const SizedBox(height: 16),
               Text(
                 name,
-                style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                style:
+                    const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                textAlign: TextAlign.center, // Added text alignment
               ),
               const SizedBox(height: 8),
-              Text(specialty, style: const TextStyle(fontSize: 18, color: Colors.grey)),
+              Text(specialty,
+                  style: const TextStyle(fontSize: 18, color: Colors.grey),
+                  textAlign: TextAlign.center // Added text alignment
+                  ),
               const SizedBox(height: 8),
-              Text(address, style: const TextStyle(color: Colors.grey)),
+              Text(address,
+                  style: const TextStyle(color: Colors.grey),
+                  textAlign: TextAlign.center // Added text alignment
+                  ),
               const SizedBox(height: 16),
             ],
           ),

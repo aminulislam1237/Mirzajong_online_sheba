@@ -5,12 +5,11 @@ class AnimalDoctorInfoScreen extends StatelessWidget {
 
   final List<Map<String, String>> doctors = [
     {
-      'name': 'Dr. John Doe',
-      'specialty': 'Cardiologist',
-      'address': '123 Main St, New York, NY',
+      'name': 'Not avaliable',
+      'specialty': 'Not avaliable',
+      'address': 'মির্জাগন্ঞ্জ, পটুয়াখালী',
       'image': 'assets/icon/man.png'
     },
-
   ];
 
   @override
@@ -55,7 +54,8 @@ class DoctorCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Card(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
+        shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
         elevation: 5,
         margin: const EdgeInsets.symmetric(vertical: 8.0),
         child: Padding(
@@ -70,10 +70,12 @@ class DoctorCard extends StatelessWidget {
               const SizedBox(height: 16),
               Text(
                 name,
-                style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                style:
+                    const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8),
-              Text(specialty, style: const TextStyle(fontSize: 18, color: Colors.grey)),
+              Text(specialty,
+                  style: const TextStyle(fontSize: 18, color: Colors.grey)),
               const SizedBox(height: 8),
               Text(address, style: const TextStyle(color: Colors.grey)),
               const SizedBox(height: 16),

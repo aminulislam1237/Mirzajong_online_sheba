@@ -22,7 +22,9 @@ class DiagnosticScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('ডায়াগনস্টিক তথ্য',),
+        title: const Text(
+          'ডায়াগনস্টিক তথ্য',
+        ),
         backgroundColor: Colors.greenAccent,
         elevation: 5,
         shadowColor: Colors.black45,

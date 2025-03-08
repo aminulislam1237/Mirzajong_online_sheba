@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class DishScreen extends StatelessWidget {
   const DishScreen({super.key});
-
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +29,6 @@ class DishScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-
                       Text(
                         "সিয়াম ক্যাবল নেটওয়ার্ক",
                         style: TextStyle(

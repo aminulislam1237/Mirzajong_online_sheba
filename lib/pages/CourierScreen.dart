@@ -3,7 +3,6 @@ import 'package:url_launcher/url_launcher.dart';
 
 class CourierScreen extends StatelessWidget {
   const CourierScreen({super.key});
-  
 
   @override
   Widget build(BuildContext context) {
@@ -18,20 +17,8 @@ class CourierScreen extends StatelessWidget {
             SizedBox(height: 20),
             CourierContactCard(
               name: "সুন্দরবন কুরিয়ার সার্ভিস",
-              location: "ঢাকা, বাংলাদেশ",
-              phoneNumber: '+8801711000000',
-            ),
-            SizedBox(height: 20),
-            CourierContactCard(
-              name: "এস এ পরিবহন",
-              location: "চট্টগ্রাম, বাংলাদেশ",
-              phoneNumber: '+8801811000000',
-            ),
-            SizedBox(height: 20),
-            CourierContactCard(
-              name: "জননী কুরিয়ার সার্ভিস",
-              location: "খুলনা, বাংলাদেশ",
-              phoneNumber: '+8801911000000',
+              location: " তিন রাস্তার মোড়, সুবিদখালী",
+              phoneNumber: '০১৭১৭০৬১৪৭৪',
             ),
             SizedBox(height: 20),
           ],
@@ -52,17 +39,6 @@ class CourierContactCard extends StatelessWidget {
     required this.location,
     required this.phoneNumber,
   });
-
-  void _launchMap(String location) async {
-    String query = Uri.encodeComponent(location);
-    String googleUrl = "https://www.google.com/maps/search/?api=1&query=$query";
-    final Uri url = Uri.parse(googleUrl);
-    if (await canLaunchUrl(url)) {
-      await launchUrl(url, mode: LaunchMode.externalApplication);
-    } else {
-      throw 'Could not open the map.';
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -85,7 +61,7 @@ class CourierContactCard extends StatelessWidget {
               ListTile(
                 leading: const Icon(Icons.location_on, color: Colors.green),
                 title: Text(location),
-                onTap: () => _launchMap(location),
+                onTap: () {},
               ),
               ListTile(
                 leading: const Icon(Icons.phone, color: Colors.green),

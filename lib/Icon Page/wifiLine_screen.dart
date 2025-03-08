@@ -11,8 +11,7 @@ class WifiLineScreen extends StatelessWidget {
         title: const Text("ওয়াইফাই লাইন "),
         backgroundColor: Colors.greenAccent,
       ),
-      body:
-      const SingleChildScrollView(
+      body: const SingleChildScrollView(
         child: Column(
           children: [
             SizedBox(height: 20),
@@ -20,16 +19,14 @@ class WifiLineScreen extends StatelessWidget {
               name: "সিয়াম ক্যাবল নেটওয়ার্ক",
               phoneNumber: "01714-234225",
               address: "সুবিদখালি,মির্জাগঞ্জ,পটুয়াখালি ",
-
             ),
             SizedBox(height: 20),
             ContactCard(
               name: " wifi service 2",
-              phoneNumber: "+৮৮০ ১২৩৪ ৫৬৭ ৮৯০",
+              phoneNumber: "01966261801",
               address: "সুবিদখালি,মির্জাগঞ্জ,পটুয়াখালি ",
             ),
             SizedBox(height: 20),
-
           ],
         ),
       ),
@@ -80,7 +77,8 @@ class ContactCard extends StatelessWidget {
               ),
               const SizedBox(height: 10),
               ListTile(
-                leading: const Icon(Icons.contact_mail_sharp, color: Colors.green),
+                leading:
+                    const Icon(Icons.contact_mail_sharp, color: Colors.green),
                 title: Text(name),
               ),
               ListTile(
@@ -100,7 +98,8 @@ class ContactCard extends StatelessWidget {
                   label: const Text("এখনই কল করুন"),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.green,
-                    padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 12, horizontal: 20),
                     textStyle: const TextStyle(fontSize: 18),
                   ),
                 ),

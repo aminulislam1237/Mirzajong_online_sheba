@@ -11,8 +11,7 @@ class RentCarScreen extends StatelessWidget {
         title: const Text("রেন্ট এ কার "),
         backgroundColor: Colors.greenAccent,
       ),
-      body:
-      const SingleChildScrollView(
+      body: const SingleChildScrollView(
         child: Column(
           children: [
             SizedBox(height: 20),
@@ -20,11 +19,8 @@ class RentCarScreen extends StatelessWidget {
               name: "খান রেন্ট-এ-কার সার্ভিস",
               phoneNumber: "01729184398",
               address: "সুবিদখালি,মির্জাগঞ্জ,পটুয়াখালি ",
-
             ),
             SizedBox(height: 20),
-
-
           ],
         ),
       ),
@@ -68,7 +64,8 @@ class ContactCard extends StatelessWidget {
             children: [
               const SizedBox(height: 10),
               ListTile(
-                leading: const Icon(Icons.directions_car_filled, color: Colors.green),
+                leading: const Icon(Icons.directions_car_filled,
+                    color: Colors.green),
                 title: Text(name),
               ),
               ListTile(
@@ -88,7 +85,8 @@ class ContactCard extends StatelessWidget {
                   label: const Text("এখনই কল করুন"),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.green,
-                    padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 12, horizontal: 20),
                     textStyle: const TextStyle(fontSize: 18),
                   ),
                 ),

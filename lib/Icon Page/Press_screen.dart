@@ -4,7 +4,6 @@ import 'package:url_launcher/url_launcher.dart';
 class PressScreen extends StatelessWidget {
   const PressScreen({super.key});
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,7 +75,11 @@ class PressContactCard extends StatelessWidget {
   final String phone;
   final String designation;
 
-  const PressContactCard({super.key, required this.name, required this.phone, required this.designation});
+  const PressContactCard(
+      {super.key,
+      required this.name,
+      required this.phone,
+      required this.designation});
 
   void _makePhoneCall(String phoneNumber) async {
     final Uri launchUri = Uri(
@@ -121,7 +124,8 @@ class PressContactCard extends StatelessWidget {
                   label: const Text("কল করুন"),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.green,
-                    padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 12, horizontal: 20),
                     textStyle: const TextStyle(fontSize: 18),
                   ),
                 ),

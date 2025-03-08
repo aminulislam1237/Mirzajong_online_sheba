@@ -20,6 +20,5 @@ class Union {
     required this.population,
     required this.literacyRate,
     required this.imageUrl,
-
   });
 }

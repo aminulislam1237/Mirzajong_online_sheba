@@ -13,7 +13,8 @@ class BuserviceService extends StatelessWidget {
     }
   }
 
-  Widget _buildNewspaperTile(String title, String url, String description, BuildContext context) {
+  Widget _buildNewspaperTile(
+      String title, String url, String description, BuildContext context) {
     return Card(
       elevation: 4.0,
       shape: RoundedRectangleBorder(

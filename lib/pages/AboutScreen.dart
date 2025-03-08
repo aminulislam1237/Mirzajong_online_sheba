@@ -39,9 +39,9 @@ class AboutScreen extends StatelessWidget {
             const SizedBox(height: 10),
             const Text(
               "১. জরুরি সেবা: পুলিশ, ফায়ার সার্ভিস ও হাসপাতালের নম্বর এবং ঠিকানা।\n"
-                  "২. স্থানীয় তথ্য: ইউনিয়ন পরিষদ, কমিটির তালিকা ও গুরুত্বপূর্ণ স্থানসমূহ।\n"
-                  "৩. যোগাযোগ: স্থানীয় কর্মকর্তাদের সাথে সরাসরি যোগাযোগের সুযোগ।\n"
-                  "৪. নিয়মিত আপডেট: নতুন তথ্য ও জরুরি বিজ্ঞপ্তি সম্পর্কে জানতে পারবেন।",
+              "২. স্থানীয় তথ্য: ইউনিয়ন পরিষদ, কমিটির তালিকা ও গুরুত্বপূর্ণ স্থানসমূহ।\n"
+              "৩. যোগাযোগ: স্থানীয় কর্মকর্তাদের সাথে সরাসরি যোগাযোগের সুযোগ।\n"
+              "৪. নিয়মিত আপডেট: নতুন তথ্য ও জরুরি বিজ্ঞপ্তি সম্পর্কে জানতে পারবেন।",
               style: TextStyle(fontSize: 16),
             ),
             const SizedBox(height: 20),
@@ -55,8 +55,8 @@ class AboutScreen extends StatelessWidget {
             const SizedBox(height: 10),
             const Text(
               "আমাদের অফিসের ঠিকানা: মির্জাগঞ্জ, পটুয়াখালী।\n"
-                  "ইমেইল: ai0011759@gmail.com\n"
-                  "ফোন: 018338565702",
+              "ইমেইল: ai0011759@gmail.com\n"
+              "ফোন: 018338565702",
               style: TextStyle(fontSize: 16),
             ),
             const SizedBox(height: 20),
@@ -70,9 +70,10 @@ class AboutScreen extends StatelessWidget {
             const SizedBox(height: 10),
             const Text(
               "এই অ্যাপটি আমার নিজ দায়িত্বে তৈরি করা হয়েছে। আমরা স্থানীয় উন্নয়নে সহায়তা করতে বদ্ধপরিকর।",
-              style: TextStyle(fontSize: 16,),
+              style: TextStyle(
+                fontSize: 16,
+              ),
             ),
-
             const SizedBox(height: 20),
             const Text(
               "আমাদের লক্ষ্য",

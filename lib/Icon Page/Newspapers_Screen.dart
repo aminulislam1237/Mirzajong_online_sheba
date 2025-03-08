@@ -25,7 +25,8 @@ class NewspapersScreen extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10.0),
       ),
-      contentPadding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+      contentPadding:
+          const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
       leading: const Icon(Icons.newspaper),
     );
   }
@@ -47,13 +48,16 @@ class NewspapersScreen extends StatelessWidget {
             const SizedBox(height: 8),
             _buildNewspaperTile('যুগান্তর', 'https://www.jugantor.com/'),
             const SizedBox(height: 8),
-            _buildNewspaperTile('বাংলাদেশ প্রতিদিন', 'https://www.bd-pratidin.com/'),
+            _buildNewspaperTile(
+                'বাংলাদেশ প্রতিদিন', 'https://www.bd-pratidin.com/'),
             const SizedBox(height: 8),
             _buildNewspaperTile('ইত্তেফাক', 'https://www.ittefaq.com.bd/'),
             const SizedBox(height: 8),
-            _buildNewspaperTile('The Daily Star', 'https://www.thedailystar.net/'),
+            _buildNewspaperTile(
+                'The Daily Star', 'https://www.thedailystar.net/'),
             const SizedBox(height: 8),
-            _buildNewspaperTile('Dhaka Tribune', 'https://www.dhakatribune.com/'),
+            _buildNewspaperTile(
+                'Dhaka Tribune', 'https://www.dhakatribune.com/'),
           ],
         ),
       ),

@@ -4,7 +4,6 @@ import 'package:url_launcher/url_launcher.dart';
 class BankScreen extends StatelessWidget {
   const BankScreen({super.key});
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +30,6 @@ class BankScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-
                       Text(
                         " বাংলাদেশ কৃষি ব্যাংক",
                         style: TextStyle(
@@ -40,7 +38,6 @@ class BankScreen extends StatelessWidget {
                         ),
                       ),
                       SizedBox(height: 10),
-
                       ListTile(
                         leading: Icon(Icons.location_on, color: Colors.green),
                         title: Text("ঠিকানা: সুবিদখালী বাজার"),
@@ -62,7 +59,6 @@ class BankScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-
                       Text(
                         "জনতা ব্যাংক",
                         style: TextStyle(
@@ -92,7 +88,6 @@ class BankScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-
                       Text(
                         " সোনালী ব্যাংক",
                         style: TextStyle(
@@ -101,10 +96,10 @@ class BankScreen extends StatelessWidget {
                         ),
                       ),
                       SizedBox(height: 10),
-
                       ListTile(
                         leading: Icon(Icons.location_on, color: Colors.green),
-                        title: Text("ঠিকানা: নান্নু শপিং কমপ্লেক্স, সুবিদখালী "),
+                        title:
+                            Text("ঠিকানা: নান্নু শপিং কমপ্লেক্স, সুবিদখালী "),
                       ),
                     ],
                   ),
@@ -123,7 +118,6 @@ class BankScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-
                       Text(
                         "অগ্রনী ব্যাংক",
                         style: TextStyle(
@@ -153,7 +147,6 @@ class BankScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-
                       Text(
                         " ইউসিবি ব্যাংক",
                         style: TextStyle(
@@ -162,7 +155,6 @@ class BankScreen extends StatelessWidget {
                         ),
                       ),
                       SizedBox(height: 10),
-
                       ListTile(
                         leading: Icon(Icons.location_on, color: Colors.green),
                         title: Text("ঠিকানা: সুবিদখালী বাজার রোড"),
@@ -184,7 +176,6 @@ class BankScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-
                       Text(
                         " পদ্মা ব্যাংক",
                         style: TextStyle(
@@ -214,7 +205,6 @@ class BankScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-
                       Text(
                         "ডাচ বাংলা ব্যাংক (এজেন্ট) ",
                         style: TextStyle(
@@ -223,7 +213,6 @@ class BankScreen extends StatelessWidget {
                         ),
                       ),
                       SizedBox(height: 10),
-
                       ListTile(
                         leading: Icon(Icons.location_on, color: Colors.green),
                         title: Text("ঠিকানা: তিন রাস্তার মোড়, সুবিদখালী"),
@@ -245,7 +234,6 @@ class BankScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-
                       Text(
                         "ইসলামি ব্যাংক (এজেন্ট)",
                         style: TextStyle(
@@ -263,7 +251,10 @@ class BankScreen extends StatelessWidget {
                 ),
               ),
             ),
-            const Divider(height: 50,thickness: 5,),
+            const Divider(
+              height: 50,
+              thickness: 5,
+            ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Card(
@@ -276,7 +267,6 @@ class BankScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-
                       Text(
                         "সমিতি: সুবিদখালী বাজার সমিতি ",
                         style: TextStyle(
@@ -285,7 +275,6 @@ class BankScreen extends StatelessWidget {
                         ),
                       ),
                       SizedBox(height: 10),
-
                       ListTile(
                         leading: Icon(Icons.location_on, color: Colors.green),
                         title: Text("ঠিকানা: বাজার রোড, সুবিদখালী"),
@@ -307,7 +296,6 @@ class BankScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-
                       Text(
                         "সমিতি:  মির্জাগন্ঞ্জ বহুমুখী সমবায় সমিতি",
                         style: TextStyle(
@@ -325,8 +313,6 @@ class BankScreen extends StatelessWidget {
                 ),
               ),
             ),
-
-
 
             /// Phone Button
           ],

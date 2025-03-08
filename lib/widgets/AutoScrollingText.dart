@@ -34,7 +34,8 @@ class _AutoScrollingTextState extends State<AutoScrollingText> {
     while (true) {
       await Future.delayed(const Duration(milliseconds: 16));
       if (_scrollController.hasClients) {
-        if (_scrollController.offset >= _scrollController.position.maxScrollExtent) {
+        if (_scrollController.offset >=
+            _scrollController.position.maxScrollExtent) {
           _scrollController.animateTo(
             0.0,
             duration: const Duration(milliseconds: 1000),
@@ -65,14 +66,19 @@ class _AutoScrollingTextState extends State<AutoScrollingText> {
         color: widget.backgroundColor,
         child: Row(
           children: [
-            Container(  // Wrap the Text widget with a Container
-              padding: const EdgeInsets.symmetric(horizontal: 8.0), // Add padding for better appearance
-              decoration: const BoxDecoration(  // Add background color
+            Container(
+              // Wrap the Text widget with a Container
+              padding: const EdgeInsets.symmetric(
+                  horizontal: 8.0), // Add padding for better appearance
+              decoration: const BoxDecoration(
+                // Add background color
                 color: Colors.red,
               ),
               child: const Text(
                 "নোটিশ:",
-                style: TextStyle(fontSize: 20.0, color: Colors.black54), // Adjust text color if needed
+                style: TextStyle(
+                    fontSize: 20.0,
+                    color: Colors.black54), // Adjust text color if needed
               ),
             ),
             Expanded(
@@ -81,7 +87,7 @@ class _AutoScrollingTextState extends State<AutoScrollingText> {
                 scrollDirection: Axis.horizontal,
                 children: [
                   Text(
-                    List.generate(100, (index) => widget.text).join('  '),
+                    List.generate(100, (index) => widget.text).join('             '),
                     style: TextStyle(fontSize: widget.textSize),
                   ),
                 ],

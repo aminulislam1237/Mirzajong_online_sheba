@@ -50,7 +50,6 @@ class PostOfficeScreen extends StatelessWidget {
                         leading: Icon(Icons.phone, color: Colors.green),
                         title: Text("+880 1854-152611"),
                       ),
-
                       ListTile(
                         leading: Icon(Icons.email, color: Colors.green),
                         title: Text("পোস্টাল কোড: ৮৬১০"),
@@ -78,7 +77,8 @@ class PostOfficeScreen extends StatelessWidget {
                 label: const Text("এখনই কল করুন"),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.green,
-                  padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
                   textStyle: const TextStyle(fontSize: 18),
                 ),
               ),

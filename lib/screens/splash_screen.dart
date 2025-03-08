@@ -10,7 +10,8 @@ class SplashScreen extends StatefulWidget {
   _SplashScreenState createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMixin {
+class _SplashScreenState extends State<SplashScreen>
+    with TickerProviderStateMixin {
   late AnimationController _logoController;
   late AnimationController _textController;
   late Animation<double> _fadeInAnimation;
@@ -58,7 +59,10 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Colors.greenAccent, Color(0xFF004D40)], // Cool green to dark gradient
+            colors: [
+              Colors.greenAccent,
+              Color(0xFF004D40)
+            ], // Cool green to dark gradient
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
@@ -79,11 +83,11 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
                   width: 200,
                   height: 200,
                   color: Colors.greenAccent, // Apply greenAccent color to SVG
-                  placeholderBuilder: (context) => const CircularProgressIndicator(),
+                  placeholderBuilder: (context) =>
+                      const CircularProgressIndicator(),
                 ),
               ),
               const SizedBox(height: 20),
-
               FadeTransition(
                 opacity: _fadeInAnimation,
                 child: const Text(
@@ -104,14 +108,14 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
                 ),
               ),
               const SizedBox(height: 50),
-
               RotationTransition(
                 turns: _logoController,
                 child: SizedBox(
                   width: 80,
                   height: 80,
                   child: CircularProgressIndicator(
-                    valueColor: const AlwaysStoppedAnimation(Colors.greenAccent),
+                    valueColor:
+                        const AlwaysStoppedAnimation(Colors.greenAccent),
                     strokeWidth: 6,
                     backgroundColor: Colors.white.withOpacity(0.2),
                   ),

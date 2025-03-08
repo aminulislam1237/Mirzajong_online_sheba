@@ -12,7 +12,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final CollectionReference fetchData = FirebaseFirestore.instance.collection("Notice");
+  final CollectionReference fetchData =
+      FirebaseFirestore.instance.collection("Notice");
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +31,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
                     final documents = snapshot.data!.docs;
-                    final noticeText = documents.isNotEmpty ? documents[0]['Notice'] : 'No notice available';
+                    final noticeText = documents.isNotEmpty
+                        ? documents[0]['Notice']
+                        : 'No notice available';
 
                     return AutoScrollingText(
                       text: noticeText,
@@ -48,7 +51,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 padding: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 50.0),
                 child: GridCardWidget(),
               ),
-              const SizedBox(height: 200,)
             ],
           ),
         ),

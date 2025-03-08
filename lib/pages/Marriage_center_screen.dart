@@ -4,7 +4,6 @@ import 'package:url_launcher/url_launcher.dart';
 class MarriageCenterScreen extends StatelessWidget {
   const MarriageCenterScreen({super.key});
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

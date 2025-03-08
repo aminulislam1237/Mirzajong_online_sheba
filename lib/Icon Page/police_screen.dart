@@ -38,117 +38,29 @@ class PoliceScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const ListTile(
-                        leading: Icon(Icons.contact_mail_sharp, color: Colors.green),
-                        title: Text("এমডি সিয়াম "),
+                        leading:
+                            Icon(Icons.contact_mail_sharp, color: Colors.green),
+                        title: Text("ভারপ্রাপ্ত কর্মকর্তা "),
                       ),
                       const ListTile(
                         leading: Icon(Icons.phone, color: Colors.green),
-                        title: Text("+৮৮০ ১২৩৪ ৫৬৭ ৮৯০"),
+                        title: Text("+৮৮০১৭১৬৫১৫১৮২"),
                       ),
                       const ListTile(
                         leading: Icon(Icons.location_on, color: Colors.green),
-                        title: Text("মির্জাগঞ্জ, ঢাকা, বাংলাদেশ"),
+                        title: Text(" মির্জাগন্ঞ্জ থানা,পটুয়াখালী"),
                       ),
                       Center(
                         child: ElevatedButton.icon(
                           onPressed: () {
-                            _makePhoneCall("+8801234567890");
+                            _makePhoneCall("+৮৮০১৭১৬৫১৫১৮২");
                           },
                           icon: const Icon(Icons.phone),
                           label: const Text("এখনই কল করুন"),
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.green,
-                            padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
-                            textStyle: const TextStyle(fontSize: 18),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-
-            const SizedBox(height: 20),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: Card(
-                elevation: 4.0,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const ListTile(
-                        leading: Icon(Icons.contact_mail_sharp, color: Colors.green),
-                        title: Text("এমডি সিয়াম "),
-                      ),
-                      const ListTile(
-                        leading: Icon(Icons.phone, color: Colors.green),
-                        title: Text("+৮৮০ ১২৩৪ ৫৬৭ ৮৯০"),
-                      ),
-                      const ListTile(
-                        leading: Icon(Icons.location_on, color: Colors.green),
-                        title: Text("মির্জাগঞ্জ, ঢাকা, বাংলাদেশ"),
-                      ),
-                      Center(
-                        child: ElevatedButton.icon(
-                          onPressed: () {
-                            _makePhoneCall("+8801234567890");
-                          },
-                          icon: const Icon(Icons.phone),
-                          label: const Text("এখনই কল করুন"),
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.green,
-                            padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
-                            textStyle: const TextStyle(fontSize: 18),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-
-            const SizedBox(height: 20),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: Card(
-                elevation: 4.0,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const ListTile(
-                        leading: Icon(Icons.contact_mail_sharp, color: Colors.green),
-                        title: Text("এমডি সিয়াম "),
-                      ),
-                      const ListTile(
-                        leading: Icon(Icons.phone, color: Colors.green),
-                        title: Text("+৮৮০ ১২৩৪ ৫৬৭ ৮৯০"),
-                      ),
-                      const ListTile(
-                        leading: Icon(Icons.location_on, color: Colors.green),
-                        title: Text("মির্জাগঞ্জ, ঢাকা, বাংলাদেশ"),
-                      ),
-                      Center(
-                        child: ElevatedButton.icon(
-                          onPressed: () {
-                            _makePhoneCall("+8801234567890");
-                          },
-                          icon: const Icon(Icons.phone),
-                          label: const Text("এখনই কল করুন"),
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.green,
-                            padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 12, horizontal: 20),
                             textStyle: const TextStyle(fontSize: 18),
                           ),
                         ),

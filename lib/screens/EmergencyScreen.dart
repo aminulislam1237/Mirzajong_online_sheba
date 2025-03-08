@@ -7,7 +7,6 @@ import 'package:musf_app1/pages/contact.dart';
 
 import '../pages/ambulence_service.dart';
 
-
 class Emergencyscreen extends StatelessWidget {
   const Emergencyscreen({super.key});
 
@@ -41,12 +40,12 @@ class Emergencyscreen extends StatelessWidget {
                 _buildCardData(
                   "assets/icon/police.png",
                   'পুলিশ স্টেশন',
-                      () => const PoliceScreen(),
+                  () => const PoliceScreen(),
                 ),
                 _buildCardData(
                   "assets/icon/fire.png",
                   'ফায়ার সার্ভিস',
-                      () => const ContactScreen(),
+                  () => const ContactScreen(),
                 ),
               ]),
               const SizedBox(height: 16),
@@ -54,27 +53,25 @@ class Emergencyscreen extends StatelessWidget {
                 _buildCardData(
                   "assets/icon/ambulence.png",
                   'অ্যাম্বুলেন্স সার্ভিস',
-                      () => const AmbulenceServiceScreen(),
+                  () => const AmbulenceServiceScreen(),
                 ),
                 _buildCardData(
                   "assets/icon/wifi.png",
                   'ওয়াইফাই সার্ভিস',
-                      () => const WifiLineScreen(),
+                  () => const WifiLineScreen(),
                 ),
                 // Add an empty card to maintain alignment if needed
-
               ]),
               const SizedBox(height: 16),
               _buildRow(context, [
                 _buildCardData(
                   "assets/icon/hospital.png",
                   'স্বাস্থ্যসেবা',
-                      () => const HealthInformationScreen(),
+                  () => const HealthInformationScreen(),
                 ),
                 // Add an empty card to maintain alignment if needed
-
               ]),
-              const SizedBox(height: 24),
+              const SizedBox(height: 80),
               // Add more content or widgets here as needed
             ],
           ),

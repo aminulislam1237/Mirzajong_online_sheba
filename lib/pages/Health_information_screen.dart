@@ -25,19 +25,19 @@ class HealthInformationScreen extends StatelessWidget {
             children: [
               const SizedBox(height: 20),
               _buildRow(context, [
-                _buildCardData("assets/icon/clinic.png", 'ক্লিনিক',
-                        () => ClinicScreen()),
+                _buildCardData(
+                    "assets/icon/clinic.png", 'ক্লিনিক', () => const ClinicScreen()),
                 _buildCardData("assets/icon/diagonitis.png", 'ডায়াগনস্টিক ',
-                    () => DiagnosticScreen()),
+                    () => const DiagnosticScreen()),
                 _buildCardData("assets/icon/doctor.png", 'ডাক্তার',
-                    () =>  DoctorInfoScreen()),
+                    () => DoctorInfoScreen()),
               ]),
               const SizedBox(height: 16),
               _buildRow(context, [
                 _buildCardData("assets/icon/animal doctor.png", 'পশুর ডাক্তার',
-                    () =>  AnimalDoctorInfoScreen()),
+                    () => AnimalDoctorInfoScreen()),
                 _buildCardData("assets/icon/homopothic.png",
-                    'হোমোপ্যাথি ডাক্তার', () =>  HomoDoctorInfoScreen()),
+                    'হোমোপ্যাথি ডাক্তার', () => HomoDoctorInfoScreen()),
                 _buildCardData("assets/icon/ambulence.png",
                     'এম্বুলেন্স সার্ভিস', () => const AmbulenceServiceScreen()),
               ]),

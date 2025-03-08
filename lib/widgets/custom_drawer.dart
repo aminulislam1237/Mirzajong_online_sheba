@@ -27,10 +27,12 @@ class _CustomDrawerState extends State<CustomDrawer> {
   Future<void> _loadUserData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
-      nameController.text = prefs.getString('userName')?? "এমডি আমিনুল ইসলাম রাসেল";
-      emailController.text = prefs.getString('userEmail')?? "aminul.islam200256@gmail.com";
+      nameController.text =
+          prefs.getString('userName') ?? "এমডি আমিনুল ইসলাম রাসেল";
+      emailController.text =
+          prefs.getString('userEmail') ?? "aminul.islam200256@gmail.com";
       _imagePath = prefs.getString('profileImage');
-      if (_imagePath!= null) {
+      if (_imagePath != null) {
         _profileImage = File(_imagePath!);
       }
     });
@@ -40,7 +42,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setString('userName', nameController.text);
     await prefs.setString('userEmail', emailController.text);
-    if (_imagePath!= null) {
+    if (_imagePath != null) {
       await prefs.setString('profileImage', _imagePath!);
     }
   }
@@ -49,7 +51,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
     final picker = ImagePicker();
     final pickedFile = await picker.pickImage(source: ImageSource.gallery);
 
-    if (pickedFile!= null) {
+    if (pickedFile != null) {
       setState(() {
         _profileImage = File(pickedFile.path);
         _imagePath = pickedFile.path;
@@ -63,9 +65,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
     return Drawer(
       child: Material(
         elevation: 7.0,
-        borderRadius:  const BorderRadius.only(
+        borderRadius: const BorderRadius.only(
           bottomRight: Radius.circular(50.0),
-
         ),
         child: Container(
           decoration: const BoxDecoration(
@@ -83,22 +84,26 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   borderRadius: BorderRadius.only(
                     bottomRight: Radius.circular(100.0),
                   ),
-
                 ),
                 accountName: Text(
-                  nameController.text.isNotEmpty? nameController.text: "আপনার নাম",
+                  nameController.text.isNotEmpty
+                      ? nameController.text
+                      : "আপনার নাম",
                   style: const TextStyle(color: Colors.black45, fontSize: 18),
                 ),
                 accountEmail: Text(
-                  emailController.text.isNotEmpty? emailController.text: "আপনার ইমেইল",
+                  emailController.text.isNotEmpty
+                      ? emailController.text
+                      : "আপনার ইমেইল",
                   style: const TextStyle(color: Colors.black45),
                 ),
                 currentAccountPicture: GestureDetector(
                   onTap: _pickImage,
                   child: CircleAvatar(
-                    backgroundImage: _profileImage!= null
+                    backgroundImage: _profileImage != null
                         ? FileImage(_profileImage!)
-                        : const AssetImage("assets/profile.jpg") as ImageProvider,
+                        : const AssetImage("assets/profile.jpg")
+                            as ImageProvider,
                   ),
                 ),
               ),
@@ -107,7 +112,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 title: const Text("প্রোফাইল সম্পাদনা করুন"),
                 onTap: () => _editProfileDialog(),
               ),
-              _buildListTile(context, Icons.home, "হোম", const HomeScreenState()),
+              _buildListTile(
+                  context, Icons.home, "হোম", const HomeScreenState()),
               ListTile(
                 leading: const Icon(Icons.share),
                 title: const Text("এই অ্যাপটি শেয়ার করুন"),
@@ -172,7 +178,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
             "আপনি কি নিশ্চিত যে আপনি লগ আউট করতে চান?",
             style: TextStyle(fontSize: 16),
           ),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
           actions: [
             TextButton(
               onPressed: () => Navigator.of(context).pop(),
@@ -192,12 +199,13 @@ class _CustomDrawerState extends State<CustomDrawer> {
     );
   }
 
-  ListTile _buildListTile(BuildContext context, IconData icon, String title, Widget? screen) {
+  ListTile _buildListTile(
+      BuildContext context, IconData icon, String title, Widget? screen) {
     return ListTile(
       leading: Icon(icon),
       title: Text(title),
       onTap: () {
-        if (screen!= null) {
+        if (screen != null) {
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => screen),

@@ -28,7 +28,8 @@ class ContactScreen extends StatelessWidget {
               height: 200,
               decoration: const BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage("assets/banner.jpg"), // Add banner image to assets
+                  image: AssetImage(
+                      "assets/banner.jpg"), // Add banner image to assets
                   fit: BoxFit.cover,
                 ),
               ),
@@ -57,7 +58,8 @@ class ContactScreen extends StatelessWidget {
                 children: [
                   CircleAvatar(
                     radius: 40,
-                    backgroundImage: AssetImage("assets/profile.jpg"), // Add image to assets
+                    backgroundImage:
+                        AssetImage("assets/profile.jpg"), // Add image to assets
                   ),
                   SizedBox(width: 20),
                   Expanded(
@@ -137,7 +139,8 @@ class ContactScreen extends StatelessWidget {
                 label: const Text("Call Now"),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.green,
-                  padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
                   textStyle: const TextStyle(fontSize: 18),
                 ),
               ),

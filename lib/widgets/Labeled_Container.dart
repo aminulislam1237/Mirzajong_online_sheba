@@ -19,14 +19,16 @@ class LabeledContainer extends StatelessWidget {
     this.width = 105, // Slightly increased width
     this.height = 105, // Slightly increased height
     this.backgroundColor = Colors.blueGrey, // Default is now white
-    this.borderRadius = const BorderRadius.all(Radius.circular(25)), // More rounded corners
+    this.borderRadius =
+        const BorderRadius.all(Radius.circular(25)), // More rounded corners
     this.textStyle = const TextStyle(
       color: Colors.black54, // More visible text
       fontWeight: FontWeight.w500, // Slightly less bold
     ),
-    this.padding = const EdgeInsets.all(8.0),  // Increased padding
+    this.padding = const EdgeInsets.all(8.0), // Increased padding
     this.gradient,
-    this.boxShadow = const BoxShadow( // Default boxShadow
+    this.boxShadow = const BoxShadow(
+      // Default boxShadow
       color: Colors.black26,
       blurRadius: 8,
       offset: Offset(0, 4),
@@ -42,10 +44,9 @@ class LabeledContainer extends StatelessWidget {
         width: width,
         height: height,
         decoration: BoxDecoration(
-          borderRadius: borderRadius,
-          gradient: gradient,
-          color: Colors.greenAccent
-        ),
+            borderRadius: borderRadius,
+            gradient: gradient,
+            color: Colors.greenAccent),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -66,5 +67,4 @@ class LabeledContainer extends StatelessWidget {
       ),
     );
   }
-
 }

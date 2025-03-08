@@ -18,7 +18,9 @@ class ClinicScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('ক্লিনিক তথ্য',),
+        title: const Text(
+          'ক্লিনিক তথ্য',
+        ),
         backgroundColor: Colors.greenAccent,
         elevation: 5,
         shadowColor: Colors.black45,
@@ -32,7 +34,8 @@ class ClinicScreen extends StatelessWidget {
               margin: const EdgeInsets.symmetric(vertical: 8.0),
               elevation: 3,
               child: ListTile(
-                leading: const Icon(Icons.local_hospital, color: Colors.redAccent),
+                leading:
+                    const Icon(Icons.local_hospital, color: Colors.redAccent),
                 title: Text(
                   clinicData[index]['name'] ?? '',
                   style: const TextStyle(

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class FamousPerson extends StatelessWidget {
   const FamousPerson({super.key});
 
@@ -22,7 +21,7 @@ class FamousPerson extends StatelessWidget {
             SizedBox(height: 20),
             ContactCard(
               name: "আলতাফ হোসেন চৌধুরী",
-              address: " সাবেক স্বরাষ্ট্র মন্ত্রী ও বানিজ্য মন্ত্রী,",
+              address: " সাবেক বিমান বাহিনী প্রধান, সাবেক এমপি- পটুয়াখালী-১, সাবেক স্বরাষ্ট্র ও বানিজ্য মন্ত্রী,বাংলাদেশ সরকার,",
             ),
             SizedBox(height: 20),
             ContactCard(
@@ -32,7 +31,8 @@ class FamousPerson extends StatelessWidget {
             SizedBox(height: 20),
             ContactCard(
               name: "জাহাঙ্গীর হোসেন",
-              address: " সাবেক বিমান বাহিনী প্রধান, সাবেক এমপি- পটুয়াখালী-১, সাবেক স্বরাষ্ট্র ও বানিজ্য মন্ত্রী,বাংলাদেশ সরকার",
+              address:
+                  " সাবেক স্বরাষ্ট্র সচিব ও সাবেক নির্বাচন কমিশন সচিব",
             ),
             SizedBox(height: 20),
             ContactCard(
@@ -42,7 +42,8 @@ class FamousPerson extends StatelessWidget {
             SizedBox(height: 20),
             ContactCard(
               name: "শাহজাহান মিয়া",
-              address: " প্রশাসক, ঢাকা দক্ষিণ সিটি করপোরেশন ও অতিরিক্ত সচিব স্হানীয় সরকার বিভাগ",
+              address:
+                  " প্রশাসক, ঢাকা দক্ষিণ সিটি করপোরেশন ও অতিরিক্ত সচিব স্হানীয় সরকার বিভাগ",
             ),
             SizedBox(height: 20),
             ContactCard(
@@ -50,7 +51,6 @@ class FamousPerson extends StatelessWidget {
               address: " ডিআইজি,বাংলাদেশ পুলিশ",
             ),
             SizedBox(height: 20),
-
           ],
         ),
       ),

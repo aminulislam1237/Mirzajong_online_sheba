@@ -1,7 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-
+import 'Add_Info_Screen.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -103,44 +103,36 @@ class _ProfileScreenState extends State<ProfileScreen>
                   child: Text(
                     'প্রিয় মির্জাগঞ্জ উপজেলা বাসি আসসালামু আলাইকুম, আমি পটুয়াখালী জেলার মির্জাগঞ্জ উপজেলার ৪ নং দেউলী সুবিদখালী ইউনিয়নের পূর্ব সুবিদখালী গ্রামের সন্তান। আমি ড্যাফোডিল ইন্টারন্যাশনাল ইউনিভার্সিটি তে সফটওয়্যার ইঞ্জিনিয়ারিং বিভাগে অধ্যায়নরত আছি, আমি কিছু সময় ধরে মোবাইল অ্যাপ ডেভেলপিং উপর কাজ করে যাচ্ছি। তারই ধারাবাহিকতায় প্রিয় মির্জাগঞ্জ উপজেলাবাসীর  জীবনযাত্রার মান সহজ ও উন্নতি করার লক্ষ্যে প্রয়োজনীয় সকল তথ্য একসাথে পেতে আমি তৈরি করেছি মির্জাগঞ্জ তথ্য সেবা নামের একটি মোবাইল এপ্লিকেশন। মির্জাগঞ্জ তথ্য সেবা অ্যাপটি স্বাস্থ্য সেবা, নাগরিক সেবা, শিক্ষার প্রসার, ব্যবসা-বাণিজ্যের প্রসার, বেকারত্ব দূরীকরণ ও জীবন মান উন্নয়নে বিভিন্ন সেক্টরে ভূমিকা পালন করবে বলে আমি আশাবাদী। আপনাদের সবার জন্য দোয়া ও শুভকামনা।',
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 16,color: Colors.grey,),
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.grey,
+                    ),
                   ),
                 ),
               ),
-              const SizedBox(height: 30),
+              const SizedBox(height: 8),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  ZoomIn(
-                    delay: const Duration(milliseconds: 600),
-                    duration: const Duration(milliseconds: 500),
-                    child: IconButton(
-                      icon: const Icon(Icons.facebook),
-                      onPressed: () =>
-                          _launchURL('https://www.facebook.com/aminul.islam.Rasel34'),
-                    ),
+                  SocialMediaButton(
+                    imagePath: 'assets/icon/facebook.png',
+                    onPressed: () => _launchSocialMediaRasel('Facebook'),
                   ),
-                  ZoomIn(
-                    delay: const Duration(milliseconds: 700),
-                    duration: const Duration(milliseconds: 500),
-                    child: IconButton(
-                      icon: const Icon(Icons.phone_android),
-                      onPressed: () =>
-                          _launchURL('https://wa.me/+8801838565702'),
-                    ),
+                  SocialMediaButton(
+                    imagePath: 'assets/icon/messengericon.png',
+                    onPressed: () => _launchSocialMediaRasel('messenger'),
                   ),
-                  ZoomIn(
-                    delay: const Duration(milliseconds: 800),
-                    duration: const Duration(milliseconds: 500),
-                    child: IconButton(
-                      icon: const Icon(Icons.mail),
-                      onPressed: () =>
-                          _launchURL('mailto:aminul.islam200256@gmail.com'),
-                    ),
+                  SocialMediaButton(
+                    imagePath: 'assets/icon/gmailicon.png',
+                    onPressed: () => _launchSocialMediaRasel('gmail'),
+                  ),
+                  SocialMediaButton(
+                    imagePath: 'assets/icon/call.png',
+                    onPressed: () => _launchSocialMediaRasel('call'),
                   ),
                 ],
               ),
-              const SizedBox(height: 30),
+              const SizedBox(height: 50),
               AnimatedBuilder(
                 animation: _profileScaleAnimation,
                 builder: (context, child) {
@@ -192,8 +184,32 @@ class _ProfileScreenState extends State<ProfileScreen>
                   style: TextStyle(fontSize: 18, color: Colors.green),
                 ),
               ),
-              const SizedBox(height: 30),
-
+              const SizedBox(height: 8),
+              const Divider(
+                height: 1,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  SocialMediaButton(
+                    imagePath: 'assets/icon/facebook.png',
+                    onPressed: () => _launchSocialMediaRumi('Facebook'),
+                  ),
+                  SocialMediaButton(
+                    imagePath: 'assets/icon/messengericon.png',
+                    onPressed: () => _launchSocialMediaRumi('messenger'),
+                  ),
+                  SocialMediaButton(
+                    imagePath: 'assets/icon/gmailicon.png',
+                    onPressed: () => _launchSocialMediaRumi('gmail'),
+                  ),
+                  SocialMediaButton(
+                    imagePath: 'assets/icon/call.png',
+                    onPressed: () => _launchSocialMediaRumi('call'),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 8),
             ],
           ),
         ),
@@ -201,12 +217,47 @@ class _ProfileScreenState extends State<ProfileScreen>
     );
   }
 
-  Future<void> _launchURL(String url) async {
+  void _launchSocialMediaRasel(String platform) async {
+    String url = '';
+    if (platform == 'Facebook') {
+      // Replace with your Whatsapp url
+      url = "https://www.facebook.com/aminul.islam.Rasel34/";
+    } else if (platform == 'messenger') {
+      // Replace with your messenger url
+      url = "https://m.me/aminul.islam.Rasel34/";
+    } else if (platform == 'gmail') {
+      // Replace with your gmail url
+      url = "mailto:aminul.islam20025@gmail.com";
+    } else if (platform == 'call') {
+      url = "tel:+8801838565702";
+    }
     final Uri uri = Uri.parse(url);
     if (await canLaunchUrl(uri)) {
       await launchUrl(uri);
     } else {
-      throw 'Could not launch $url';
+      throw 'Could not launch $platform';
+    }
+  }
+
+  void _launchSocialMediaRumi(String platform) async {
+    String url = '';
+    if (platform == 'Facebook') {
+      // Replace with your Whatsapp url
+      url = "https://www.facebook.com/khalidhasanrumi.bd";
+    } else if (platform == 'messenger') {
+      // Replace with your messenger url
+      url = "https://m.me/khalidhasanrumi.bd";
+    } else if (platform == 'gmail') {
+      // Replace with your gmail url
+      url = "mailto:aminul.islam20025@gmail.com";
+    } else if (platform == 'call') {
+      url = "tel:+8801607316569";
+    }
+    final Uri uri = Uri.parse(url);
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri);
+    } else {
+      throw 'Could not launch $platform';
     }
   }
 }

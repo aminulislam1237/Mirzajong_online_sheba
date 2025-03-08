@@ -12,8 +12,8 @@ class HistoricalPleaceScreen extends StatelessWidget {
         backgroundColor: Colors.greenAccent,
       ),
       body: const Padding(
-        padding:  EdgeInsets.all(8.0),
-        child:  SingleChildScrollView(
+        padding: EdgeInsets.all(8.0),
+        child: SingleChildScrollView(
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,

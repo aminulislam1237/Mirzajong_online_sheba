@@ -7,34 +7,31 @@ class AcadameyScreeen extends StatelessWidget {
 
   static List<Acadamey> academies = [
     Acadamey(
-        name: '১ নং মাধবখালী ইউনিয়ন',
-        school1: 'চৈতা মাধ্যমিক বিদ্যালয়',
-        school2: 'কাঠালতলী মাধ্যমিক বিদ্যালয়',
-        school3: '',
-        school4: '',
-        school5: '',
-        school6: 'আকখার হোসেন চৌধুরী মেমোরিয়াল কলেজ',
-
+      name: '১ নং মাধবখালী ইউনিয়ন',
+      school1: 'চৈতা মাধ্যমিক বিদ্যালয়',
+      school2: 'কাঠালতলী মাধ্যমিক বিদ্যালয়',
+      school3: '',
+      school4: '',
+      school5: '',
+      school6: 'আকখার হোসেন চৌধুরী মেমোরিয়াল কলেজ',
     ),
     Acadamey(
-        name: '২ নং মির্জাগন্ঞ্জ ইউনিয়ন :',
-        school1: '.মির্জাগন্ঞ্জ দরবার শরীফ মাধ্যমিক বিদ্যালয় ',
-        school2: 'ভিখাখালী ইউনাইটেড মাধ্যমিক বিদ্যালয়',
-        school3: 'মনোহরখালী মাধ্যমিক বিদ্যালয়',
-        school4: '',
+      name: '২ নং মির্জাগন্ঞ্জ ইউনিয়ন :',
+      school1: '.মির্জাগন্ঞ্জ দরবার শরীফ মাধ্যমিক বিদ্যালয় ',
+      school2: 'ভিখাখালী ইউনাইটেড মাধ্যমিক বিদ্যালয়',
+      school3: 'মনোহরখালী মাধ্যমিক বিদ্যালয়',
+      school4: '',
       school5: 'মির্জাগন্ঞ্জ ইয়ারিয়া আলিম মাদরাসা',
       school6: '',
-
     ),
     Acadamey(
       name: '৩ নং আমড়াগাছিয়া ইউনিয়ন:',
       school1: 'আমরাগাছিয়া মাধ্যমিক বিদ্যালয় ',
-        school2: 'ঝাটিবুনিয়া ম,ই মাধ্যমিক বিদ্যালয়',
-        school3: 'সুবিদখালী সরকারি কলেজ',
-        school4: 'সুবিদখালী মহিলা কলেজ',
+      school2: 'ঝাটিবুনিয়া ম,ই মাধ্যমিক বিদ্যালয়',
+      school3: 'সুবিদখালী সরকারি কলেজ',
+      school4: 'সুবিদখালী মহিলা কলেজ',
       school5: ' দারুসসুন্নাত ফাজিল মাদ্রাসা',
       school6: '',
-
     ),
     Acadamey(
       name: '৪। দেউলী সুবিদখালী',
@@ -44,7 +41,6 @@ class AcadameyScreeen extends StatelessWidget {
       school4: 'দেউলি পল্লি মঙ্গল মাধ্যমিক বিদ্যালয়',
       school5: 'চত্রা মাদ্রাসা ',
       school6: 'উদয়ন ভাষা শহীদ আবদুল জব্বার মেমোরিয়াল কলেজ',
-
     ),
     Acadamey(
       name: '৫। কাকড়াবুনিয়া',
@@ -54,7 +50,6 @@ class AcadameyScreeen extends StatelessWidget {
       school4: 'ইসমাইল মেমোরিয়াল মাধ্যমিক বিদ্যালয়',
       school5: '',
       school6: 'কিসমতপুর দেলোয়ার হোসেন কলেজ ',
-
     ),
     Acadamey(
       name: '৬। মসজিদবাড়ীয়া',
@@ -99,7 +94,6 @@ class AcadameyScreeen extends StatelessWidget {
           padding: const EdgeInsets.all(16.0),
           child: Row(
             children: [
-
               const SizedBox(width: 16),
               Expanded(
                 child: Text(
@@ -128,12 +122,18 @@ class AcadameyScreeen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('বিদ্যালয়: ${academy.school1.isNotEmpty ? academy.school1 : ""}'),
-                Text('বিদ্যালয়: ${academy.school2.isNotEmpty ? academy.school2 : ""}'),
-                Text('বিদ্যালয়: ${academy.school3.isNotEmpty ? academy.school3 : ""}'),
-                Text('বিদ্যালয়: ${academy.school4.isNotEmpty ? academy.school4 : ""}'),
-                Text('মাদ্রাসা : ${academy.school5.isNotEmpty ? academy.school5 : ""}'),
-                Text('কলেজ: ${academy.school6.isNotEmpty ? academy.school6 : ""}'),
+                Text(
+                    'বিদ্যালয়: ${academy.school1.isNotEmpty ? academy.school1 : ""}'),
+                Text(
+                    'বিদ্যালয়: ${academy.school2.isNotEmpty ? academy.school2 : ""}'),
+                Text(
+                    'বিদ্যালয়: ${academy.school3.isNotEmpty ? academy.school3 : ""}'),
+                Text(
+                    'বিদ্যালয়: ${academy.school4.isNotEmpty ? academy.school4 : ""}'),
+                Text(
+                    'মাদ্রাসা : ${academy.school5.isNotEmpty ? academy.school5 : ""}'),
+                Text(
+                    'কলেজ: ${academy.school6.isNotEmpty ? academy.school6 : ""}'),
               ],
             ),
           ),
@@ -150,12 +150,12 @@ class AcadameyScreeen extends StatelessWidget {
                 // Add share button here
               },
               style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
-              child: const Text("শেয়ার করুন", style: TextStyle(color: Colors.white)),
+              child: const Text("শেয়ার করুন",
+                  style: TextStyle(color: Colors.white)),
             )
           ],
         );
       },
     );
   }
-
 }

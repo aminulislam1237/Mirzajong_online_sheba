@@ -15,18 +15,17 @@ class TransportService extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: SingleChildScrollView( // Enables scrolling if content overflows
+        child: SingleChildScrollView(
+          // Enables scrolling if content overflows
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-
               const SizedBox(height: 20),
               _buildRow(context, [
-                _buildCardData(
-                    "assets/icon/car.png", 'রেন্ট-এ-কার',
-                        () => const RentCarScreen()),
+                _buildCardData("assets/icon/car.png", 'রেন্ট-এ-কার',
+                    () => const RentCarScreen()),
                 _buildCardData("assets/icon/sbs.jpg", 'বাস সার্ভিস',
-                        () => const BuserviceService()),
+                    () => const BuserviceService()),
               ]),
               const SizedBox(height: 16),
               // Add more content or widgets here as needed
@@ -65,7 +64,8 @@ class TransportService extends StatelessWidget {
               borderRadius: BorderRadius.circular(16.0),
             ),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center, // Center content vertically
+              mainAxisAlignment:
+                  MainAxisAlignment.center, // Center content vertically
               children: [
                 Padding(
                   padding: const EdgeInsets.all(8.0),

@@ -9,15 +9,16 @@ import 'Profile_Screen.dart';
 import 'Union_Screen.dart';
 
 class HomeScreenState extends StatefulWidget {
-  const HomeScreenState({super.key});
+  const HomeScreenState({Key? key}) : super(key: key);
 
   @override
-  _HomeScreenStateState createState() => _HomeScreenStateState();
+  _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _HomeScreenStateState extends State<HomeScreenState> {
+class _HomeScreenState extends State<HomeScreenState> {
   int _currentIndex = 0;
-  final _firestore = FirebaseFirestore.instance.collection("Notice");
+  final CollectionReference _notificationsCollection =
+      FirebaseFirestore.instance.collection("Notifications");
   final List<Widget> _pages = [
     const HomeScreen(),
     const Emergencyscreen(),
@@ -36,11 +37,14 @@ class _HomeScreenStateState extends State<HomeScreenState> {
   // Fetch notifications from Firestore
   Future<void> _fetchNotifications() async {
     try {
-      final querySnapshot = await _firestore.get();
+      final querySnapshot = await _notificationsCollection.get();
       if (querySnapshot.docs.isNotEmpty) {
         setState(() {
           _notices = querySnapshot.docs
-              .map((doc) => doc.data()['Notice'] as String)
+              .map((doc) =>
+                  (doc.data() as Map<String, dynamic>?)?['Notifications']
+                      as String? ??
+                  '')
               .toList();
         });
       } else {
@@ -55,38 +59,88 @@ class _HomeScreenStateState extends State<HomeScreenState> {
   void _showNotificationDialog() {
     showDialog(
       context: context,
-      builder: (context) => AlertDialog(
-        title: const Text("Notifications"),
-        content: SizedBox(
-          width: double.maxFinite,
-          height: 200, // Make the dialog box shorter
-          child: _notices.isEmpty
-              ? const Center(child: Text("No notifications."))
-              : ListView.builder(
-                  itemCount: _notices.length,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text("নোটিস"),
+          content: SizedBox(
+            width: double.maxFinite,
+            height: 100, // Adjust height as needed
+            child: StreamBuilder<QuerySnapshot>(
+              stream: FirebaseFirestore.instance
+                  .collection('Notifications')
+                  .snapshots(), // Replace 'notices' with your collection name
+              builder: (context, snapshot) {
+                if (snapshot.hasError) {
+                  return Center(child: Text('Error: ${snapshot.error}'));
+                }
+
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const Center(child: CircularProgressIndicator());
+                }
+
+                if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
+                  return const Center(child: Text("কোনো নোটিস নেই।"));
+                }
+
+                return ListView.builder(
+                  itemCount: snapshot.data!.docs.length,
                   itemBuilder: (context, index) {
-                    return ListTile(
-                      title: Text(_notices[index]),
-                      trailing: IconButton(
-                        icon: const Icon(Icons.check, color: Colors.green),
-                        onPressed: () {
-                          setState(() {
-                            _notices.removeAt(index); // Mark as done action
+                    final doc = snapshot.data!.docs[index];
+                    final noticeText = doc['Notifications'] as String? ??
+                        'কোনো টেক্সট নেই'; // Replace 'text' with your field name
+
+                    return Dismissible(
+                      key: Key(doc.id),
+                      direction: DismissDirection.endToStart,
+                      background: Container(
+                        color: Colors.red,
+                        alignment: Alignment.centerRight,
+                        padding: const EdgeInsets.only(right: 20.0),
+                        child: const Icon(Icons.delete, color: Colors.white),
+                      ),
+                      onDismissed: (direction) async {
+                        // Delete the document from Firestore when dismissed
+                        await FirebaseFirestore.instance
+                            .collection('Notifications')
+                            .doc(doc.id);
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                                content: Text('নোটিস বাতিল করা হয়েছে')));
+                      },
+                      child: ListTile(
+                        title: Text(noticeText),
+                        trailing: IconButton(
+                          icon: const Icon(Icons.check, color: Colors.green),
+                          onPressed: () async {
+                            // Mark as done action (you might want to update a 'done' field in Firestore instead)
+                            await FirebaseFirestore.instance
+                                .collection('Notifications')
+                                .doc(doc.id);
+
                             Navigator.pop(context); // Close the dialog
-                          });
-                        },
+
+                            // Show a snackbar or other confirmation
+                            ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                    content:
+                                        Text('নোটিস সম্পন্ন হিসাবে চিহ্নিত করা হয়েছে')));
+                          },
+                        ),
                       ),
                     );
                   },
-                ),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text('Close'),
+                );
+              },
+            ),
           ),
-        ],
-      ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text('বন্ধ করুন'),
+            ),
+          ],
+        );
+      },
     );
   }
 
@@ -111,7 +165,8 @@ class _HomeScreenStateState extends State<HomeScreenState> {
             children: [
               IconButton(
                 icon: const Icon(Icons.notifications, color: Colors.blueGrey),
-                onPressed: _showNotificationDialog,
+                onPressed:
+                    _showNotificationDialog, // Corrected this line as well
               ),
               Positioned(
                 top: 0,

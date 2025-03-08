@@ -55,7 +55,7 @@ class _DataEntryScreenState extends State<DataEntryScreen> {
               alignment: WrapAlignment.center, // Align items to the center
               children: [
                 SocialMediaButton(
-                  imagePath: 'assets/icon/whatsappicon.png',
+                  imagePath: 'assets/icon/facebook.png',
                   onPressed: () => _launchSocialMedia('Facebook'),
                 ),
                 SocialMediaButton(
@@ -80,12 +80,12 @@ class _DataEntryScreenState extends State<DataEntryScreen> {
 
   void _launchSocialMedia(String platform) async {
     String url = '';
-    if (platform == 'whatsapp') {
+    if (platform == 'Facebook') {
       // Replace with your Whatsapp url
-      url = "https://wa.me/880183856702";
+      url = "https://www.facebook.com/share/1EPg4sj4Fe/";
     } else if (platform == 'messenger') {
       // Replace with your messenger url
-      url = "https://m.me/aminul.islam.Rasel34";
+      url = "https://m.me/608531172336824";
     } else if (platform == 'gmail') {
       // Replace with your gmail url
       url = "mailto:aminul.islam20025@gmail.com";
@@ -123,7 +123,7 @@ class SocialMediaButton extends StatelessWidget {
         onTap: onPressed,
         borderRadius: BorderRadius.circular(30),
         child: Container(
-          width: 70, // Adjust the size as needed
+          width: 60, // Adjust the size as needed
           height: 60, // Adjust the size as needed
           decoration: BoxDecoration(
             color: color,
@@ -133,12 +133,12 @@ class SocialMediaButton extends StatelessWidget {
             child: imagePath != null
                 ? Image.asset(
                     imagePath!,
-                    width: 40, // Adjust the size as needed
+                    width: 35, // Adjust the size as needed
                     height: 40, // Adjust the size as needed
                   )
                 : Icon(
                     iconData,
-                    size: 30, // Adjust the size as needed
+                    size: 29, // Adjust the size as needed
                     color: Colors.green,
                   ),
           ),
