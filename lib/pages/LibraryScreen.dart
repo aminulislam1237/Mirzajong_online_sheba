@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class LibraryScreen extends StatelessWidget {
-  const LibraryScreen({Key? key}) : super(key: key);
+  const LibraryScreen({super.key});
 
   final List<Library> libraries = const [
     Library(name: 'আল মুজিব লাইব্রেরি', address: 'কলেজ রোড, সুবিদখালী'),
@@ -38,9 +38,9 @@ class Library {
 
 class LibraryCard extends StatelessWidget {
   const LibraryCard({
-    Key? key,
+    super.key,
     required this.library,
-  }) : super(key: key);
+  });
 
   final Library library;
 

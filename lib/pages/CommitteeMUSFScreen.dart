@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 class CommitteeMember {
   final String name;
   final String position;
-  final String imageUrl;
+  final String imageAsset;
 
   CommitteeMember({
     required this.name,
     required this.position,
-    required this.imageUrl,
+    required this.imageAsset,
   });
 }
 
@@ -17,12 +17,12 @@ class CommitteeMUSFScreen extends StatelessWidget {
     CommitteeMember(
       name: "Md. Mehedi Hasan",
       position: "সভাপতি",
-      imageUrl: "URL_TO_PRESIDENT_IMAGE", // Replace with actual URL
+      imageAsset: "assets/icon/man.png", // Replace with actual URL
     ),
     CommitteeMember(
       name: "মাজিদুর রহমান সৈকত",
       position: "সাধারণ সম্পাদক",
-      imageUrl: "URL_TO_SECRETARY_IMAGE", // Replace with actual URL
+      imageAsset: "assets/icon/man.png", // Replace with actual URL
     ),
     // Add more members as needed
   ];
@@ -33,7 +33,7 @@ class CommitteeMUSFScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("মির্জাগন্ঞ্জ উপজেলা স্টুডেন্টস’ ফোরাম, ঢাকা"),
+        title: const Text("মির্জাগঞ্জ উপজেলা স্টুডেন্টস’ ফোরাম, ঢাকা"),
         backgroundColor: Colors.greenAccent,
       ),
       body: Column(
@@ -42,7 +42,7 @@ class CommitteeMUSFScreen extends StatelessWidget {
           const Padding(
             padding: EdgeInsets.all(16.0),
             child: Text(
-              "২০১১ সালে রাজধানী ঢাকা'র বুকে আত্মপ্রকাশ করে শিক্ষার্থীদের সংগঠন “মির্জাগন্ঞ্জ উপজেলা স্টুডেন্টস’ ফোরাম, ঢাকা”। ঢাকায় শিক্ষারত মির্জাগন্ঞ্জ উপজেলার শিক্ষার্থীদের সার্বিক সহযোগিতা ও বিভিন্ন সামাজিক সমস্যা দূরীকরণে কাজ করে চলেছে সংগঠনটি। বর্তমানে মির্জাগন্ঞ্জ উপজেলার সীমানা পেড়িয়ে জাতীয় দূর্যোগে সাহায্যর হাত বাড়িয়ে দিয়েছে সংগঠনটি। প্রতিবছর বিভিন্ন সামাজিক ও শিক্ষামূলক কাজ চালিয়ে যাওয়ার মাধ্যমে বর্তমানে মির্জাগন্ঞ্জ উপজেলার জনপ্রিয় ও সর্ববৃহৎ অরাজনৈতিক ছাত্র সংগঠনে পরিনত হয়েছে “মির্জাগন্ঞ্জ উপজেলা স্টুডেন্টস’ ফোরাম, ঢাকা”",
+              "২০১১ সালে রাজধানী ঢাকা'র বুকে আত্মপ্রকাশ করে শিক্ষার্থীদের সংগঠন “মির্জাগঞ্জ উপজেলা স্টুডেন্টস’ ফোরাম, ঢাকা”। ঢাকায় শিক্ষারত মির্জাগঞ্জ উপজেলার শিক্ষার্থীদের সার্বিক সহযোগিতা ও বিভিন্ন সামাজিক সমস্যা দূরীকরণে কাজ করে চলেছে সংগঠনটি। বর্তমানে মির্জাগঞ্জ উপজেলার সীমানা পেড়িয়ে জাতীয় দূর্যোগে সাহায্যর হাত বাড়িয়ে দিয়েছে সংগঠনটি। প্রতিবছর বিভিন্ন সামাজিক ও শিক্ষামূলক কাজ চালিয়ে যাওয়ার মাধ্যমে বর্তমানে মির্জাগন্ঞ্জ উপজেলার জনপ্রিয় ও সর্ববৃহৎ অরাজনৈতিক ছাত্র সংগঠনে পরিনত হয়েছে “মির্জাগঞ্জ উপজেলা স্টুডেন্টস’ ফোরাম, ঢাকা”",
               style: TextStyle(fontSize: 16.0),
               textAlign: TextAlign.justify,
             ),
@@ -79,7 +79,7 @@ class CommitteeMemberCard extends StatelessWidget {
           children: [
             CircleAvatar(
               radius: 40,
-              backgroundImage: NetworkImage(member.imageUrl),
+              backgroundImage: AssetImage(member.imageAsset),
               backgroundColor: Colors.grey.shade300,
             ),
             const SizedBox(width: 16.0),

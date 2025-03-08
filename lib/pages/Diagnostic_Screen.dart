@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class DiagnosticScreen extends StatelessWidget {
-  const DiagnosticScreen({Key? key}) : super(key: key);
+  const DiagnosticScreen({super.key});
 
   final List<Map<String, String>> clinicData = const [
     {

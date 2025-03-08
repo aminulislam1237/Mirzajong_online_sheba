@@ -11,9 +11,9 @@ class CarouselSliderWidget extends StatelessWidget {
         _buildCarouselItem("assets/carrousel banner/Photo1.jpg",
             "মজিদবাড়িয়া শাহী মসজিদ", ""),
         _buildCarouselItem(
-            "assets/carrousel banner/Photo2.jpg", "মির্জাগন্ঞ্জ মাজার", ""),
+            "assets/carrousel banner/Photo2.jpg", "মির্জাগঞ্জ মাজার", ""),
         _buildCarouselItem(
-            "assets/carrousel banner/Photo3.jpg", "মির্জাগন্ঞ্জ মাজার", ""),
+            "assets/carrousel banner/Photo3.jpg", "মির্জাগঞ্জ মাজার", ""),
         _buildCarouselItem("assets/carrousel banner/Photo4.jpg",
             "রানীপুর মিয়া বাড়ি মসজিদ", ""),
         _buildCarouselItem("assets/carrousel banner/photo.jpg",

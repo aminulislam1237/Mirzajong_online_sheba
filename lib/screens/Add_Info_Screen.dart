@@ -68,7 +68,7 @@ class _DataEntryScreenState extends State<DataEntryScreen> {
                 ),
                 SocialMediaButton(
                   imagePath: 'assets/icon/call.png',
-                  onPressed: () => _launchSocialMedia('call'),
+                  onPressed: () => _makePhoneCall('call'),
                 ),
               ],
             ),
@@ -89,8 +89,6 @@ class _DataEntryScreenState extends State<DataEntryScreen> {
     } else if (platform == 'gmail') {
       // Replace with your gmail url
       url = "mailto:aminul.islam20025@gmail.com";
-    } else if (platform == 'call') {
-      url = "tel:+8801838565702";
     }
     final Uri uri = Uri.parse(url);
     if (await canLaunchUrl(uri)) {
@@ -98,6 +96,13 @@ class _DataEntryScreenState extends State<DataEntryScreen> {
     } else {
       throw 'Could not launch $platform';
     }
+  }
+  void _makePhoneCall(String phoneNumber) async {
+    final Uri launchUri = Uri(
+      scheme: 'tel',
+      path:'+8801838565702',
+    );
+    await launchUrl(launchUri);
   }
 }
 

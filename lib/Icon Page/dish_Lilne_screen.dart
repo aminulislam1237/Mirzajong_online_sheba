@@ -48,7 +48,7 @@ class DishScreen extends StatelessWidget {
                       ListTile(
                         leading: const Icon(Icons.location_on, color: Colors.green),
                         title: Text(
-                          "মির্জাগন্ঞ্জ, পটুয়াখালী, বাংলাদেশ",
+                          "মির্জাগঞ্জ, পটুয়াখালী, বাংলাদেশ",
                           style: GoogleFonts.notoSansBengali(),
                         ),
                       ),

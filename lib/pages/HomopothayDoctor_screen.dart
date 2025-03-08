@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
 
 class HomoDoctorInfoScreen extends StatelessWidget {
-  HomoDoctorInfoScreen({Key? key}) : super(key: key);
+  HomoDoctorInfoScreen({super.key});
 
   final List<Map<String, String>> doctors = [
     {
       'name': 'নেছারিয়া হোমিও হল',
       'specialty': 'হোমিও চিকিৎসক',
       'address': 'তিন রাস্তার মোড়, সুবিদখালী',
-      'image': 'assets/icon/man.png'
     },
     {
       'name': 'মাহাদী হোমিও চিকিৎসালয়',
       'specialty': 'হোমিও চিকিৎসক',
       'address': 'তিন রাস্তার মোড়, সুবিদখালী',
-      'image': 'assets/icon/man.png'
     },
   ];
 
@@ -34,7 +32,6 @@ class HomoDoctorInfoScreen extends StatelessWidget {
             name: doctor['name']!,
             specialty: doctor['specialty']!,
             address: doctor['address']!,
-            image: doctor['image']!,
           );
         },
       ),
@@ -46,15 +43,13 @@ class DoctorCard extends StatelessWidget {
   final String name;
   final String specialty;
   final String address;
-  final String image;
 
   const DoctorCard({
-    Key? key,
+    super.key,
     required this.name,
     required this.specialty,
     required this.address,
-    required this.image,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -69,10 +64,8 @@ class DoctorCard extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              CircleAvatar(
-                radius: 50,
-                backgroundImage: AssetImage(image),
-              ),
+              const Icon(Icons.local_hospital_outlined),
+
               const SizedBox(height: 16),
               Text(
                 name,
@@ -86,7 +79,7 @@ class DoctorCard extends StatelessWidget {
                   textAlign: TextAlign.center // Added text alignment
                   ),
               const SizedBox(height: 8),
-              Text(address,
+              Text('ঠিকানা:  $address',
                   style: const TextStyle(color: Colors.grey),
                   textAlign: TextAlign.center // Added text alignment
                   ),

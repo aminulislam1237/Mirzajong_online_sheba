@@ -4,7 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:musf_app1/screens/Home_screen_state.dart';
 
 class SplashScreen extends StatefulWidget {
-  const SplashScreen({Key? key}) : super(key: key);
+  const SplashScreen({super.key});
 
   @override
   _SplashScreenState createState() => _SplashScreenState();
@@ -22,12 +22,12 @@ class _SplashScreenState extends State<SplashScreen>
 
     _logoController = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 10),
+      duration: const Duration(seconds: 1),
     );
 
     _textController = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 10),
+      duration: const Duration(seconds: 2),
     );
 
     _fadeInAnimation = CurvedAnimation(
@@ -38,7 +38,7 @@ class _SplashScreenState extends State<SplashScreen>
     _logoController.forward();
     _textController.forward();
 
-    Timer(const Duration(seconds: 10), () {
+    Timer(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const HomeScreenState()),
@@ -82,7 +82,7 @@ class _SplashScreenState extends State<SplashScreen>
                   "assets/icon/logo.svg",
                   width: 200,
                   height: 200,
-                  color: Colors.greenAccent, // Apply greenAccent color to SVG
+                  color: Colors.white70, // Apply greenAccent color to SVG
                   placeholderBuilder: (context) =>
                       const CircularProgressIndicator(),
                 ),
@@ -93,8 +93,8 @@ class _SplashScreenState extends State<SplashScreen>
                 child: const Text(
                   "মির্জাগঞ্জ তথ্য সেবা",
                   style: TextStyle(
-                    color: Colors.greenAccent,
-                    fontSize: 30,
+                    color: Colors.white70,
+                    fontSize: 35,
                     fontWeight: FontWeight.bold,
                     letterSpacing: 1.5,
                     shadows: [
@@ -115,7 +115,7 @@ class _SplashScreenState extends State<SplashScreen>
                   height: 80,
                   child: CircularProgressIndicator(
                     valueColor:
-                        const AlwaysStoppedAnimation(Colors.greenAccent),
+                        const AlwaysStoppedAnimation(Colors.white70),
                     strokeWidth: 6,
                     backgroundColor: Colors.white.withOpacity(0.2),
                   ),

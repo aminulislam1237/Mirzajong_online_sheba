@@ -295,7 +295,7 @@ class GridCardWidget extends StatelessWidget {
               _buildCard(
                 context,
                 "assets/icon/bookshop.png",
-                'লাইব্রেরি বাটন',
+                'লাইব্রেরি',
                 () {
                   Navigator.push(
                     context,

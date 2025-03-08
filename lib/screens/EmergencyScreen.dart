@@ -3,7 +3,6 @@ import 'package:gif_view/gif_view.dart';
 import 'package:musf_app1/Icon%20Page/police_screen.dart';
 import 'package:musf_app1/Icon%20Page/wifiLine_screen.dart';
 import 'package:musf_app1/pages/Health_information_screen.dart';
-import 'package:musf_app1/pages/contact.dart';
 
 import '../pages/Fire_service.dart';
 import '../pages/ambulence_service.dart';
@@ -28,7 +27,7 @@ class Emergencyscreen extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               const Text(
-                'জরুরী প্রয়োজনে যোগাযোগ করুন',
+                'জাতীয় জরুরি সেবা নাম্বার ৯৯৯',
                 style: TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.bold,

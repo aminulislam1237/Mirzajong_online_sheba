@@ -5,9 +5,23 @@ class AnimalDoctorInfoScreen extends StatelessWidget {
 
   final List<Map<String, String>> doctors = [
     {
-      'name': 'Not avaliable',
-      'specialty': 'Not avaliable',
-      'address': 'মির্জাগন্ঞ্জ, পটুয়াখালী',
+      'name': 'জান্নাতি ডেন্টাল কেয়ার',
+      'address': 'সুবিদখালী বাজার ',
+      'image': 'assets/icon/man.png'
+    },
+    {
+      'name': 'ডক্টরস ডেন্টাল সার্জারী',
+      'address': 'সুবিদখালী বাজার ',
+      'image': 'assets/icon/man.png'
+    },
+    {
+      'name': 'ফেমাস ডেন্টাল কেয়ার',
+      'address': 'সুবিদখালী বাজার ',
+      'image': 'assets/icon/man.png'
+    },
+    {
+      'name': 'পলকী ডেন্টাল কেয়ার',
+      'address': 'সুবিদখালী বাজার ',
       'image': 'assets/icon/man.png'
     },
   ];
@@ -16,7 +30,7 @@ class AnimalDoctorInfoScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('পশুর ডাক্তার'),
+        title: const Text('ডেন্টাল ডাক্তার'),
         backgroundColor: Colors.greenAccent,
       ),
       body: ListView.builder(
@@ -26,9 +40,7 @@ class AnimalDoctorInfoScreen extends StatelessWidget {
           final doctor = doctors[index];
           return DoctorCard(
             name: doctor['name']!,
-            specialty: doctor['specialty']!,
             address: doctor['address']!,
-            image: doctor['image']!,
           );
         },
       ),
@@ -38,16 +50,12 @@ class AnimalDoctorInfoScreen extends StatelessWidget {
 
 class DoctorCard extends StatelessWidget {
   final String name;
-  final String specialty;
   final String address;
-  final String image;
 
   const DoctorCard({
     super.key,
     required this.name,
-    required this.specialty,
     required this.address,
-    required this.image,
   });
 
   @override
@@ -63,10 +71,7 @@ class DoctorCard extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              CircleAvatar(
-                radius: 50,
-                backgroundImage: AssetImage(image),
-              ),
+              const Icon(Icons.local_hospital_sharp),
               const SizedBox(height: 16),
               Text(
                 name,
@@ -74,10 +79,7 @@ class DoctorCard extends StatelessWidget {
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8),
-              Text(specialty,
-                  style: const TextStyle(fontSize: 18, color: Colors.grey)),
-              const SizedBox(height: 8),
-              Text(address, style: const TextStyle(color: Colors.grey)),
+              Text('ঠিকানা:  $address', style: const TextStyle(color: Colors.grey)),
               const SizedBox(height: 16),
             ],
           ),

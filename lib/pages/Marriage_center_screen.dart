@@ -23,7 +23,7 @@ class MarriageCenterScreen extends StatelessWidget {
             SizedBox(height: 20),
             MarriageCenterCard(
               name: "মোঃ শাহ আলম",
-              address: "২ নং মির্জাগন্ঞ্জ ইউনিয়ন",
+              address: "২ নং মির্জাগঞ্জ ইউনিয়ন",
               phoneNumber: "01716925854",
             ),
             SizedBox(height: 20),

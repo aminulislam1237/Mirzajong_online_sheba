@@ -40,11 +40,11 @@ class ContactCard extends StatelessWidget {
   final String address;
 
   const ContactCard({
-    Key? key,
+    super.key,
     required this.name,
     required this.phoneNumber,
     required this.address,
-  }) : super(key: key);
+  });
 
   void _makePhoneCall(String phoneNumber) async {
     final Uri launchUri = Uri(

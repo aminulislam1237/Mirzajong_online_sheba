@@ -20,7 +20,7 @@ class HistoricalPleaceScreen extends StatelessWidget {
               children: [
                 PhotoWithCaption(
                   imagePath: 'assets/carrousel banner/Photo3.jpg',
-                  caption: "মির্জাগন্ঞ্জ হযরত ইয়ার উদ্দিন খলিফা দরবার শরীফ",
+                  caption: "মির্জাগঞ্জ হযরত ইয়ার উদ্দিন খলিফা দরবার শরীফ",
                 ),
                 SizedBox(height: 20), // Spacing between widgets
 

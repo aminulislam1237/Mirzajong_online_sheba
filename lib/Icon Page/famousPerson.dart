@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class FamousPersonScreen extends StatelessWidget {
-  FamousPersonScreen({Key? key}) : super(key: key);
+  FamousPersonScreen({super.key});
 
   final List<Map<String, String>> famousPeople = [
     {
@@ -30,8 +30,8 @@ class FamousPersonScreen extends StatelessWidget {
     },
     {
       'name': 'শাহজাহান মিয়া',
-      'profession': 'প্রশাসক',
-      'notable': 'ঢাকা দক্ষিণ সিটি করপোরেশন ও অতিরিক্ত সচিব, স্থানীয় সরকার বিভাগ',
+      'profession': 'সচিব',
+      'notable': ' প্রশাসক ঢাকা দক্ষিণ সিটি করপোরেশনও অতিরিক্ত সচিব, স্থানীয় সরকার বিভাগ',
       'image': 'assets/icon/man.png'
     },
     {
@@ -73,12 +73,12 @@ class FamousPersonCard extends StatelessWidget {
   final String image;
 
   const FamousPersonCard({
-    Key? key,
+    super.key,
     required this.name,
     required this.profession,
     required this.notable,
     required this.image,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

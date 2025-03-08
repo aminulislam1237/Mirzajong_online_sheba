@@ -1,37 +1,37 @@
 import 'package:flutter/material.dart';
 
 class DoctorInfoScreen extends StatelessWidget {
-  DoctorInfoScreen({Key? key}) : super(key: key);
+  DoctorInfoScreen({super.key});
 
   final List<Map<String, String>> doctors = [
     {
       'name': 'মো: সোহেল ইসলাম',
       'specialty': 'এমবিবিএস ডাক্তার',
-      'address': 'মির্জাগন্ঞ্জ, পটুয়াখালী',
+      'address': 'মির্জাগঞ্জ, পটুয়াখালী',
       'image': 'assets/icon/man.png'
     },
     {
       'name': 'উমর ফারুক জাবির',
       'specialty': 'এমবিবিএস ডাক্তার',
-      'address': 'মির্জাগন্ঞ্জ, পটুয়াখালী',
+      'address': 'মির্জাগঞ্জ, পটুয়াখালী',
       'image': 'assets/icon/man.png'
     },
     {
       'name': 'অংকন আক্তার',
       'specialty': 'এমবিবিএস ডাক্তার',
-      'address': 'মির্জাগন্ঞ্জ, পটুয়াখালী',
+      'address': 'মির্জাগঞ্জ, পটুয়াখালী',
       'image': 'assets/icon/woman.png'
     },
     {
       'name': 'মো: হাসান জামান',
       'specialty': 'এমবিবিএস ডাক্তার',
-      'address': 'মির্জাগন্ঞ্জ, পটুয়াখালী',
+      'address': 'মির্জাগঞ্জ, পটুয়াখালী',
       'image': 'assets/icon/man.png'
     },
     {
       'name': 'মাসুদুর রহমান',
       'specialty': 'এমবিবিএস ডাক্তার',
-      'address': 'মির্জাগন্ঞ্জ, পটুয়াখালী',
+      'address': 'মির্জাগঞ্জজ, পটুয়াখালী',
       'image': 'assets/icon/man.png'
     },
   ];
@@ -67,12 +67,12 @@ class DoctorCard extends StatelessWidget {
   final String image;
 
   const DoctorCard({
-    Key? key,
+    super.key,
     required this.name,
     required this.specialty,
     required this.address,
     required this.image,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

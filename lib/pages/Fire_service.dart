@@ -98,11 +98,10 @@ class FireServiceCard extends StatelessWidget {
       if (await canLaunchUrl(launchUri)) {
         await launchUrl(launchUri);
       } else {
-        print('Could not launch $launchUri'); // Use print for debugging
+
         // Optionally, show an error message to the user.
       }
     } catch (e) {
-      print('Error launching URL: $e'); // Catch potential exceptions
       // Optionally, show an error message to the user.
     }
   }

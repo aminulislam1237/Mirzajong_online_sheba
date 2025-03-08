@@ -3,7 +3,7 @@ import 'Clinic_Screen.dart';
 import 'Diagnostic_Screen.dart';
 import 'HomopothayDoctor_screen.dart';
 import 'ambulence_service.dart';
-import 'animals_doctor.dart';
+import 'dental_doctor.dart';
 import 'doctor_screen.dart';
 
 class HealthInformationScreen extends StatelessWidget {
@@ -34,7 +34,7 @@ class HealthInformationScreen extends StatelessWidget {
               ]),
               const SizedBox(height: 16),
               _buildRow(context, [
-                _buildCardData("assets/icon/animal doctor.png", 'পশুর ডাক্তার',
+                _buildCardData("assets/icon/animal doctor.png", 'ডেন্টাল ডাক্তার',
                     () => AnimalDoctorInfoScreen()),
                 _buildCardData("assets/icon/homopothic.png",
                     'হোমোপ্যাথি ডাক্তার', () => HomoDoctorInfoScreen()),

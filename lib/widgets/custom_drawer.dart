@@ -123,7 +123,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
               ),
               ListTile(
                 leading: const Icon(Icons.logout, color: Colors.redAccent),
-                title: const Text("লগ আউট"),
+                title: const Text("বাহির"),
                 onTap: () => _confirmLogout(context),
               ),
             ],

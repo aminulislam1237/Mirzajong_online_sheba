@@ -17,7 +17,7 @@ class AmbulenceServiceScreen extends StatelessWidget {
             SizedBox(height: 20),
             ContactCard(
               name:
-                  "মির্জাগন্ঞ্জ উপজেলা স্বাস্থ্য কমপ্লেক্স  এম্বুলেন্স -মামুন ভাই",
+                  "মির্জাগঞ্জ উপজেলা স্বাস্থ্য কমপ্লেক্স  এম্বুলেন্স -মামুন ভাই",
               phoneNumber: "+8801716909131",
               address: "সুবিদখালি,মির্জাগঞ্জ ",
             ),
@@ -42,7 +42,7 @@ class AmbulenceServiceScreen extends StatelessWidget {
             SizedBox(height: 20),
             ContactCard(
               name:
-                  "মির্জাগন্ঞ্জ উপজেলা স্বাস্থ্য কমপ্লেক্স এম্বুলেন্স-মিজান ভাই",
+                  "মির্জাগঞ্জ উপজেলা স্বাস্থ্য কমপ্লেক্স এম্বুলেন্স-মিজান ভাই",
               phoneNumber: "01712104989",
               address: "সুবিদখালি,মির্জাগঞ্জ",
             ),

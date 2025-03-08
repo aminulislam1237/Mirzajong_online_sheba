@@ -7,7 +7,9 @@ class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
 
   @override
-  _ProfileScreenState createState() => _ProfileScreenState();
+  _ProfileScreenState createState() {
+    return _ProfileScreenState();
+  }
 }
 
 class _ProfileScreenState extends State<ProfileScreen>
@@ -205,7 +207,7 @@ class _ProfileScreenState extends State<ProfileScreen>
                   ),
                   SocialMediaButton(
                     imagePath: 'assets/icon/call.png',
-                    onPressed: () => _launchSocialMediaRumi('call'),
+                    onPressed: () => _makePhoneCall('call'),
                   ),
                 ],
               ),
@@ -228,8 +230,6 @@ class _ProfileScreenState extends State<ProfileScreen>
     } else if (platform == 'gmail') {
       // Replace with your gmail url
       url = "mailto:aminul.islam20025@gmail.com";
-    } else if (platform == 'call') {
-      url = "tel:+8801838565702";
     }
     final Uri uri = Uri.parse(url);
     if (await canLaunchUrl(uri)) {
@@ -237,6 +237,13 @@ class _ProfileScreenState extends State<ProfileScreen>
     } else {
       throw 'Could not launch $platform';
     }
+  }
+  void _makePhoneCall(String phoneNumber) async {
+    final Uri launchUri = Uri(
+      scheme: 'tel',
+      path:'+8801838565702',
+    );
+    await launchUrl(launchUri);
   }
 
   void _launchSocialMediaRumi(String platform) async {

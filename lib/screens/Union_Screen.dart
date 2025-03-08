@@ -63,7 +63,7 @@ class UnionScreen extends StatelessWidget {
       mosjit: ' মসজিদের সংখ্যা=৬০ ',
     ),
     Union(
-      name: '৬।  মসজিদবাড়ীয়া',
+      name: '৬।  মজিদবাড়ীয়া',
       description: 'মির্জাগঞ্জ সম্পর্কে তথ্য...',
       area: 'আয়তন- ৩১ বর্গ কিলোমিটার',
       population: 'লোক সংখ্যা-মোট-১২১০০',

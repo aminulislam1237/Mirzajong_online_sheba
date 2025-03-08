@@ -56,7 +56,7 @@ class PostOfficeScreen extends StatelessWidget {
                       ),
                       ListTile(
                         leading: Icon(Icons.location_on, color: Colors.green),
-                        title: Text("মির্জাগন্ঞ্জ, পটুয়াখালী, বাংলাদেশ"),
+                        title: Text("মির্জাগঞ্জ, পটুয়াখালী, বাংলাদেশ"),
                       ),
                     ],
                   ),

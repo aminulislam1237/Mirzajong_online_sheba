@@ -62,10 +62,10 @@ class _HomeScreenState extends State<HomeScreenState> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text("নোটিস"),
+          title: const Text("নোটিস:"),
           content: SizedBox(
             width: double.maxFinite,
-            height: 100, // Adjust height as needed
+            height: 200, // Adjust height as needed
             child: StreamBuilder<QuerySnapshot>(
               stream: FirebaseFirestore.instance
                   .collection('Notifications')
@@ -94,7 +94,7 @@ class _HomeScreenState extends State<HomeScreenState> {
                       key: Key(doc.id),
                       direction: DismissDirection.endToStart,
                       background: Container(
-                        color: Colors.red,
+                        color: Colors.black54,
                         alignment: Alignment.centerRight,
                         padding: const EdgeInsets.only(right: 20.0),
                         child: const Icon(Icons.delete, color: Colors.white),
