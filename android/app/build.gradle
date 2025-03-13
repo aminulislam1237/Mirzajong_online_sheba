@@ -1,13 +1,20 @@
+import java.util.Properties // Add this line at the top
+
 plugins {
     id "com.android.application"
     id "kotlin-android"
-    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id "dev.flutter.flutter-gradle-plugin"
     id("com.google.gms.google-services")
 }
 
+def keystoreProperties = new Properties() // Change this line
+def keystorePropertiesFile = rootProject.file("key.Properties")
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile)) // Change this line
+}
+
 android {
-    namespace = "com.example.musf_app1"
+    namespace = "com.mirzagonj.app"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -21,21 +28,26 @@ android {
     }
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId = "com.example.musf_app1"
-        // You can update the following values to match your application needs.
-        // For more information, see: https://flutter.dev/to/review-gradle-config.
+        applicationId = "com.mirzagonj.app"
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
     }
 
+    signingConfigs {
+        create("release") {
+            keyAlias = "upload"
+            keyPassword = "aminulislam" // Replace with your actual key password
+            storeFile = file("C:/Users/Rasel/StudioProjects/musf_app1/android/app/upload-keystore.jks") // Path to your keystore file
+            storePassword = "aminulislam" // Replace with your actual keystore password
+        }
+    }
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig = signingConfigs.debug
+            signingConfig = signingConfigs.release
+            minifyEnabled false // You can enable ProGuard if needed
+            shrinkResources false // You can enable resource shrinking if needed
         }
     }
 }

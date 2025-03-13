@@ -165,7 +165,7 @@ class _HomeScreenState extends State<HomeScreenState> {
               ),
               TextButton(
                 onPressed: () => Navigator.of(context).pop(true),
-                child: const Text('হ্যাঁ'),
+                child: const Text('হ্যাঁ',style: TextStyle(color: Colors.red)),
               ),
             ],
           ),

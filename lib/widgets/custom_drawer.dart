@@ -171,9 +171,9 @@ class _CustomDrawerState extends State<CustomDrawer> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text("লগ আউট নিশ্চিত করুন"),
+          title: const Text("অ্যাপ থেকে বের হবেন?"),
           content: const Text(
-            "আপনি কি নিশ্চিত যে আপনি লগ আউট করতে চান?",
+            "আপনি কি নিশ্চিত যে অ্যাপ থেকে বের হতে চান?",
             style: TextStyle(fontSize: 16),
           ),
           shape:
@@ -181,7 +181,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
           actions: [
             TextButton(
               onPressed: () => Navigator.of(context).pop(),
-              child: const Text("বাতিল"),
+              child: const Text("না"),
             ),
             TextButton(
               onPressed: () {
@@ -189,7 +189,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 Navigator.of(context).pop(); // Close drawer
                 exit(0);
               },
-              child: const Text("লগ আউট", style: TextStyle(color: Colors.red)),
+              child: const Text('হ্যাঁ', style: TextStyle(color: Colors.red)),
             ),
           ],
         );
